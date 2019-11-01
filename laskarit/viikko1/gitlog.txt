@@ -1,0 +1,115 @@
+commit e07b5241ee055bcbf1bc4e5e294f44271a213689
+Author: Heli Hyvättinen <heli.hyvattinen@netti.fi>
+Date:   Fri Nov 1 14:59:54 2019 +0200
+
+    Poistettu ja uudelleennimetty tiedosto
+
+ tiedostoja/file1  | 0
+ tiedostoja/file2  | 0
+ tiedostoja/file22 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit feda06421539651ffd69b5ee47bcd5cdd633584a
+Author: Heli Hyvättinen <heli.hyvattinen@netti.fi>
+Date:   Fri Nov 1 14:56:03 2019 +0200
+
+    Lisätty tiedostoja
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 4e1acac9adabb7b5a0289ac9fcd95ee41c9aceda
+Author: Heli Hyvättinen <heli.hyvattinen@netti.fi>
+Date:   Fri Nov 1 14:50:54 2019 +0200
+
+    Lisäyksiä ja poistoja
+
+ eka.txt    | 69 +++-----------------------------------------------------------
+ kolmas.txt |  5 ++++-
+ 2 files changed, 7 insertions(+), 67 deletions(-)
+
+commit c6ead0c35053cbd338c328cbca9f33a2743cf541
+Author: Heli Hyvättinen <heli.hyvattinen@netti.fi>
+Date:   Fri Nov 1 14:46:09 2019 +0200
+
+    Uudelleenimetty tiedosto.txt -> eka.txt
+
+ eka.txt      | 207 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ tiedosto.txt | 207 -----------------------------------------------------------
+ 2 files changed, 207 insertions(+), 207 deletions(-)
+
+commit cff8c26369530a36f15edd7c6ec0a24860ffa3d1
+Author: Heli Hyvättinen <heli.hyvattinen@netti.fi>
+Date:   Fri Nov 1 14:44:58 2019 +0200
+
+    Poistettu toinen.txt
+
+ toinen.txt | 2 --
+ 1 file changed, 2 deletions(-)
+
+commit 7703eedeae068ecacdf19f52f96db53a0a1a2e45
+Author: Heli Hyvättinen <heli.hyvattinen@netti.fi>
+Date:   Fri Nov 1 14:41:52 2019 +0200
+
+    Poistettu ja lisätty tekstiä
+
+ tiedosto.txt | 83 +++---------------------------------------------------------
+ 1 file changed, 3 insertions(+), 80 deletions(-)
+
+commit a6474747bedc828c90c2e341abfb888d37c91d45
+Author: Heli Hyvättinen <heli.hyvattinen@netti.fi>
+Date:   Fri Nov 1 14:37:12 2019 +0200
+
+    Paljon tekstiä
+
+ tiedosto.txt | 282 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 282 insertions(+)
+
+commit 7146cc756c4ce5469d673314f72b7bbb5dfe9059
+Author: Heli Hyvättinen <heli.hyvattinen@netti.fi>
+Date:   Fri Nov 1 14:31:57 2019 +0200
+
+    Lisätty stuff
+
+ stuff/stufftiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit a47de37d18732063169a8c22d045cc78bff765e4
+Author: Heli Hyvättinen <heli.hyvattinen@netti.fi>
+Date:   Fri Nov 1 14:27:01 2019 +0200
+
+    Muutettu toista ja kolmatta tiedostoa
+
+ kolmas.txt | 2 ++
+ toinen.txt | 2 ++
+ 2 files changed, 4 insertions(+)
+
+commit 84075bd4f36fccf7aa8b0472eb6e7c3f91e7fcaf
+Author: Heli Hyvättinen <heli.hyvattinen@netti.fi>
+Date:   Fri Nov 1 14:25:40 2019 +0200
+
+    Lisätty kolmas tiedosto
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 7b2345c9ec271157e908857a41d59f808a111965
+Author: Heli Hyvättinen <heli.hyvattinen@netti.fi>
+Date:   Fri Nov 1 14:24:06 2019 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 2 ++
+ toinen.txt   | 0
+ 2 files changed, 2 insertions(+)
+
+commit 5c8d274a63e53a206150fc0cc953ba0aab1fe770
+Author: Heli Hyvättinen <heli.hyvattinen@netti.fi>
+Date:   Fri Nov 1 14:22:41 2019 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
