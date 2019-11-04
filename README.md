@@ -9,5 +9,6 @@
 [komentorivi.txt](/laskarit/viikko1/komentorivi.txt)
 
 
-Muutos tehty.
+Muutos tehty. Toinen muutos tehty.
+
 
