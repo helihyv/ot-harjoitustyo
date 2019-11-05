@@ -11,4 +11,9 @@
 
 Muutos tehty. Toinen muutos tehty.
 
+## Harjoitustyö
+
+[Vaatimusmäärittely](/dokumentaatio/vaatimusmaarittely.md)
+
+[Työaikakirjanpito](/dokumentaatio/tuntikirjanpito.md)
 
