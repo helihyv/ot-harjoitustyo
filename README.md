@@ -26,7 +26,7 @@ Muutos tehty. Toinen muutos tehty.
 
 [KassapaateTest.java](/laskarit/viikko2/Unicafe/src/test/java/com/mycompany/unicafe/KassapaateTest.java)
 
-[Testikattavuusraportti](/laskarit/vikko2/screenshot_testikattavuusraportti.png)
+[Testikattavuusraportti](/laskarit/viikko2/Screenshot_testikattavuusraportti.png)
 
 ## Harjoitustyö
 
