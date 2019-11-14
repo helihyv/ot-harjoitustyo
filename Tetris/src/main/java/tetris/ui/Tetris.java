@@ -1,5 +1,5 @@
 
-package tetris;
+package tetris.ui;
 
 /**
  *
@@ -12,12 +12,24 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.Group;
 
+import tetris.domain.Game;
+import tetris.domain.TetrisGame;
+import tetris.domain.Tile;
+
 public class Tetris extends Application{
     
     @Override
     public void start(Stage window) {
        
-        Canvas gameArea = new Canvas(600,2000);
+        Game game = new TetrisGame();
+        Canvas gameArea = new Canvas(game.getGameAreaWidth(),game.getGameAreaHeight());
+        
+        
+        for (Tile tile : game.getTiles()) {
+            VisualTile visualTile = new VisualTile(tile, gameArea.getGraphicsContext2D());
+            visualTile.draw();
+        }
+        
         Group root = new Group();
         root.getChildren().add(gameArea);
         
