@@ -20,17 +20,13 @@ public abstract class Block {
             
     public void moveLeft() {
         for (int i = 0; i < 4; i++) {
-            if (!tiles[i].moveLeft()) {
-                break;
-            }
+            tiles[i].moveLeft();            
         }
     }
 
     public void moveRight() {
         for (int i=0; i<4; i++) {
-            if (!tiles[i].moveRight()) {
-                break;
-            };
+            tiles[i].moveRight();
         }
     }
 
@@ -38,6 +34,8 @@ public abstract class Block {
         return tiles;
     }
     
+    public abstract double leftEdge();
     
+    public abstract double rightEdge();
     
 }

@@ -18,6 +18,17 @@ public class SquareBlock extends Block {
     public void rotate() {
         
     }
+
+    @Override
+    public double leftEdge() {
+        return tiles[0].getXCoordinate();
+    }
+
+    @Override
+    public double rightEdge() {
+        return tiles[2].getXCoordinate()+tileWidth-1;
+    }
     
+
     
 }

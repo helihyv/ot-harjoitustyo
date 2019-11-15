@@ -22,7 +22,7 @@ public class TetrisGame implements Game {
         this.gameAreaHeight = 900;
         this.tileWidth = 20;
         this.currentBlock = 
-                new SquareBlock(gameAreaWidth/2-tileWidth/2, tileWidth);
+                new SquareBlock(gameAreaWidth/2-tileWidth, tileWidth);
     }
 
     @Override
@@ -45,10 +45,17 @@ public class TetrisGame implements Game {
         
     }
     
-    
-    
-    
-    
-    
-    
+    @Override
+    public void moveBlockLeft() {
+        if (currentBlock.leftEdge() >= tileWidth) {
+            currentBlock.moveLeft();
+        }
+    }
+        
+    @Override
+    public void moveBlockRight() {
+        if (currentBlock.rightEdge() <= gameAreaWidth - tileWidth) {
+            currentBlock.moveRight();
+        }
+    }   
 }

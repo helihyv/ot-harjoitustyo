@@ -18,12 +18,12 @@ public class TetrisTile implements Tile {
         this.width = width;
     }
     
-    public boolean moveLeft() {
-      return false;  
+    public void moveLeft() {
+      this.x -= this.width;  
     }
 
-    public boolean moveRight() {
-        return false;
+    public void moveRight() {
+        this.x += this.width;
     }
 
     @Override

@@ -7,7 +7,7 @@ package tetris.domain;
 
 /**
  *
- * @author hzkoskin
+ * @author Heli Hyvättinen
  */
 
 import java.util.List;
@@ -21,5 +21,9 @@ public interface Game {
     public int getGameAreaHeight();
     
     public List<TetrisTile> getTiles();
+    
+    public void moveBlockLeft();
+    
+    public void moveBlockRight();
     
 }
