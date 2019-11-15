@@ -20,7 +20,7 @@ public interface Game {
     
     public int getGameAreaHeight();
     
-    public List<TetrisTile> getTiles();
+    public List<Tile> getTiles();
     
     public void moveBlockLeft();
     

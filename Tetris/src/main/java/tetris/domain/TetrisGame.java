@@ -36,7 +36,7 @@ public class TetrisGame implements Game {
     }
 
     @Override
-    public List<TetrisTile> getTiles() {
+    public List<Tile> getTiles() {
         return Arrays.asList(currentBlock.getTiles()); 
     }
     

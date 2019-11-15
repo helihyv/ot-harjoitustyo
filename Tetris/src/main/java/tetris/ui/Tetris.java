@@ -6,6 +6,7 @@ package tetris.ui;
  * @author Heli Hyvättinen
  */
 
+import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -17,21 +18,38 @@ import tetris.domain.TetrisGame;
 import tetris.domain.Tile;
 
 public class Tetris extends Application{
+
+    private Game game;
+    private AnimationTimer timer;
     
     @Override
     public void start(Stage window) {
        
-        Game game = new TetrisGame();
-        Canvas gameArea = new Canvas(game.getGameAreaWidth(),game.getGameAreaHeight());
+        game = new TetrisGame();
+        GameArea gameArea = new GameArea(game.getGameAreaWidth(),game.getGameAreaHeight());
         
-        
-        for (Tile tile : game.getTiles()) {
-            VisualTile visualTile = new VisualTile(tile, gameArea.getGraphicsContext2D());
-            visualTile.draw();
-        }
+        gameArea.drawTiles(game.getTiles());
         
         Group root = new Group();
-        root.getChildren().add(gameArea);
+        root.getChildren().add(gameArea.getCanvas());
+        
+        timer = new AnimationTimer() {
+            long previous = 0;
+            
+            @Override
+            public void handle(long present) {
+                
+                if (present-previous < 10000) {
+                    return;
+                }
+                
+                gameArea.drawTiles(game.getTiles());
+                
+                this.previous = present;
+            }
+        };
+        
+        timer.start();
         
         Scene view = new Scene(root);
         window.setScene(view);
