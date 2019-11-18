@@ -12,6 +12,9 @@ import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.Group;
+import javafx.scene.input.KeyEvent;
+import javafx.event.EventHandler;
+import javafx.scene.input.KeyCode;
 
 import tetris.domain.Game;
 import tetris.domain.TetrisGame;
@@ -39,7 +42,7 @@ public class Tetris extends Application{
             @Override
             public void handle(long present) {
                 
-                if (present-previous < 10000) {
+                if (present-previous < 10000000) {
                     return;
                 }
                 
@@ -51,7 +54,24 @@ public class Tetris extends Application{
         
         timer.start();
         
+        final EventHandler<KeyEvent> keyPressHandler =
+                new EventHandler<KeyEvent>()  {
+                    public void handle (final KeyEvent keyEvent ) {
+                            
+                        KeyCode keyCode = keyEvent.getCode();                      //  game.moveBlockLeft();
+                   
+                    if (keyCode.equals(KeyCode.LEFT)) {
+                        game.moveBlockLeft();
+                     }
+                    
+                    if (keyCode.equals(KeyCode.RIGHT)) {
+                        game.moveBlockRight();
+                    }
+                }
+        };
+        
         Scene view = new Scene(root);
+        view.addEventHandler(KeyEvent.KEY_PRESSED, keyPressHandler);
         window.setScene(view);
         window.setTitle("Tetris");
         window.show();
