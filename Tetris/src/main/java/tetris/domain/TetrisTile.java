@@ -25,6 +25,10 @@ public class TetrisTile implements Tile {
     public void moveRight() {
         this.x += this.width;
     }
+    
+    public void moveDown() {
+        this.y += 1;
+    }
 
     @Override
     public double getXCoordinate() {

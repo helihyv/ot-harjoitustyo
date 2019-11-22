@@ -16,6 +16,8 @@ public interface Game {
     
     public void startGame();
     
+    public void stopGame();
+    
     public int getGameAreaWidth();
     
     public int getGameAreaHeight();

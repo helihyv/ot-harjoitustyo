@@ -80,5 +80,13 @@ public class Tetris extends Application{
     public static void main(String[] args) {
         launch(Tetris.class);
     }
+
+    @Override
+    public void stop() throws Exception {
+        game.stopGame();
+        super.stop();
+    }
+    
+    
     
 }

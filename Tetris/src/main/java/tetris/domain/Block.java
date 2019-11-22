@@ -29,13 +29,21 @@ public abstract class Block {
             tiles[i].moveRight();
         }
     }
+    
+    public void moveDown() {
+        for (int i=0; i<4; i++) {
+            tiles[i].moveDown();
+        }
+    }
 
-    public TetrisTile[] getTiles() {
+    public Tile[] getTiles() {
         return tiles;
     }
     
     public abstract double leftEdge();
     
     public abstract double rightEdge();
+    
+    public abstract double bottomEdge(double columnLeftEdge);
     
 }

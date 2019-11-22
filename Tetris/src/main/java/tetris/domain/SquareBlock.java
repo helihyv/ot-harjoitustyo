@@ -15,6 +15,7 @@ public class SquareBlock extends Block {
         tiles[3] = new TetrisTile(xCoordinate + tileWidth,tileWidth,tileWidth);
     } 
     
+    @Override
     public void rotate() {
         
     }
@@ -29,6 +30,16 @@ public class SquareBlock extends Block {
         return tiles[2].getXCoordinate()+tileWidth-1;
     }
     
+    @Override
+    public double bottomEdge(double columnLeftEdge) {
+            if (columnLeftEdge == tiles[0].getXCoordinate() || 
+                    columnLeftEdge == tiles[2].getXCoordinate()) {
 
+        return tiles[3].getYCoordinate()+tileWidth;
+            }
+            else {
+                return  0;
+            }
+    }
     
 }
