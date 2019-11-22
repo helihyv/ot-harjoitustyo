@@ -51,9 +51,9 @@ public class TetrisGame implements Game {
     @Override
     public List<Tile> getTiles() {
         
-         ArrayList<Tile>  tiles = new ArrayList<>();
+        ArrayList<Tile>  tiles = new ArrayList<>();
         Tile[] blockTiles = currentBlock.getTiles();
-        for (int i = 0; i <4; i++) {
+        for (int i = 0; i < 4; i++) {
             tiles.add(blockTiles[i]);
         }
 
@@ -67,10 +67,10 @@ public class TetrisGame implements Game {
         
         this.timer = new Timer();
                
-        TimerTask task = new TimerTask () {
+        TimerTask task = new TimerTask() {
             public void run() {
-            moveBlockDown();
-         }
+                moveBlockDown();
+            }
         };
         timer.schedule(task, 10L, 10L);
     }
@@ -95,27 +95,21 @@ public class TetrisGame implements Game {
         
         for (double  i = currentBlock.leftEdge(); i <= currentBlock.rightEdge(); i += tileWidth) {
             double blockBottom = currentBlock.bottomEdge(i);
-            if (blockBottom >= gameAreaHeight || blockBottom >= tileStack.topEdge(i))
-               {
-           tileStack.addBlock(currentBlock);
-           if (isGameOver()) {
-               stopGame();
-           } else {
-                generateNewBlock();
-           }
-        } 
+            if (blockBottom >= gameAreaHeight || blockBottom >= tileStack.topEdge(i)) {
+                tileStack.addBlock(currentBlock);
+                if (isGameOver()) {
+                    stopGame();
+                } else {
+                    generateNewBlock();
+                }
+            } 
                    
         }
-        
- 
-
-               
+           
     }
     
     private void generateNewBlock() {
-            System.out.println("generating new block");
-                this.currentBlock = 
-                new SquareBlock(gameAreaWidth/2-tileWidth, tileWidth);
+        this.currentBlock = new SquareBlock(gameAreaWidth / 2 - tileWidth, tileWidth);
     }
 
     @Override

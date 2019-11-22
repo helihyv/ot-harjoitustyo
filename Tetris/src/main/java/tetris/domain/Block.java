@@ -10,13 +10,13 @@ public abstract class Block {
     protected TetrisTile[] tiles;
     protected double tileWidth;
 
-    public Block( double tileWidth) {
+    public Block(double tileWidth) {
         this.tiles = new TetrisTile[4];
         this.tileWidth = tileWidth;
     }
     
     
-    public abstract void rotate() ;
+    public abstract void rotate();
             
     public void moveLeft() {
         for (int i = 0; i < 4; i++) {
@@ -25,13 +25,13 @@ public abstract class Block {
     }
 
     public void moveRight() {
-        for (int i=0; i<4; i++) {
+        for (int i = 0; i < 4; i++) {
             tiles[i].moveRight();
         }
     }
     
     public void moveDown() {
-        for (int i=0; i<4; i++) {
+        for (int i = 0; i < 4; i++) {
             tiles[i].moveDown();
         }
     }

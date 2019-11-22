@@ -11,7 +11,7 @@ public class TileStack {
 
     public TileStack() {
     
-    tiles = new ArrayList<>();
+        tiles = new ArrayList<>();
     }
     
     
@@ -21,12 +21,12 @@ public class TileStack {
     }
     
     public void addBlock(Block block) {
-        for (int i=0; i < 4; i++) {
+        for (int i = 0; i < 4; i++) {
             tiles.add(block.getTiles()[i]);
         }
     }
     
-    public double topEdge (double columnLeftEdge) {
+    public double topEdge(double columnLeftEdge) {
         
         double topEdge = Double.MAX_VALUE;
         
