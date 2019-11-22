@@ -19,7 +19,7 @@ public class TetrisTile implements Tile {
     }
     
     public void moveLeft() {
-      this.x -= this.width;  
+        this.x -= this.width;  
     }
 
     public void moveRight() {

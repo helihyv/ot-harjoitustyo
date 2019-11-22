@@ -20,7 +20,7 @@ import tetris.domain.Game;
 import tetris.domain.TetrisGame;
 import tetris.domain.Tile;
 
-public class Tetris extends Application{
+public class Tetris extends Application {
 
     private Game game;
     private AnimationTimer timer;
@@ -29,8 +29,8 @@ public class Tetris extends Application{
     public void start(Stage window) {
        
         game = new TetrisGame();
-        GameArea gameArea = new GameArea(game.getGameAreaWidth(),game.getGameAreaHeight());
-        
+        GameArea gameArea = new GameArea(game.getGameAreaWidth() , game.getGameAreaHeight());
+
         gameArea.drawTiles(game.getTiles());
         
         Group root = new Group();
@@ -42,7 +42,7 @@ public class Tetris extends Application{
             @Override
             public void handle(long present) {
                 
-                if (present-previous < 10000000) {
+                if (present - previous < 10000000) {
                     return;
                 }
                 
@@ -56,18 +56,19 @@ public class Tetris extends Application{
         
         final EventHandler<KeyEvent> keyPressHandler =
                 new EventHandler<KeyEvent>()  {
-                    public void handle (final KeyEvent keyEvent ) {
+            public void handle(final KeyEvent keyEvent) {
                             
-                        KeyCode keyCode = keyEvent.getCode();                      //  game.moveBlockLeft();
+                KeyCode keyCode = keyEvent.getCode();                      //  game.moveBlockLeft();
                    
-                    if (keyCode.equals(KeyCode.LEFT)) {
-                        game.moveBlockLeft();
-                     }
-                    
-                    if (keyCode.equals(KeyCode.RIGHT)) {
-                        game.moveBlockRight();
-                    }
+                if (keyCode.equals(KeyCode.LEFT)) {
+                    game.moveBlockLeft();
                 }
+                    
+                if (keyCode.equals(KeyCode.RIGHT)) {
+                    game.moveBlockRight();
+                }
+                
+            }
         };
         
         Scene view = new Scene(root);
