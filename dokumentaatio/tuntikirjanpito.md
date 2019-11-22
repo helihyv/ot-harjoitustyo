@@ -11,4 +11,6 @@ Päivä | Aika | Mitä tein
 15.11. | 0,75 | Palikan sijaintiin sovelluslogiikassa tehtyjen muutosten välittyminen käyttöliittymään
 18.11 | 0,75 | Käyttöliittymä palikan liikuttamiseen vasemmalle ja oikealle
 18.11. | 0,25 | Päivitetty README.md
-yht. | 9,5 
+22.11. | 1,25 | Otettu checkstyle käyttöön, tehty tyylikorjauksia ja jätetty käyttöliittymä pois testikattavuuden tarkastuksesta
+22.11. | 2,5 | Toteutettu palikan putoaminen ja pysähtyminen, palikan osasten liittyminen pinoon, uuden palikan liikkeellelähtö ja pelin päättyminen pinon noustessa liian korkealle
+yht. | 13,25 
