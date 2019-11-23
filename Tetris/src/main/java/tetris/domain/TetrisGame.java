@@ -77,14 +77,16 @@ public class TetrisGame implements Game {
     
     @Override
     public void moveBlockLeft() {
-        if (currentBlock.leftEdge() >= tileWidth) {
+        if (currentBlock.leftEdge() >= tileWidth 
+                && tileStack.areSlotsFree(currentBlock.freeSlotsNeededToMoveLeft())) {
             currentBlock.moveLeft();
         }
     }
         
     @Override
     public void moveBlockRight() {
-        if (currentBlock.rightEdge() <= gameAreaWidth - tileWidth) {
+        if (currentBlock.rightEdge() <= gameAreaWidth - tileWidth
+                && tileStack.areSlotsFree(currentBlock.freeSlotsNeededToMoveRight())) {
             currentBlock.moveRight();
         }
     }   
@@ -95,7 +97,8 @@ public class TetrisGame implements Game {
         
         for (double  i = currentBlock.leftEdge(); i <= currentBlock.rightEdge(); i += tileWidth) {
             double blockBottom = currentBlock.bottomEdge(i);
-            if (blockBottom >= gameAreaHeight || blockBottom >= tileStack.topEdge(i)) {
+            if (Double.compare(blockBottom, gameAreaHeight) >= 0 
+                    || Double.compare(blockBottom,tileStack.topEdge(i)) >= 0) {
                 tileStack.addBlock(currentBlock);
                 if (isGameOver()) {
                     stopGame();

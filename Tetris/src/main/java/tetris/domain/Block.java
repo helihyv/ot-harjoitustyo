@@ -1,6 +1,8 @@
 
 package tetris.domain;
 
+import java.util.HashMap;
+
 /**
  *
  * @author Heli Hyvättinen
@@ -45,5 +47,10 @@ public abstract class Block {
     public abstract double rightEdge();
     
     public abstract double bottomEdge(double columnLeftEdge);
+    
+    public abstract HashMap<Double, Double> freeSlotsNeededToMoveLeft();
+    
+    public abstract HashMap<Double, Double> freeSlotsNeededToMoveRight();
+
     
 }
