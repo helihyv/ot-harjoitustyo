@@ -13,4 +13,5 @@ Päivä | Aika | Mitä tein
 18.11. | 0,25 | Päivitetty README.md
 22.11. | 1,25 | Otettu checkstyle käyttöön, tehty tyylikorjauksia ja jätetty käyttöliittymä pois testikattavuuden tarkastuksesta
 22.11. | 2,5 | Toteutettu palikan putoaminen ja pysähtyminen, palikan osasten liittyminen pinoon, uuden palikan liikkeellelähtö ja pelin päättyminen pinon noustessa liian korkealle
-yht. | 13,25 
+23.12. | 1,75 | Lisätty tarkistus sille, ettei palikka liiku sivuttain aiemmin pudonneiden palikoiden sisälle
+yht. | 14,5 
