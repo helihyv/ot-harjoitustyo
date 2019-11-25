@@ -1,5 +1,5 @@
 
-package tetris.ui;
+package fi.helihyv.tetris.ui;
 
 /**
  *
@@ -16,11 +16,11 @@ import javafx.scene.input.KeyEvent;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyCode;
 
-import tetris.domain.Game;
-import tetris.domain.TetrisGame;
-import tetris.domain.Tile;
+import fi.helihyv.tetris.domain.Game;
+import fi.helihyv.tetris.domain.TetrisGame;
+import fi.helihyv.tetris.domain.Tile;
 
-public class Tetris extends Application {
+public class TetrisUI extends Application {
 
     private Game game;
     private AnimationTimer timer;
@@ -79,7 +79,7 @@ public class Tetris extends Application {
     }
     
     public static void main(String[] args) {
-        launch(Tetris.class);
+        launch(TetrisUI.class);
     }
 
     @Override

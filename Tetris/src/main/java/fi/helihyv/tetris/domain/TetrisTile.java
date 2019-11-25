@@ -1,5 +1,5 @@
 
-package tetris.domain;
+package fi.helihyv.tetris.domain;
 
 /**
  *

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tetris.domain;
+package fi.helihyv.tetris.domain;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -17,7 +17,7 @@ import static org.junit.Assert.*;
  * @author Heli Hyvättinen
  */
 
-import tetris.domain.TetrisTile;
+import fi.helihyv.tetris.domain.TetrisTile;
 
 public class TetrisTileTest {
     

@@ -1,6 +1,7 @@
 
-package tetris.domain;
+package fi.helihyv.tetris.domain;
 
+import fi.helihyv.tetris.domain.TetrisGame;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -17,7 +18,7 @@ public class TetrisGameTest {
     private TetrisGame game;
     private double[] currentBlockTilesStartXPositions;
     private double width;
-    
+
     public TetrisGameTest() {
     }
     
@@ -40,6 +41,7 @@ public class TetrisGameTest {
         }
         
         width = game.getTiles().get(0).getWidth();
+
     }
     
     @After
@@ -125,6 +127,6 @@ public class TetrisGameTest {
                 0.1
         );
     }
-            
-            
+    
+    
 }

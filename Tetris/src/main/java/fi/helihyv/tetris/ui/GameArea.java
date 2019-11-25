@@ -1,5 +1,5 @@
 
-package tetris.ui;
+package fi.helihyv.tetris.ui;
 
 /**
  *
@@ -8,7 +8,7 @@ package tetris.ui;
 
 import javafx.scene.canvas.Canvas;
 import java.util.List;
-import tetris.domain.Tile;
+import fi.helihyv.tetris.domain.Tile;
 
 public class GameArea {
     
