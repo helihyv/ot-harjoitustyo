@@ -16,4 +16,5 @@ Päivä | Aika | Mitä tein
 23.11. | 1,75 | Lisätty tarkistus sille, ettei palikka liiku sivuttain aiemmin pudonneiden palikoiden sisälle
 25.11. | 0,75 | Muutettu pakettien nimeämistä ja lisätty MainClassLuokka
 25.11 | 2,5 | Täyden rivin katoaminen ja sille testi sekä ylempänä olleiden rivien laskeutuminen alaspäin
-yht. | 17,75 
+25.11. | 0,75 |Luokkakaavio upotettuna md-tiedostoon ja vaatimusmäärittelyn päivitys 
+yht. | 18,5 
