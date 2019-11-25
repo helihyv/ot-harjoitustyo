@@ -14,4 +14,6 @@ Päivä | Aika | Mitä tein
 22.11. | 1,25 | Otettu checkstyle käyttöön, tehty tyylikorjauksia ja jätetty käyttöliittymä pois testikattavuuden tarkastuksesta
 22.11. | 2,5 | Toteutettu palikan putoaminen ja pysähtyminen, palikan osasten liittyminen pinoon, uuden palikan liikkeellelähtö ja pelin päättyminen pinon noustessa liian korkealle
 23.11. | 1,75 | Lisätty tarkistus sille, ettei palikka liiku sivuttain aiemmin pudonneiden palikoiden sisälle
-yht. | 14,5 
+25.11. | 0,75 | Muutettu pakettien nimeämistä ja lisätty MainClassLuokka
+25.11 | 2,5 | Täyden rivin katoaminen ja sille testi sekä ylempänä olleiden rivien laskeutuminen alaspäin
+yht. | 17,75 
