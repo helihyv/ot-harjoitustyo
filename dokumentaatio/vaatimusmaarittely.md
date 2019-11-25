@@ -11,16 +11,18 @@ Sovelluksella on vain yhdenlaisia käyttäjiä, pelaajia.
 ## Perusversion toiminnallisuus
 
 * Pelaaja voi aloittaa pelin (myös kesken edellisen pelin)
-* Pelin alussa ja kun edellinen palikka on pysähtynyt, uusi palikka ilmestyy pelialueen ylälaitaan ja alkaa pudota alas.
-* Pelaaja voi siirtää putoavaa palikkaa vasemmalle, kunnes pelialueen reuna tulee vastaan
-* Pelaaja voi siirtää putovaa palikkaa oikealle, kunnes pelialueen reuna tulee vastaan
+* Pelin alussa ja kun edellinen palikka on pysähtynyt, uusi palikka ilmestyy pelialueen ylälaitaan ja alkaa pudota alas. (tehty)
+* Pelaaja voi siirtää putoavaa palikkaa vasemmalle, kunnes pelialueen reuna tai aiemmin pudonnut palikka tulee vastaan (tehty)
+* Pelaaja voi siirtää putovaa palikkaa oikealle, kunnes pelialueen reuna tai aiemmin pudonnut palikka tulee vastaan (tehty)
 * Pelaaja voi kääntää palikkaa 90 astetta myötäpäivään, jos se mahtuu kääntymään
 * Pelaaja voi nopeuttaa palikan putoamista
-* Kun palikka saavuttaa pohjan tai aikaisemmin pudonneen palikan se pysähtyy
-* Kun pysähtyneet palikat muodostavat täyden vaakarivin, rivi poistuu, ylemmät rivit laskeutuvat alaspäin ja pelaaja saa pisteitä
+* Kun palikka saavuttaa pohjan tai aikaisemmin pudonneen palikan se pysähtyy (tehty)
+* Kun pysähtyneet palikat muodostavat täyden vaakarivin, rivi poistuu (tehty)
+* kun rivi poistuu ylemmät rivit laskeutuvat alaspäin (tehty)
+* kun rivi poistuu pelaaja saa pisteitä
 * Pelaaja näkee pelin aikana kertyneet pisteet
 * Pisteiden kertyessä palikoiden putoamisnopeus kasvaa portaittain
-* Kun pysähtyneet palikat ulottuvat tietyn korkeuden yläpuolelle peli päättyy
+* Kun pysähtyneet palikat ulottuvat tietyn korkeuden yläpuolelle peli päättyy (tehty)
 * Pelin päättyessä, jos pelaajan pistemäärä on suurempi kuin kymmenenneksi paras tallennettu tulos, pelaaja voi kirjoittaa nimensä ja nimi ja tulos lisätään parhaiden tulosten luetteloon
 * Pelaaja voi katsella parhaiden tulosten luetteloa (näytetään 10 parasta järjestyksessä paras ensin)
 * Parhaat tulokset muistetaan pelikerrasta toiseen (tiedot tallennetaan tietokantaan)
