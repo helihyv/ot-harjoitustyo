@@ -4,28 +4,34 @@ package fi.helihyv.tetris.domain;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 
 public class TileStack {
     
-    private ArrayList<Tile> tiles;
+    private ArrayList<TetrisTile> tiles;
+    private double gameAreaWidth;
+    private double gameAreaHeight;
 
-    public TileStack() {
+    public TileStack(double gameAreaWidth, double gameAreaHeight) {
     
         tiles = new ArrayList<>();
+        this.gameAreaWidth = gameAreaWidth;
+        this.gameAreaHeight = gameAreaHeight;
+        
     }
     
     
     
-    public ArrayList<Tile> getTiles() {
-        return tiles;
+    public List<Tile> getTiles() {
+       
+        List<Tile> tileList =  (List<Tile>) tiles.clone();
+        return tileList;
     }
     
     public void addBlock(Block block) {
         for (int i = 0; i < 4; i++) {
             tiles.add(block.getTiles()[i]);
-            System.out.println(block.getTiles()[i].getYCoordinate());
-            System.out.println(block.getTiles()[i].getXCoordinate());
         }
     }
     
@@ -72,5 +78,55 @@ public class TileStack {
         
         return true;
     } 
+    
+            public void removeFullRows() {
+                
+                if (tiles.isEmpty()) {
+                    return;
+                }
+                    
+            int [] tilesInRows = countTilesInRows();
+            
+            for (int i = 0; i < gameAreaHeight; i++ ) {
+                
+                if (!tiles.isEmpty() && tilesInRows[i] >= gameAreaWidth / tiles.get(0).getWidth() ) {
+                    removeRow(i);
+                }
+            }
+        
+            
+        }
+        
+        private int[] countTilesInRows() {
+            
+            int gameAreaHeightAsInt = (int) Math.round(gameAreaHeight);
+     
+            int [] tilesInRows = new int [gameAreaHeightAsInt+1];
+
+
+            for (Tile tile : tiles) {
+                int y = (int) Math.round(tile.getYCoordinate());
+                tilesInRows[y]++;
+            }
+                   
+            return tilesInRows;
+        }
+        
+        private void removeRow (int row) {
+            
+            for (int i = tiles.size() -1; i >= 0; i--) {
+                
+                if (tiles.get(i).getYCoordinate() == row) {
+                    tiles.remove(tiles.get(i));
+                                    } 
+            }
+            
+            for (TetrisTile tile : tiles) {
+                
+                if (tile.getYCoordinate() < row) {
+                    tile.moveDownByTileWidth();
+                }
+            }
+        }
     
 }

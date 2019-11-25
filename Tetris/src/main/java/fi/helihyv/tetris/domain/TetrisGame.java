@@ -31,7 +31,7 @@ public class TetrisGame implements Game {
 
         generateNewBlock();
         
-        tileStack = new TileStack();
+        tileStack = new TileStack(gameAreaWidth,gameAreaHeight);
         
   
         
@@ -100,6 +100,9 @@ public class TetrisGame implements Game {
             if (Double.compare(blockBottom, gameAreaHeight) >= 0 
                     || Double.compare(blockBottom,tileStack.topEdge(i)) >= 0) {
                 tileStack.addBlock(currentBlock);
+                
+                tileStack.removeFullRows();
+                
                 if (isGameOver()) {
                     stopGame();
                 } else {

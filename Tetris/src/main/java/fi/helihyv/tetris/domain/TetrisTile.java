@@ -46,6 +46,10 @@ public class TetrisTile implements Tile {
         
     }
     
+    public void moveDownByTileWidth() {
+        this.y += width;
+    }
+    
     
 }
 

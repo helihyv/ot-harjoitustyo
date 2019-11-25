@@ -38,7 +38,7 @@ public abstract class Block {
         }
     }
 
-    public Tile[] getTiles() {
+    public TetrisTile[] getTiles() {
         return tiles;
     }
     
