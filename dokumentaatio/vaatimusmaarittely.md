@@ -10,8 +10,10 @@ Sovelluksella on vain yhdenlaisia käyttäjiä, pelaajia.
 
 ## Perusversion toiminnallisuus
 
-* Pelaaja voi aloittaa pelin (myös kesken edellisen pelin)
+* Pelaaja voi aloittaa pelin (myös kesken edellisen pelin) (tehty)
 * Pelin alussa ja kun edellinen palikka on pysähtynyt, uusi palikka ilmestyy pelialueen ylälaitaan ja alkaa pudota alas. (tehty)
+* pelissä on erimuotoisia palikoita
+* uusi palikka valitaan satunnaisesti eri palikkamuodoista
 * Pelaaja voi siirtää putoavaa palikkaa vasemmalle, kunnes pelialueen reuna tai aiemmin pudonnut palikka tulee vastaan (tehty)
 * Pelaaja voi siirtää putovaa palikkaa oikealle, kunnes pelialueen reuna tai aiemmin pudonnut palikka tulee vastaan (tehty)
 * Pelaaja voi kääntää palikkaa 90 astetta myötäpäivään, jos se mahtuu kääntymään
@@ -19,8 +21,8 @@ Sovelluksella on vain yhdenlaisia käyttäjiä, pelaajia.
 * Kun palikka saavuttaa pohjan tai aikaisemmin pudonneen palikan se pysähtyy (tehty)
 * Kun pysähtyneet palikat muodostavat täyden vaakarivin, rivi poistuu (tehty)
 * kun rivi poistuu ylemmät rivit laskeutuvat alaspäin (tehty)
-* kun rivi poistuu pelaaja saa pisteitä
-* Pelaaja näkee pelin aikana kertyneet pisteet
+* kun rivi poistuu pelaaja saa pisteitä (tehty)
+* Pelaaja näkee pelin aikana kertyneet pisteet (tehty)
 * Pisteiden kertyessä palikoiden putoamisnopeus kasvaa portaittain
 * Kun pysähtyneet palikat ulottuvat tietyn korkeuden yläpuolelle peli päättyy (tehty)
 * Pelin päättyessä, jos pelaajan pistemäärä on suurempi kuin kymmenenneksi paras tallennettu tulos, pelaaja voi kirjoittaa nimensä ja nimi ja tulos lisätään parhaiden tulosten luetteloon
