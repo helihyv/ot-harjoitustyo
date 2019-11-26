@@ -20,4 +20,5 @@ Päivä | Aika | Mitä tein
 26.11. | 0,5 | Tyylikorjauksia, tyylitarkastusten ulkopuolelle jätettävien tiedostojken päivitys ja vanhojen debuggaustulostusten poisto
 26.11. | 0,25 | README.md:n päivittäminen ja arkkitehtuurikuvauksen korjaus
 26.11. | 0,5 | Pelin päättymiskorkeuden näyttö ja siniset, läpinäkymättömät palikat
-yht. | 19,75 
+26.11. | 1 | Toteutettu pelin aloittaminen uudelleen ja sille ohje sivupalkkiin
+yht. | 20,75 
