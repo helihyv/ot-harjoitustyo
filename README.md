@@ -4,6 +4,8 @@
 
 [Vaatimusmäärittely](/dokumentaatio/vaatimusmaarittely.md)
 
+[Arkkitehtuurikuvaus](/dokumentaatio/arkkitehtuuri.md)
+
 [Työaikakirjanpito](/dokumentaatio/tuntikirjanpito.md)
 
 ## Releaset
@@ -18,7 +20,7 @@ Testit suoritetaan komennolla
 
 Testikattavuusraportti luodaan komennolla
 
-`mvn jacoco:report`
+`mvn test jacoco:report`
 
 Kattavuusraporttia voi tarkastella avaamalla selaimella tiedoston _target/site/jacoco/index.html_
 
@@ -28,6 +30,11 @@ Kattavuusraporttia voi tarkastella avaamalla selaimella tiedoston _target/site/j
 
 ### CheckStyle
 
+Tyylitarkastusraportti luodaan komennolla
+
+`mvn jxr:jxr checkstyle:checkstyle`
+
+Raporttia voi tarkastella avaamalla selaimella tiedoston _target/site/checkstyle.html_
 
 
 
