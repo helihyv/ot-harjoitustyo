@@ -20,6 +20,7 @@ public class TetrisGame implements Game {
     private TileStack tileStack;
     private Timer timer;
     private double loseLevel;
+    private long score;
 
     public TetrisGame() {
         this.gameAreaWidth = 600;
@@ -56,6 +57,8 @@ public class TetrisGame implements Game {
     
     @Override
     public void startGame() {
+        
+        this.score = 0;
         
         tileStack = new TileStack(gameAreaWidth, gameAreaHeight);
         generateNewBlock();
@@ -96,8 +99,9 @@ public class TetrisGame implements Game {
                     || Double.compare(blockBottom, tileStack.topEdge(i)) >= 0) {
                 tileStack.addBlock(currentBlock);
                 
-                tileStack.removeFullRows();
+                int tilesRemoved = tileStack.removeFullRows();
                 
+                score += tilesRemoved * 100;
                 if (isGameOver()) {
                     stopGame();
                 } else {
@@ -135,6 +139,12 @@ public class TetrisGame implements Game {
     public double getGameOverHeight() {
         return loseLevel;
     }
+
+    @Override
+    public long getScore() {
+        return score;
+    }
+    
     
     
 }

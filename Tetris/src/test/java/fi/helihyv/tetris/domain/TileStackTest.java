@@ -38,4 +38,14 @@ public class TileStackTest {
         assertTrue(tileStack.getTiles().isEmpty());
     }
     
+    @Test 
+        public void tileStackRemoveFullRowsReturnsCorrectNumerOfRemovedTiles() {
+        
+        for (int i = 0; i < 5; i++) {
+            tileStack.addBlock(new SquareBlock(40.0*i, 20.0));
+        }
+        
+        assertEquals(20, tileStack.removeFullRows());
+    }
+    
 }

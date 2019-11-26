@@ -64,20 +64,27 @@ public class TileStack {
         return true;
     } 
     
-    public void removeFullRows() {
+    public int removeFullRows() {
 
         if (tiles.isEmpty()) {
-            return;
+            return 0;
         }
 
         int [] tilesInRows = countTilesInRows();
 
+        int tilesRemoved = 0;
+        
+        double tilesInRow = gameAreaWidth / tiles.get(0).getWidth();
+        
         for (int i = 0; i < gameAreaHeight; i++) {
 
-            if (!tiles.isEmpty() && tilesInRows[i] >= gameAreaWidth / tiles.get(0).getWidth()) {
+            if (!tiles.isEmpty() && tilesInRows[i] >= tilesInRow) {
                 removeRow(i);
+                tilesRemoved += tilesInRow; 
             }
         }
+        
+        return tilesRemoved;
     }
         
     private int[] countTilesInRows() {

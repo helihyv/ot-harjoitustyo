@@ -48,7 +48,9 @@ public class TetrisUI extends Application {
         BackgroundFill[] sideBarBackgroundfills = {new BackgroundFill(Color.CORNSILK, null, null) };
         sideBar.setBackground(new Background(sideBarBackgroundfills));
         Label startGameLabel = new Label("Press F1 to (re)start game.");
+        Label scoreLabel = new Label("Score: 0");
         sideBar.getChildren().add(startGameLabel);
+        sideBar.getChildren().add(scoreLabel);
         root.getChildren().add(sideBar);
         root.getChildren().add(gameArea.getCanvas());
         
@@ -62,6 +64,7 @@ public class TetrisUI extends Application {
                     return;
                 }
                 
+                scoreLabel.setText("Score: " + game.getScore());
                 gameArea.drawTiles(game.getTiles());
                 
                 this.previous = present;

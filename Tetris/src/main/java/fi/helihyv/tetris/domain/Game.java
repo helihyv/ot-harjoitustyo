@@ -30,4 +30,6 @@ public interface Game {
     
     public double getGameOverHeight();
     
+    public long getScore();
+    
 }
