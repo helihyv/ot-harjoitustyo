@@ -11,7 +11,7 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
-import javafx.scene.Group;
+import javafx.scene.layout.HBox;
 import javafx.scene.input.KeyEvent;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyCode;
@@ -19,6 +19,11 @@ import javafx.scene.input.KeyCode;
 import fi.helihyv.tetris.domain.Game;
 import fi.helihyv.tetris.domain.TetrisGame;
 import fi.helihyv.tetris.domain.Tile;
+import javafx.scene.control.Label;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 
 public class TetrisUI extends Application {
 
@@ -37,7 +42,14 @@ public class TetrisUI extends Application {
 
         gameArea.drawTiles(game.getTiles());
         
-        Group root = new Group();
+        HBox root = new HBox();
+        root.setBackground(Background.EMPTY);
+        VBox sideBar = new VBox();
+        BackgroundFill[] sideBarBackgroundfills = {new BackgroundFill(Color.CORNSILK, null, null) };
+        sideBar.setBackground(new Background(sideBarBackgroundfills));
+        Label startGameLabel = new Label("Press F1 to (re)start game.");
+        sideBar.getChildren().add(startGameLabel);
+        root.getChildren().add(sideBar);
         root.getChildren().add(gameArea.getCanvas());
         
         timer = new AnimationTimer() {
@@ -70,6 +82,11 @@ public class TetrisUI extends Application {
                     
                 if (keyCode.equals(KeyCode.RIGHT)) {
                     game.moveBlockRight();
+                }
+                
+                if (keyCode.equals(KeyCode.F1)) {
+                    game.stopGame();
+                    game.startGame();
                 }
                 
             }

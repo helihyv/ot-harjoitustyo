@@ -26,10 +26,6 @@ public class TetrisGame implements Game {
         this.gameAreaHeight = 900;
         this.tileWidth = 20;
         this.loseLevel = 200;
-
-        generateNewBlock();
-        
-        tileStack = new TileStack(gameAreaWidth, gameAreaHeight);
         
         startGame();
     }
@@ -60,6 +56,9 @@ public class TetrisGame implements Game {
     
     @Override
     public void startGame() {
+        
+        tileStack = new TileStack(gameAreaWidth, gameAreaHeight);
+        generateNewBlock();
         
         this.timer = new Timer();
                
