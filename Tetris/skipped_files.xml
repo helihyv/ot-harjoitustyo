@@ -5,6 +5,7 @@
     "http://www.puppycrawl.com/dtds/suppressions_1_1.dtd">
 
 <suppressions>
-    <suppress files="tetris.ui.GameArea.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="fi.helihyv.tetris.ui.TetrisUI.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="fi.helihyv.tetris.ui.GameArea.java" checks="[a-zA-Z0-9]*"/>
 </suppressions>
 

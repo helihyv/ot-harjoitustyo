@@ -50,83 +50,66 @@ public class TileStack {
         return topEdge;
     }
     
-    public boolean areSlotsFree(HashMap<Double,Double> slots) {
-        
-        System.out.println("UUsi painallus");
-        
-        
-        
+    public boolean areSlotsFree(HashMap<Double, Double> slots) {
+
         for (Tile tile : tiles) {
             
-            System.out.println(tile.getYCoordinate());
-            System.out.println(tile.getXCoordinate());
-            
-            if (slots.containsKey(tile.getYCoordinate())) {
-            
-             
-             System.out.println(Double.compare(slots.get(tile.getYCoordinate()), tile.getXCoordinate())); 
-            
-            }
             if (slots.containsKey(tile.getYCoordinate())  &&
-                    Double.compare(slots.get(tile.getYCoordinate()), tile.getXCoordinate()) == 0 ) {
-                System.out.println(Double.compare(slots.get(tile.getYCoordinate()), tile.getXCoordinate()));   
-                return false;
-                
+                    Double.compare(slots.get(tile.getYCoordinate()), tile.getXCoordinate()) == 0) {
+   
+                return false;              
             }
-
         }
         
         return true;
     } 
     
-            public void removeFullRows() {
-                
-                if (tiles.isEmpty()) {
-                    return;
-                }
-                    
-            int [] tilesInRows = countTilesInRows();
-            
-            for (int i = 0; i < gameAreaHeight; i++ ) {
-                
-                if (!tiles.isEmpty() && tilesInRows[i] >= gameAreaWidth / tiles.get(0).getWidth() ) {
-                    removeRow(i);
-                }
-            }
-        
-            
+    public void removeFullRows() {
+
+        if (tiles.isEmpty()) {
+            return;
         }
+
+        int [] tilesInRows = countTilesInRows();
+
+        for (int i = 0; i < gameAreaHeight; i++) {
+
+            if (!tiles.isEmpty() && tilesInRows[i] >= gameAreaWidth / tiles.get(0).getWidth()) {
+                removeRow(i);
+            }
+        }
+    }
         
-        private int[] countTilesInRows() {
-            
-            int gameAreaHeightAsInt = (int) Math.round(gameAreaHeight);
-     
-            int [] tilesInRows = new int [gameAreaHeightAsInt+1];
+    private int[] countTilesInRows() {
+
+        int gameAreaHeightAsInt = (int) Math.round(gameAreaHeight);
+
+        int [] tilesInRows = new int [gameAreaHeightAsInt + 1];
 
 
-            for (Tile tile : tiles) {
-                int y = (int) Math.round(tile.getYCoordinate());
-                tilesInRows[y]++;
-            }
-                   
-            return tilesInRows;
+        for (Tile tile : tiles) {
+            int y = (int) Math.round(tile.getYCoordinate());
+            tilesInRows[y]++;
         }
+
+        return tilesInRows;
+    }
         
-        private void removeRow (int row) {
-            
-            for (int i = tiles.size() -1; i >= 0; i--) {
-                
-                if (tiles.get(i).getYCoordinate() == row) {
-                    tiles.remove(tiles.get(i));
-                                    } 
-            }
-            
-            for (TetrisTile tile : tiles) {
-                
-                if (tile.getYCoordinate() < row) {
-                    tile.moveDownByTileWidth();
-                }
+    private void removeRow(int row) {
+
+        for (int i = tiles.size() - 1; i >= 0; i--) {
+
+            if (tiles.get(i).getYCoordinate() == row) {
+                tiles.remove(tiles.get(i));
+            } 
+        }
+
+        for (TetrisTile tile : tiles) {
+
+            if (tile.getYCoordinate() < row) {
+                tile.moveDownByTileWidth();
             }
         }
+    }
     
 }
