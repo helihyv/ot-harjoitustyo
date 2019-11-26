@@ -17,4 +17,6 @@ Päivä | Aika | Mitä tein
 25.11. | 0,75 | Muutettu pakettien nimeämistä ja lisätty MainClassLuokka
 25.11 | 2,5 | Täyden rivin katoaminen ja sille testi sekä ylempänä olleiden rivien laskeutuminen alaspäin
 25.11. | 0,75 |Luokkakaavio upotettuna md-tiedostoon ja vaatimusmäärittelyn päivitys 
-yht. | 18,5 
+26.11. | 0,5 | Tyylikorjauksia, tyylitarkastusten ulkopuolelle jätettävien tiedostojken päivitys ja vanhojen debuggaustulostusten poisto
+26.11. | 0,25 | README.md:n päivittäminen ja arkkitehtuurikuvauksen korjaus
+yht. | 19,25 
