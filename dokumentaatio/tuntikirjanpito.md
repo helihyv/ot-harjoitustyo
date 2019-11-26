@@ -19,4 +19,5 @@ Päivä | Aika | Mitä tein
 25.11. | 0,75 |Luokkakaavio upotettuna md-tiedostoon ja vaatimusmäärittelyn päivitys 
 26.11. | 0,5 | Tyylikorjauksia, tyylitarkastusten ulkopuolelle jätettävien tiedostojken päivitys ja vanhojen debuggaustulostusten poisto
 26.11. | 0,25 | README.md:n päivittäminen ja arkkitehtuurikuvauksen korjaus
-yht. | 19,25 
+26.11. | 0,5 | Pelin päättymiskorkeuden näyttö ja siniset, läpinäkymättömät palikat
+yht. | 19,75 
