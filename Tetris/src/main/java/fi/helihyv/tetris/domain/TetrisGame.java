@@ -13,8 +13,6 @@ import java.util.TimerTask;
  */
 public class TetrisGame implements Game {
     
-    
-    
     private int gameAreaWidth;
     private int gameAreaHeight;
     private double tileWidth;
@@ -32,8 +30,6 @@ public class TetrisGame implements Game {
         generateNewBlock();
         
         tileStack = new TileStack(gameAreaWidth, gameAreaHeight);
-        
-  
         
         startGame();
     }
@@ -135,4 +131,11 @@ public class TetrisGame implements Game {
         
         return false;
     }
+
+    @Override
+    public double getGameOverHeight() {
+        return loseLevel;
+    }
+    
+    
 }

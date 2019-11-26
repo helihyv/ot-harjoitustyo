@@ -9,14 +9,19 @@ package fi.helihyv.tetris.ui;
 import javafx.scene.canvas.Canvas;
 import java.util.List;
 import fi.helihyv.tetris.domain.Tile;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.Color;
+
 
 public class GameArea {
     
     private Canvas canvas;
-
-    public GameArea(double width, double height) {
+    private double  gameOverHeight;
+    
+    public GameArea(double width, double height, double gameOverHeight) {
     
         this.canvas = new Canvas(width, height); 
+        this.gameOverHeight = gameOverHeight;
         
     }
 
@@ -32,6 +37,13 @@ public class GameArea {
                 canvas.getWidth(), 
                 canvas.getHeight()
         );
+        
+        canvas.getGraphicsContext2D().strokeLine(
+                0, 
+                gameOverHeight, 
+                canvas.getWidth(), 
+                gameOverHeight
+        );
                 
         for (Tile tile : tiles) {
             drawTile(tile);
@@ -39,8 +51,20 @@ public class GameArea {
     }
     
     private void drawTile(Tile tile) {
+        
+        GraphicsContext context = canvas.getGraphicsContext2D();
+        
+        context.setFill(Color.LIGHTBLUE);
+        context.setStroke(Color.DARKBLUE);
+        
+        context.fillRect(
+                tile.getXCoordinate(), 
+                tile.getYCoordinate(), 
+                tile.getWidth(), 
+                tile.getWidth()
+            );
     
-        canvas.getGraphicsContext2D().strokeRect(
+        context.strokeRect(
                 tile.getXCoordinate(), 
                 tile.getYCoordinate(), 
                 tile.getWidth(), 

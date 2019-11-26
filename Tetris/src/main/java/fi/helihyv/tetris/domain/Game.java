@@ -28,4 +28,6 @@ public interface Game {
     
     public void moveBlockRight();
     
+    public double getGameOverHeight();
+    
 }

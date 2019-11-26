@@ -29,7 +29,11 @@ public class TetrisUI extends Application {
     public void start(Stage window) {
        
         game = new TetrisGame();
-        GameArea gameArea = new GameArea(game.getGameAreaWidth() , game.getGameAreaHeight());
+        GameArea gameArea = new GameArea(
+                game.getGameAreaWidth() ,
+                game.getGameAreaHeight() ,
+                game.getGameOverHeight()
+            );
 
         gameArea.drawTiles(game.getTiles());
         
