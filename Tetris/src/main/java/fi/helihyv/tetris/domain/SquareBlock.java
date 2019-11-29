@@ -1,6 +1,7 @@
  
 package fi.helihyv.tetris.domain;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -18,7 +19,7 @@ public class SquareBlock extends Block {
     } 
     
     @Override
-    public void rotate() {
+    public void updateOrientation() {
         
     }
 
@@ -80,4 +81,12 @@ public class SquareBlock extends Block {
         
         return coordinates;
     }   
+
+    @Override
+    public ArrayList<Area> freeAreasNeededToRotate() {
+        return new ArrayList<>();
+    }
+       
+    
+    
 }

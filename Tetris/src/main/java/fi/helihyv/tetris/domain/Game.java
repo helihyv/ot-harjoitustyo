@@ -34,4 +34,6 @@ public interface Game {
     
     public void dropBlock();
     
+    public void rotateBlock();
+    
 }

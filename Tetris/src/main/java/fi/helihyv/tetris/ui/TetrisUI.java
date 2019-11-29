@@ -96,6 +96,10 @@ public class TetrisUI extends Application {
                     game.dropBlock();
                 }
                 
+                if (keyCode.equals(KeyCode.UP)) {
+                    game.rotateBlock();
+                }
+                
             }
         };
         

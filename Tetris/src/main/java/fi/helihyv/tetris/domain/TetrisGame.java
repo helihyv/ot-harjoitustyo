@@ -186,6 +186,13 @@ public class TetrisGame implements Game {
     public void dropBlock() {
         fastFall = true;
     }
+
+    @Override
+    public void rotateBlock() {
+        if (tileStack.areAreasFree(currentBlock.freeAreasNeededToRotate())) {
+            currentBlock.rotate();
+        }
+    }
     
     
     

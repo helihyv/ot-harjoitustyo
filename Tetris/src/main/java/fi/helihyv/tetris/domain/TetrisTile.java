@@ -40,6 +40,16 @@ public class TetrisTile implements Tile {
         return y;
     }
 
+    public void setYCoordinate(double y) {
+        this.y = y;
+    }
+
+    public void setXCoordinate(double x) {
+        this.x = x;
+    }
+    
+    
+
     @Override
     public double getWidth() {
         return width;

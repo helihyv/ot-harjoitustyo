@@ -61,9 +61,23 @@ public class TileStack {
                 return false;              
             }
         }
-        
+               
         return true;
     } 
+    
+    public boolean areAreasFree(ArrayList<Area> areas) {
+        
+        for (Area area : areas ) {
+            for (TetrisTile tile : tiles) {
+                if (area.overlaps(tile)) {
+                    System.out.println("Overlap");
+                    return false;
+                }
+            }
+        }
+        
+        return true;
+    }
     
     public int removeFullRows() {
 
@@ -119,5 +133,6 @@ public class TileStack {
             }
         }
     }
+    
     
 }

@@ -1,6 +1,7 @@
 
 package fi.helihyv.tetris.domain;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -20,7 +21,16 @@ public abstract class Block {
     }
     
     
-    public abstract void rotate();
+    public void rotate() {
+        orientation += 90;
+        if (orientation == 360) {
+            orientation = 0;
+        }
+        
+        updateOrientation();
+    }
+    
+    protected abstract void updateOrientation();
             
     public void moveLeft() {
         for (int i = 0; i < 4; i++) {
@@ -83,6 +93,8 @@ public abstract class Block {
     public abstract HashMap<Double, Double> freeSlotsNeededToMoveLeft();
     
     public abstract HashMap<Double, Double> freeSlotsNeededToMoveRight();
+    
+    public abstract ArrayList<Area> freeAreasNeededToRotate();
 
     
 }

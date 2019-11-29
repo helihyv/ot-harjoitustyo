@@ -5,6 +5,7 @@
  */
 package fi.helihyv.tetris.domain;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -26,8 +27,25 @@ public class IBlock extends Block {
     
 
     @Override
-    public void rotate() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void updateOrientation() {
+        if (orientation % 180 == 0) {
+            
+            tiles[0].setYCoordinate(tiles[1].getYCoordinate());
+            tiles[0].setXCoordinate(tiles[1].getXCoordinate() - tileWidth);
+            tiles[2].setYCoordinate(tiles[1].getYCoordinate());
+            tiles[2].setXCoordinate(tiles[1].getXCoordinate() + tileWidth);
+            tiles[3].setYCoordinate(tiles[1].getYCoordinate());
+            tiles[3].setXCoordinate(tiles[1].getXCoordinate() + 2 * tileWidth);
+            
+        } else {
+          
+            tiles[0].setYCoordinate(tiles[1].getYCoordinate() - tileWidth);
+            tiles[0].setXCoordinate(tiles[1].getXCoordinate());
+            tiles[2].setYCoordinate(tiles[1].getYCoordinate() + tileWidth);
+            tiles[2].setXCoordinate(tiles[1].getXCoordinate());
+            tiles[3].setYCoordinate(tiles[1].getYCoordinate() + 2 * tileWidth);
+            tiles[3].setXCoordinate(tiles[1].getXCoordinate());
+        }
     }
 
     @Override
@@ -73,5 +91,51 @@ public class IBlock extends Block {
         
          return findSlotsNextToTile(tiles[3], false, extendDownwards);
     }
+
+    @Override
+    public ArrayList<Area> freeAreasNeededToRotate() {
+        
+        ArrayList<Area> areas = new ArrayList();
+        
+        if (orientation % 180 == 0) {
+            
+            areas.add(new Area(
+                    tiles[0].getYCoordinate()-tileWidth,
+                    tiles[0].getXCoordinate(),
+                    tiles[0].getYCoordinate(),
+                    tiles[2].getXCoordinate()
+            ));
+            
+            areas.add(new Area(
+                    tiles[1].getYCoordinate() + tileWidth,
+                    tiles[1].getXCoordinate(),
+                    tiles[3].getYCoordinate() + 3 * tileWidth,
+                    tiles[3].getXCoordinate() + tileWidth
+            ));
+            
+        } else {
+            
+            areas.add(new Area(
+                    tiles[1].getYCoordinate(),
+                    tiles[1].getXCoordinate() - tileWidth,
+                    tiles[3].getYCoordinate() + tileWidth,
+                    tiles[3].getXCoordinate() 
+            ));
+            
+            areas.add(new Area(
+                    tiles[0].getYCoordinate(),
+                    tiles[0].getXCoordinate() + tileWidth,
+                    tiles[2].getYCoordinate(),
+                    tiles[2].getXCoordinate() + 3 * tileWidth
+            ));
+            
+        }
+        
+        return areas;
+    }
+
+
+    
+    
     
 }
