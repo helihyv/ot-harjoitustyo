@@ -23,4 +23,5 @@ Päivä | Aika | Mitä tein
 26.11. | 1 | Toteutettu pelin aloittaminen uudelleen ja sille ohje sivupalkkiin
 26.11. | 0,75 |  Toteutettu pisteiden laskeminen ja niiden näyttäminen pelaajalle sekä testi poistettujen tiilien laskemiselle täysiä rivejä poistettaessa ja täydennetty vaatimusmäärittelyä
 29.11. | 0,25 | Toteutettu palikan nopeutettu putoaminen välilyöntiä painamalla
-yht. | 21,75 
+29.11. | 1 | Lisätty I-muotoinen palikka ja korjattu palikan ennenaikainen pysähtyminen aiemmin pudonneiden palikoiden alle päädyttäessä
+yht. | 22,75 
