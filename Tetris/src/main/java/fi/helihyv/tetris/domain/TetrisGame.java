@@ -4,6 +4,7 @@ package fi.helihyv.tetris.domain;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Arrays;
+import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -80,11 +81,21 @@ public class TetrisGame implements Game {
     
     @Override
     public void moveBlockLeft() {
+        
+                    for (Tile tile : tileStack.getTiles()) {
+                System.out.println("y: " + tile.getYCoordinate());
+                System.out.println("x: " + tile.getXCoordinate());
+                System.out.println("");
+                    }
+        
         if (currentBlock.leftEdge() >= tileWidth 
                 && tileStack.areSlotsFree(currentBlock.freeSlotsNeededToMoveLeft())) {
             currentBlock.moveLeft();
+            
+
+            }
         }
-    }
+  
         
     @Override
     public void moveBlockRight() {
@@ -129,7 +140,18 @@ public class TetrisGame implements Game {
     
     private void generateNewBlock() {
         fastFall = false;
-        this.currentBlock = new SquareBlock(gameAreaWidth / 2 - tileWidth, tileWidth);
+        
+        Random r = new Random();
+        
+        int blockType = r.nextInt();
+        
+        double center = gameAreaWidth / 2 ;
+        
+        if (blockType % 2 == 0) {
+            this.currentBlock = new SquareBlock(center-tileWidth, tileWidth);
+        } else {
+            this.currentBlock = new IBlock(center - tileWidth * 2, tileWidth);
+        }
     }
 
     @Override
@@ -142,7 +164,7 @@ public class TetrisGame implements Game {
 
         for (int i  = 0; i < gameAreaWidth; i += tileWidth) {
             
-            if (tileStack.topEdge(i) <= loseLevel) {
+            if (tileStack.topEdge(0,i) <= loseLevel) {
                 return true;
             }
         }
