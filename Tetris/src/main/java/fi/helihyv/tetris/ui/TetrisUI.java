@@ -92,6 +92,10 @@ public class TetrisUI extends Application {
                     game.startGame();
                 }
                 
+                if (keyCode.equals(KeyCode.SPACE)) {
+                    game.dropBlock();
+                }
+                
             }
         };
         

@@ -32,4 +32,6 @@ public interface Game {
     
     public long getScore();
     
+    public void dropBlock();
+    
 }

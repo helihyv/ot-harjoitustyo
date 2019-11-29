@@ -21,12 +21,17 @@ public class TetrisGame implements Game {
     private Timer timer;
     private double loseLevel;
     private long score;
+    private boolean fastFall;
+    private double normalFallSpeed;
+    private double fastFallSpeed;
 
     public TetrisGame() {
         this.gameAreaWidth = 600;
         this.gameAreaHeight = 900;
         this.tileWidth = 20;
         this.loseLevel = 200;
+        normalFallSpeed = 1;
+        fastFallSpeed = 5;
         
         startGame();
     }
@@ -90,9 +95,18 @@ public class TetrisGame implements Game {
     }   
     
     public void moveBlockDown() {
-
-        currentBlock.moveDown();
         
+        double fallSpeed = fastFall ? fastFallSpeed : normalFallSpeed; 
+        
+        for (int i = 0; i < fallSpeed; i++) {
+
+            moveBlockDownByOne();        
+        }
+    }
+    
+    private void moveBlockDownByOne() {
+        
+        currentBlock.moveDown();
         for (double  i = currentBlock.leftEdge(); i <= currentBlock.rightEdge(); i += tileWidth) {
             double blockBottom = currentBlock.bottomEdge(i);
             if (Double.compare(blockBottom, gameAreaHeight) >= 0 
@@ -110,10 +124,11 @@ public class TetrisGame implements Game {
             } 
                    
         }
-           
+                    
     }
     
     private void generateNewBlock() {
+        fastFall = false;
         this.currentBlock = new SquareBlock(gameAreaWidth / 2 - tileWidth, tileWidth);
     }
 
@@ -143,6 +158,11 @@ public class TetrisGame implements Game {
     @Override
     public long getScore() {
         return score;
+    }
+
+    @Override
+    public void dropBlock() {
+        fastFall = true;
     }
     
     
