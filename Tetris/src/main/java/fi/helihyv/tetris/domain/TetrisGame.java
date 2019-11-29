@@ -110,7 +110,7 @@ public class TetrisGame implements Game {
         for (double  i = currentBlock.leftEdge(); i <= currentBlock.rightEdge(); i += tileWidth) {
             double blockBottom = currentBlock.bottomEdge(i);
             if (Double.compare(blockBottom, gameAreaHeight) >= 0 
-                    || Double.compare(blockBottom, tileStack.topEdge(i)) >= 0) {
+                    || Double.compare(blockBottom, tileStack.topEdge(blockBottom,i)) >= 0) {
                 tileStack.addBlock(currentBlock);
                 
                 int tilesRemoved = tileStack.removeFullRows();

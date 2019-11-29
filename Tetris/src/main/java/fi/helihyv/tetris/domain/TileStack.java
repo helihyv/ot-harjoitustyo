@@ -35,12 +35,13 @@ public class TileStack {
         }
     }
     
-    public double topEdge(double columnLeftEdge) {
+    public double topEdge(double rowBottomEdge, double columnLeftEdge) {
         
         double topEdge = Double.MAX_VALUE;
         
         for (Tile tile : tiles) {
-            if (tile.getXCoordinate() == columnLeftEdge) {
+            if (tile.getXCoordinate() == columnLeftEdge 
+                    && tile.getYCoordinate() >= rowBottomEdge) {
                 if (tile.getYCoordinate() < topEdge) {
                     topEdge = tile.getYCoordinate();
                 }
