@@ -21,4 +21,5 @@ Päivä | Aika | Mitä tein
 26.11. | 0,25 | README.md:n päivittäminen ja arkkitehtuurikuvauksen korjaus
 26.11. | 0,5 | Pelin päättymiskorkeuden näyttö ja siniset, läpinäkymättömät palikat
 26.11. | 1 | Toteutettu pelin aloittaminen uudelleen ja sille ohje sivupalkkiin
-yht. | 20,75 
+26.11. | 0,75 |  Toteutettu pisteiden laskeminen ja niiden näyttäminen pelaajalle sekä testi poistettujen tiilien laskemiselle täysiä rivejä poistettaessa ja täydennetty vaatimusmäärittelyä
+yht. | 21,5 
