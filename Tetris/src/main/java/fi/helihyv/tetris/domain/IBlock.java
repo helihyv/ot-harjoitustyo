@@ -6,7 +6,6 @@
 package fi.helihyv.tetris.domain;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  *
@@ -74,24 +73,56 @@ public class IBlock extends Block {
     }
 
     @Override
-    public HashMap<Double, Double> freeSlotsNeededToMoveLeft() {
+    public ArrayList<Area> freeAreasNeededToMoveLeft() {
+        ArrayList<Area> neededAreas = new ArrayList<>();
         
-        int extendDownwards = orientation % 180 == 0 ? 0 : 3;
+        if (orientation % 180 == 0) {
+            
+            neededAreas.add(new Area(
+                    tiles[0].getYCoordinate(), 
+                    tiles[0].getXCoordinate() - tileWidth,
+                    tiles[0].getYCoordinate() + tileWidth,
+                    tiles[0].getXCoordinate()
+            ));
+        } else {
+            neededAreas.add(new Area(
+                    tiles[0].getYCoordinate(),
+                    tiles[0].getXCoordinate() - tileWidth,
+                    tiles[3].getYCoordinate() + tileWidth,
+                    tiles[0].getXCoordinate()
+            ));
+        }
         
-        System.out.println(extendDownwards);
-        
-        return findSlotsNextToTile(tiles[0], true, extendDownwards);
+        return neededAreas;
         
     }
 
     @Override
-    public HashMap<Double, Double> freeSlotsNeededToMoveRight() {
+    public ArrayList<Area> freeAreasNeededToMoveRight() {
+        ArrayList<Area> neededAreas = new ArrayList<>();
         
-        int extendDownwards = orientation % 180 == 0 ? 0 : 3;
+        if (orientation % 180 == 0) {
+            
+            neededAreas.add(new Area(
+                    tiles[3].getYCoordinate(), 
+                    tiles[3].getXCoordinate() + tileWidth,
+                    tiles[3].getYCoordinate() + tileWidth,
+                    tiles[3].getXCoordinate() + 2 * tileWidth
+            ));
+        } else {
+            neededAreas.add(new Area(
+                    tiles[0].getYCoordinate(),
+                    tiles[0].getXCoordinate() + tileWidth,
+                    tiles[3].getYCoordinate() + tileWidth,
+                    tiles[0].getXCoordinate() + 2 * tileWidth
+            ));
+        }
         
-         return findSlotsNextToTile(tiles[3], false, extendDownwards);
+        return neededAreas;
     }
 
+    
+    
     @Override
     public ArrayList<Area> freeAreasNeededToRotate() {
         

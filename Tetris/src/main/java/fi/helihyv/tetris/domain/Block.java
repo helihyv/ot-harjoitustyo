@@ -2,7 +2,6 @@
 package fi.helihyv.tetris.domain;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  *
@@ -90,9 +89,9 @@ public abstract class Block {
     
     public abstract double bottomEdge(double columnLeftEdge);
     
-    public abstract HashMap<Double, Double> freeSlotsNeededToMoveLeft();
+    public abstract ArrayList<Area> freeAreasNeededToMoveLeft();
     
-    public abstract HashMap<Double, Double> freeSlotsNeededToMoveRight();
+    public abstract ArrayList<Area> freeAreasNeededToMoveRight();
     
     public abstract ArrayList<Area> freeAreasNeededToRotate();
 

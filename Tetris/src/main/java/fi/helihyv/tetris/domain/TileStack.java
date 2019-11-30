@@ -3,7 +3,6 @@
 package fi.helihyv.tetris.domain;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 
@@ -49,20 +48,6 @@ public class TileStack {
         }
         
         return topEdge;
-    }
-    
-    public boolean areSlotsFree(HashMap<Double, Double> slots) {
-
-        for (Tile tile : tiles) {
-            
-            if (slots.containsKey(tile.getYCoordinate())  &&
-                    Double.compare(slots.get(tile.getYCoordinate()), tile.getXCoordinate()) == 0) {
-   
-                return false;              
-            }
-        }
-               
-        return true;
     } 
     
     public boolean areAreasFree(ArrayList<Area> areas) {

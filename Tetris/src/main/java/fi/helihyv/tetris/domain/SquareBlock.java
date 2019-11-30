@@ -2,7 +2,6 @@
 package fi.helihyv.tetris.domain;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  *
@@ -44,43 +43,38 @@ public class SquareBlock extends Block {
         }
     }
 
-    @Override
-    public HashMap<Double, Double> freeSlotsNeededToMoveLeft() {
+     @Override
+    public ArrayList<Area> freeAreasNeededToMoveLeft() {
         
-        HashMap<Double, Double> coordinates = new HashMap<>();
+        ArrayList<Area> neededAreas = new ArrayList<>();
         
-        double freeSlotXCoordinate = tiles[0].getXCoordinate() - tileWidth;
-        double topEdge = tiles[0].getYCoordinate();
-                      
-        return freeSlotsNeededToMove(topEdge, freeSlotXCoordinate);
+        neededAreas.add(new Area(
+                tiles[0].getYCoordinate(),
+                tiles[0].getXCoordinate() - tileWidth,
+                tiles[0].getYCoordinate() + 2 * tileWidth,
+                tiles[0].getXCoordinate()
+                
+        ));
+        
+        return neededAreas;
     }
 
     @Override
-    public HashMap<Double, Double> freeSlotsNeededToMoveRight() {
-        HashMap<Double, Double> coordinates = new HashMap<>();
+    public ArrayList<Area> freeAreasNeededToMoveRight() {
         
-        double freeSlotXCoordinate = tiles[2].getXCoordinate() +  tileWidth;
-        double topEdge = tiles[2].getYCoordinate();
+                ArrayList<Area> neededAreas = new ArrayList<>();
         
-        return freeSlotsNeededToMove(topEdge, freeSlotXCoordinate);
-               
-    }    
-    
-    private HashMap<Double, Double> freeSlotsNeededToMove(double bloxkTopEdge, double freeSlotXCoordinate) {
+        neededAreas.add(new Area(
+                tiles[1].getYCoordinate(),
+                tiles[3].getXCoordinate() + tileWidth,
+                tiles[3].getYCoordinate() +  tileWidth,
+                tiles[3].getXCoordinate() + 2 *tileWidth
+                
+        ));
         
-        HashMap<Double, Double> coordinates = new HashMap<>();
-                           
-        coordinates.put(bloxkTopEdge - bloxkTopEdge % tileWidth , freeSlotXCoordinate);
-        coordinates.put(bloxkTopEdge - bloxkTopEdge % tileWidth +  tileWidth, freeSlotXCoordinate);
+        return neededAreas;
         
-        if (bloxkTopEdge % tileWidth != 0) {
-            
-            coordinates.put(bloxkTopEdge - bloxkTopEdge % tileWidth + 2 * tileWidth, freeSlotXCoordinate);
-            
-        }
-        
-        return coordinates;
-    }   
+    }
 
     @Override
     public ArrayList<Area> freeAreasNeededToRotate() {
