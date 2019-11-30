@@ -28,4 +28,5 @@ Päivä | Aika | Mitä tein
 30.11. | 0,5 | Muutettu palikan vasemmalle ja oikelle liikuttamisessa vaadittavan vapaan tilan tarkastaminen hyödyntämään Area-luokkaa
 30.11. | 2 | Toteutettu L-muotoinen palikka
 30.11. | 1,75 | Toteutettu L:n peilikuvan muotoinen palikka
-yht. | 29,75
+30.11. | 1 | Toteutettu S-muotoinen palikka
+yht. | 30,75
