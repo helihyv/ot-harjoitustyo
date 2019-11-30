@@ -143,14 +143,23 @@ public class TetrisGame implements Game {
         
         Random r = new Random();
         
-        int blockType = r.nextInt();
+        int blockType = r.nextInt(3) + 1;
         
         double center = gameAreaWidth / 2 ;
         
-        if (blockType % 2 == 0) {
-            this.currentBlock = new SquareBlock(center-tileWidth, tileWidth);
-        } else {
-            this.currentBlock = new IBlock(center - tileWidth * 2, tileWidth);
+        switch (blockType) {
+            
+            case 1:
+                this.currentBlock = new SquareBlock(center - tileWidth, tileWidth);
+                break;
+            
+            case 2:
+                this.currentBlock = new IBlock(center - tileWidth * 2, tileWidth);
+                break;
+            
+            case 3:
+                this.currentBlock = new LBlock(center - tileWidth, tileWidth);    
+                break;
         }
     }
 

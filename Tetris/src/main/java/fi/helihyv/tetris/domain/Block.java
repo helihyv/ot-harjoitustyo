@@ -65,5 +65,8 @@ public abstract class Block {
     
     public abstract ArrayList<Area> freeAreasNeededToRotate();
 
-    
+    protected Area createTileWideArea(double topY,  double leftX, int lengthInTiles) {
+        
+        return new Area(topY, leftX, topY  + tileWidth * lengthInTiles, leftX + tileWidth);
+    }
 }
