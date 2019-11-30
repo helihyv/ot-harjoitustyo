@@ -26,4 +26,5 @@ Päivä | Aika | Mitä tein
 29.11. | 1 | Lisätty I-muotoinen palikka ja korjattu palikan ennenaikainen pysähtyminen aiemmin pudonneiden palikoiden alle päädyttäessä
 29.11. | 2,75 | Toteutettu I-muotoisen palikan kääntäminen ja sille tarvittavan tilan vapaana olemisen tarkastus
 30.11. | 0,5 | Muutettu palikan vasemmalle ja oikelle liikuttamisessa vaadittavan vapaan tilan tarkastaminen hyödyntämään Area-luokkaa
-yht. | 26 
+30.11. | 2 | Toteutettu L-muotoinen palikka
+yht. | 28
