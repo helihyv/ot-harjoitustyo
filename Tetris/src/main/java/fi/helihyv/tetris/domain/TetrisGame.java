@@ -143,7 +143,7 @@ public class TetrisGame implements Game {
         
         Random r = new Random();
         
-        int blockType = r.nextInt(3) + 1;
+        int blockType = r.nextInt(4) + 1;
         
         double center = gameAreaWidth / 2 ;
         
@@ -160,6 +160,9 @@ public class TetrisGame implements Game {
             case 3:
                 this.currentBlock = new LBlock(center - tileWidth, tileWidth);    
                 break;
+                
+            case 4:
+                this.currentBlock = new MirrorLBlock(center - tileWidth, tileWidth);
         }
     }
 
