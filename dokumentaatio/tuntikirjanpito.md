@@ -29,4 +29,5 @@ Päivä | Aika | Mitä tein
 30.11. | 2 | Toteutettu L-muotoinen palikka
 30.11. | 1,75 | Toteutettu L:n peilikuvan muotoinen palikka
 30.11. | 1 | Toteutettu S-muotoinen palikka
-yht. | 30,75
+1.12. | 1 | Korjattu rikkoutuneet testit ja lisätty testejä Area-, IBlock- ja LBlock-luokille
+yht. | 31,75
