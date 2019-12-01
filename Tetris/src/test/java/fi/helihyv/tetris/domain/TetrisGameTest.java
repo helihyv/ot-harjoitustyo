@@ -74,11 +74,22 @@ public class TetrisGameTest {
         for (int i=0; i < 20; i++) {
             game.moveBlockLeft();
         }
-            
-        assertEquals(0,game.getTiles().get(0).getXCoordinate(), 0.1);
-        assertEquals(0,game.getTiles().get(1).getXCoordinate(),0.1);
-        assertEquals(width, game.getTiles().get(2).getXCoordinate(), 0.1);
-        assertEquals(width, game.getTiles().get(3).getXCoordinate(), 0.1);
+        
+        double[] coordinates = new double [4];
+        
+        for (int i = 0; i < 4; i++) {
+            coordinates[i] = game.getTiles().get(i).getXCoordinate();
+        }
+        
+        game.moveBlockLeft();
+        
+        for (int i = 0; i < 4; i++) {
+            assertEquals(
+                coordinates[i],
+                game.getTiles().get(i).getXCoordinate(),
+                0.1);
+        }
+        
     }
     
     @Test
@@ -94,39 +105,29 @@ public class TetrisGameTest {
     }
     
     @Test
-    public void moveBlockRightDoesNotMoveTilesRightIfNoRoomAvailable() {
+    public void moveBlockRightDoesNotMoveTilesRightIfBorderOfGameAreaReached() {
         for (int i = 0; i < 20; i++) {
             game.moveBlockRight();
         }
         
+        double[] coordinates = new double [4];
         
-        assertEquals(
-                game.getGameAreaWidth()-2*width, 
-                game.getTiles().get(0).getXCoordinate(), 
-                0.1
-        );
+        for (int i = 0; i < 4; i++) {
+            coordinates[i] = game.getTiles().get(i).getXCoordinate();
+        }
         
-                
-        assertEquals(
-                game.getGameAreaWidth()-2*width, 
-                game.getTiles().get(1).getXCoordinate(), 
-                0.1
-        );
+        game.moveBlockRight();
         
-                
-        assertEquals(
-                game.getGameAreaWidth()-width, 
-                game.getTiles().get(2).getXCoordinate(), 
-                0.1
-        );
+        for (int i = 0; i < 4; i++) {
+            assertEquals(
+                coordinates[i],
+                game.getTiles().get(i).getXCoordinate(),
+                0.1);
+        }
         
-                
-        assertEquals(
-                game.getGameAreaWidth()-width, 
-                game.getTiles().get(3).getXCoordinate(), 
-                0.1
-        );
+  
     }
+    
     
     
 }
