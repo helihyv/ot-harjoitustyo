@@ -32,4 +32,5 @@ Päivä | Aika | Mitä tein
 1.12. | 1 | Korjattu rikkoutuneet testit ja lisätty testejä Area-, IBlock- ja LBlock-luokille
 1.12. | 1,25 | Toteutettu S:n peilikuvan muotoinen palikka
 2.12. | 1,75 | Toteutettu T-muotoinen palikka
-yht. | 34,75
+2.12. | 0,5 | Testejä T-, S-, peiliS- ja peiliL- muotoisten palikoiden kääntymiselle
+yht. | 35,25
