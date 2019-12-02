@@ -81,12 +81,6 @@ public class TetrisGame implements Game {
     @Override
     public void moveBlockLeft() {
 
-        for (Tile tile : tileStack.getTiles()) {
-            System.out.println("y: " + tile.getYCoordinate());
-            System.out.println("x: " + tile.getXCoordinate());
-            System.out.println("");
-        }
-
         if (currentBlock.leftEdge() >= tileWidth
                 && tileStack.areAreasFree(currentBlock.freeAreasNeededToMoveLeft())) {
             currentBlock.moveLeft();

@@ -227,7 +227,6 @@ public class LBlock extends Block {
                         tiles[3].getYCoordinate(),
                         tiles[0].getXCoordinate() + 3 * tileWidth
                 ));
-                //Tarvitaanko tilaa myös vasemmalla puolella?
                 break;
 
             case 90:

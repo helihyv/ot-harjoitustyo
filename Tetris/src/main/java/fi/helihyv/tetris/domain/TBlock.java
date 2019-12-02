@@ -101,16 +101,11 @@ public class TBlock extends Block {
         }
 
         if (columnLeftEdge == tiles[3].getXCoordinate()) {
-            System.out.println("Kolmostiiltä tarkastellaan");
-            System.out.println(orientation);
+
             if (orientation != 0) {
-
-                System.out.println("Kolmostiili alimmaisena");
-
                 return tiles[3].getYCoordinate() + tileWidth;
 
             }
-            System.out.println("Kolmostiili ei alimmaisena");
             return tiles[1].getYCoordinate() + tileWidth;
 
         }
