@@ -1,4 +1,3 @@
- 
 package fi.helihyv.tetris.domain;
 
 import java.util.ArrayList;
@@ -13,13 +12,13 @@ public class SquareBlock extends Block {
         super(tileWidth);
         tiles[0] = new TetrisTile(xCoordinate, 0, tileWidth);
         tiles[1] = new TetrisTile(xCoordinate, tileWidth, tileWidth);
-        tiles[2] = new TetrisTile(xCoordinate + tileWidth, 0 , tileWidth);
+        tiles[2] = new TetrisTile(xCoordinate + tileWidth, 0, tileWidth);
         tiles[3] = new TetrisTile(xCoordinate + tileWidth, tileWidth, tileWidth);
-    } 
-    
+    }
+
     @Override
     public void updateOrientation() {
-        
+
     }
 
     @Override
@@ -31,56 +30,52 @@ public class SquareBlock extends Block {
     public double rightEdge() {
         return tiles[2].getXCoordinate() + tileWidth - 1;
     }
-    
+
     @Override
     public double bottomEdge(double columnLeftEdge) {
-        if (columnLeftEdge == tiles[0].getXCoordinate() || 
-                columnLeftEdge == tiles[2].getXCoordinate()) {
+        if (columnLeftEdge == tiles[0].getXCoordinate()
+                || columnLeftEdge == tiles[2].getXCoordinate()) {
 
             return tiles[3].getYCoordinate() + tileWidth;
         } else {
-            return  0;
+            return 0;
         }
     }
 
-     @Override
+    @Override
     public ArrayList<Area> freeAreasNeededToMoveLeft() {
-        
+
         ArrayList<Area> neededAreas = new ArrayList<>();
-        
+
         neededAreas.add(new Area(
                 tiles[0].getYCoordinate(),
                 tiles[0].getXCoordinate() - tileWidth,
                 tiles[0].getYCoordinate() + 2 * tileWidth,
                 tiles[0].getXCoordinate()
-                
         ));
-        
+
         return neededAreas;
     }
 
     @Override
     public ArrayList<Area> freeAreasNeededToMoveRight() {
-        
-                ArrayList<Area> neededAreas = new ArrayList<>();
-        
+
+        ArrayList<Area> neededAreas = new ArrayList<>();
+
         neededAreas.add(new Area(
                 tiles[1].getYCoordinate(),
                 tiles[3].getXCoordinate() + tileWidth,
-                tiles[3].getYCoordinate() +  tileWidth,
-                tiles[3].getXCoordinate() + 2 *tileWidth
-                
+                tiles[3].getYCoordinate() + tileWidth,
+                tiles[3].getXCoordinate() + 2 * tileWidth
         ));
-        
+
         return neededAreas;
-        
+
     }
 
     @Override
     public ArrayList<Area> freeAreasNeededToRotate() {
         return new ArrayList<>();
     }
-       
-    
-    
+
 }

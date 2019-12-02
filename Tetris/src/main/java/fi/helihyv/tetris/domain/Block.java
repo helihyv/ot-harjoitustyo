@@ -1,4 +1,3 @@
-
 package fi.helihyv.tetris.domain;
 
 import java.util.ArrayList;
@@ -8,7 +7,7 @@ import java.util.ArrayList;
  * @author Heli Hyvättinen
  */
 public abstract class Block {
-    
+
     protected TetrisTile[] tiles;
     protected double tileWidth;
     protected int orientation;
@@ -18,22 +17,21 @@ public abstract class Block {
         this.tileWidth = tileWidth;
         this.orientation = 0;
     }
-    
-    
+
     public void rotate() {
         orientation += 90;
         if (orientation == 360) {
             orientation = 0;
         }
-        
+
         updateOrientation();
     }
-    
+
     protected abstract void updateOrientation();
-            
+
     public void moveLeft() {
         for (int i = 0; i < 4; i++) {
-            tiles[i].moveLeft();            
+            tiles[i].moveLeft();
         }
     }
 
@@ -42,7 +40,7 @@ public abstract class Block {
             tiles[i].moveRight();
         }
     }
-    
+
     public void moveDown() {
         for (int i = 0; i < 4; i++) {
             tiles[i].moveDown();
@@ -52,21 +50,21 @@ public abstract class Block {
     public TetrisTile[] getTiles() {
         return tiles;
     }
-        
+
     public abstract double leftEdge();
-    
+
     public abstract double rightEdge();
-    
+
     public abstract double bottomEdge(double columnLeftEdge);
-    
+
     public abstract ArrayList<Area> freeAreasNeededToMoveLeft();
-    
+
     public abstract ArrayList<Area> freeAreasNeededToMoveRight();
-    
+
     public abstract ArrayList<Area> freeAreasNeededToRotate();
 
-    protected Area createTileWideArea(double topY,  double leftX, int lengthInTiles) {
-        
-        return new Area(topY, leftX, topY  + tileWidth * lengthInTiles, leftX + tileWidth);
+    protected Area createTileWideArea(double topY, double leftX, int lengthInTiles) {
+
+        return new Area(topY, leftX, topY + tileWidth * lengthInTiles, leftX + tileWidth);
     }
 }

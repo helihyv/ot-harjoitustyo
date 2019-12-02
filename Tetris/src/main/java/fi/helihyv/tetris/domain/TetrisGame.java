@@ -1,4 +1,3 @@
-
 package fi.helihyv.tetris.domain;
 
 import java.util.ArrayList;
@@ -13,7 +12,7 @@ import java.util.TimerTask;
  * @author Heli Hyvättinen
  */
 public class TetrisGame implements Game {
-    
+
     private int gameAreaWidth;
     private int gameAreaHeight;
     private double tileWidth;
@@ -33,7 +32,7 @@ public class TetrisGame implements Game {
         this.loseLevel = 200;
         normalFallSpeed = 1;
         fastFallSpeed = 5;
-        
+
         startGame();
     }
 
@@ -49,28 +48,28 @@ public class TetrisGame implements Game {
 
     @Override
     public List<Tile> getTiles() {
-        
-        ArrayList<Tile>  tiles = new ArrayList<>();
+
+        ArrayList<Tile> tiles = new ArrayList<>();
         Tile[] blockTiles = currentBlock.getTiles();
         for (int i = 0; i < 4; i++) {
             tiles.add(blockTiles[i]);
         }
 
         tiles.addAll(tileStack.getTiles());
-        
+
         return tiles;
     }
-    
+
     @Override
     public void startGame() {
-        
+
         this.score = 0;
-        
+
         tileStack = new TileStack(gameAreaWidth, gameAreaHeight);
         generateNewBlock();
-        
+
         this.timer = new Timer();
-               
+
         TimerTask task = new TimerTask() {
             public void run() {
                 moveBlockDown();
@@ -78,96 +77,94 @@ public class TetrisGame implements Game {
         };
         timer.schedule(task, 10L, 10L);
     }
-    
+
     @Override
     public void moveBlockLeft() {
-        
-                    for (Tile tile : tileStack.getTiles()) {
-                System.out.println("y: " + tile.getYCoordinate());
-                System.out.println("x: " + tile.getXCoordinate());
-                System.out.println("");
-                    }
-        
-        if (currentBlock.leftEdge() >= tileWidth 
+
+        for (Tile tile : tileStack.getTiles()) {
+            System.out.println("y: " + tile.getYCoordinate());
+            System.out.println("x: " + tile.getXCoordinate());
+            System.out.println("");
+        }
+
+        if (currentBlock.leftEdge() >= tileWidth
                 && tileStack.areAreasFree(currentBlock.freeAreasNeededToMoveLeft())) {
             currentBlock.moveLeft();
-            
 
-            }
         }
-  
-        
+    }
+
     @Override
     public void moveBlockRight() {
         if (currentBlock.rightEdge() <= gameAreaWidth - tileWidth
                 && tileStack.areAreasFree(currentBlock.freeAreasNeededToMoveRight())) {
             currentBlock.moveRight();
         }
-    }   
-    
+    }
+
     public void moveBlockDown() {
-        
-        double fallSpeed = fastFall ? fastFallSpeed : normalFallSpeed; 
-        
+
+        double fallSpeed = fastFall ? fastFallSpeed : normalFallSpeed;
+
         for (int i = 0; i < fallSpeed; i++) {
 
-            moveBlockDownByOne();        
+            moveBlockDownByOne();
         }
     }
-    
+
     private void moveBlockDownByOne() {
-        
+
         currentBlock.moveDown();
-        for (double  i = currentBlock.leftEdge(); i <= currentBlock.rightEdge(); i += tileWidth) {
+        for (double i = currentBlock.leftEdge(); i <= currentBlock.rightEdge(); i += tileWidth) {
             double blockBottom = currentBlock.bottomEdge(i);
-            if (Double.compare(blockBottom, gameAreaHeight) >= 0 
-                    || Double.compare(blockBottom, tileStack.topEdge(blockBottom,i)) >= 0) {
+            if (Double.compare(blockBottom, gameAreaHeight) >= 0
+                    || Double.compare(blockBottom, tileStack.topEdge(blockBottom, i)) >= 0) {
                 tileStack.addBlock(currentBlock);
-                
+
                 int tilesRemoved = tileStack.removeFullRows();
-                
+
                 score += tilesRemoved * 100;
                 if (isGameOver()) {
                     stopGame();
                 } else {
                     generateNewBlock();
                 }
-            } 
-                   
+            }
+
         }
-                    
+
     }
-    
+
     private void generateNewBlock() {
         fastFall = false;
-        
+
         Random r = new Random();
-        
+
         int blockType = r.nextInt(7) + 1;
-        
-        double center = gameAreaWidth / 2 ;
-        
+
+        double center = gameAreaWidth / 2;
+
         switch (blockType) {
-            
+
             case 1:
                 this.currentBlock = new SquareBlock(center - tileWidth, tileWidth);
                 break;
-            
+
             case 2:
                 this.currentBlock = new IBlock(center - tileWidth * 2, tileWidth);
                 break;
-            
+
             case 3:
-                this.currentBlock = new LBlock(center - tileWidth, tileWidth);    
+                this.currentBlock = new LBlock(center - tileWidth, tileWidth);
                 break;
-                
+
             case 4:
                 this.currentBlock = new MirrorLBlock(center - tileWidth, tileWidth);
                 break;
-                
+
             case 5:
                 this.currentBlock = new SBlock(center - 2 * tileWidth, tileWidth);
-                
+
             case 6:
                 this.currentBlock = new MirrorSBlock(center - 2 * tileWidth, tileWidth);
 
@@ -181,17 +178,16 @@ public class TetrisGame implements Game {
         timer.cancel();
 
     }
-    
-   
+
     public boolean isGameOver() {
 
-        for (int i  = 0; i < gameAreaWidth; i += tileWidth) {
-            
-            if (tileStack.topEdge(0,i) <= loseLevel) {
+        for (int i = 0; i < gameAreaWidth; i += tileWidth) {
+
+            if (tileStack.topEdge(0, i) <= loseLevel) {
                 return true;
             }
         }
-        
+
         return false;
     }
 
@@ -216,7 +212,5 @@ public class TetrisGame implements Game {
             currentBlock.rotate();
         }
     }
-    
-    
-    
+
 }
