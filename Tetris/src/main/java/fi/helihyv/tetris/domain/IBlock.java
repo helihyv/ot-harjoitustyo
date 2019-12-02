@@ -125,35 +125,15 @@ public class IBlock extends Block {
 
         if (orientation % 180 == 0) {
 
-            areas.add(new Area(
-                    tiles[0].getYCoordinate() - tileWidth,
-                    tiles[0].getXCoordinate(),
-                    tiles[0].getYCoordinate(),
-                    tiles[2].getXCoordinate()
-            ));
+            areas.add(new Area(tiles[0].getYCoordinate() - tileWidth, tiles[0].getXCoordinate(), tiles[0].getYCoordinate(), tiles[2].getXCoordinate()));
 
-            areas.add(new Area(
-                    tiles[1].getYCoordinate() + tileWidth,
-                    tiles[1].getXCoordinate(),
-                    tiles[3].getYCoordinate() + 3 * tileWidth,
-                    tiles[3].getXCoordinate() + tileWidth
-            ));
+            areas.add(new Area(tiles[1].getYCoordinate() + tileWidth, tiles[1].getXCoordinate(), tiles[3].getYCoordinate() + 3 * tileWidth, tiles[3].getXCoordinate() + tileWidth));
 
         } else {
 
-            areas.add(new Area(
-                    tiles[1].getYCoordinate(),
-                    tiles[1].getXCoordinate() - tileWidth,
-                    tiles[3].getYCoordinate() + tileWidth,
-                    tiles[3].getXCoordinate()
-            ));
+            areas.add(new Area(tiles[1].getYCoordinate(), tiles[1].getXCoordinate() - tileWidth, tiles[3].getYCoordinate() + tileWidth, tiles[3].getXCoordinate()));
 
-            areas.add(new Area(
-                    tiles[0].getYCoordinate(),
-                    tiles[0].getXCoordinate() + tileWidth,
-                    tiles[2].getYCoordinate(),
-                    tiles[2].getXCoordinate() + 3 * tileWidth
-            ));
+            areas.add(new Area(tiles[0].getYCoordinate(), tiles[0].getXCoordinate() + tileWidth, tiles[2].getYCoordinate(), tiles[2].getXCoordinate() + 3 * tileWidth));
 
         }
 

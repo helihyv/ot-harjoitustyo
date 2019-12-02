@@ -25,54 +25,33 @@ public class LBlock extends Block {
     @Override
     protected void updateOrientation() {
 
-        double y = tiles[0].getYCoordinate();
-        double x = tiles[0].getXCoordinate();
+        double y = tiles[1].getYCoordinate();
+        double x = tiles[1].getXCoordinate();
 
         switch (orientation) {
 
             case 0:
-                tiles[0].setYCoordinate(y - tileWidth);
-                tiles[0].setXCoordinate(x);
-                tiles[1].setYCoordinate(y);
-                tiles[1].setXCoordinate(x);
-                tiles[2].setYCoordinate(y + tileWidth);
-                tiles[2].setXCoordinate(x);
-                tiles[3].setYCoordinate(y + tileWidth);
-                tiles[3].setXCoordinate(x + tileWidth);
+
+                setTilePositions(x, y - tileWidth, x, y, x, y + tileWidth, x + tileWidth, y + tileWidth);
+
                 break;
 
             case 90:
 
-                tiles[0].setYCoordinate(y + tileWidth);
-                tiles[0].setXCoordinate(x + 2 * tileWidth);
-                tiles[1].setYCoordinate(y + tileWidth);
-                tiles[1].setXCoordinate(x + tileWidth);
-                tiles[2].setYCoordinate(y + tileWidth);
-                tiles[2].setXCoordinate(x);
-                tiles[3].setYCoordinate(y + 2 * tileWidth);
-                tiles[3].setXCoordinate(x);
+                setTilePositions(x + tileWidth, y, x, y, x - tileWidth, y, x - tileWidth, y + tileWidth);
+
                 break;
 
             case 180:
-                tiles[0].setYCoordinate(y + tileWidth);
-                tiles[0].setXCoordinate(x - tileWidth);
-                tiles[1].setYCoordinate(y);
-                tiles[1].setXCoordinate(x - tileWidth);
-                tiles[2].setYCoordinate(y - tileWidth);
-                tiles[2].setXCoordinate(x - tileWidth);
-                tiles[3].setYCoordinate(y - tileWidth);
-                tiles[3].setXCoordinate(x - 2 * tileWidth);
+
+                setTilePositions(x, y + tileWidth, x, y, x, y - tileWidth, x - tileWidth, y - tileWidth);
+
                 break;
 
             case 270:
-                tiles[0].setYCoordinate(y - tileWidth);
-                tiles[0].setXCoordinate(x - tileWidth);
-                tiles[1].setYCoordinate(y - tileWidth);
-                tiles[1].setXCoordinate(x);
-                tiles[2].setYCoordinate(y - tileWidth);
-                tiles[2].setXCoordinate(x + tileWidth);
-                tiles[3].setYCoordinate(y - 2 * tileWidth);
-                tiles[3].setXCoordinate(x + tileWidth);
+
+                setTilePositions(x - tileWidth, y, x, y, x + tileWidth, y, x + tileWidth, y - tileWidth);
+
                 break;
         }
     }
@@ -143,45 +122,21 @@ public class LBlock extends Block {
         switch (orientation) {
             case 0:
                 neededAreas.add(new Area(
-                        tiles[0].getYCoordinate(),
-                        tiles[0].getXCoordinate() - tileWidth,
-                        tiles[2].getYCoordinate() + tileWidth,
-                        tiles[2].getXCoordinate()
-                ));
+                        tiles[0].getYCoordinate(), tiles[0].getXCoordinate() - tileWidth, tiles[2].getYCoordinate() + tileWidth, tiles[2].getXCoordinate()));
                 break;
 
             case 90:
-                neededAreas.add(new Area(
-                        tiles[2].getYCoordinate(),
-                        tiles[2].getXCoordinate() - tileWidth,
-                        tiles[3].getYCoordinate() + tileWidth,
-                        tiles[3].getXCoordinate()
-                ));
+                neededAreas.add(new Area(tiles[2].getYCoordinate(), tiles[2].getXCoordinate() - tileWidth, tiles[3].getYCoordinate() + tileWidth, tiles[3].getXCoordinate()));
                 break;
 
             case 180:
-                neededAreas.add(new Area(
-                        tiles[3].getYCoordinate(),
-                        tiles[3].getXCoordinate() - tileWidth,
-                        tiles[3].getYCoordinate() + tileWidth,
-                        tiles[3].getXCoordinate()
-                ));
+                neededAreas.add(new Area(tiles[3].getYCoordinate(), tiles[3].getXCoordinate() - tileWidth, tiles[3].getYCoordinate() + tileWidth, tiles[3].getXCoordinate()));
 
-                neededAreas.add(new Area(
-                        tiles[1].getYCoordinate(),
-                        tiles[1].getXCoordinate() - tileWidth,
-                        tiles[0].getYCoordinate() + tileWidth,
-                        tiles[0].getXCoordinate()
-                ));
+                neededAreas.add(new Area(tiles[1].getYCoordinate(), tiles[1].getXCoordinate() - tileWidth, tiles[0].getYCoordinate() + tileWidth, tiles[0].getXCoordinate()));
                 break;
 
             case 270:
-                neededAreas.add(new Area(
-                        tiles[0].getYCoordinate(),
-                        tiles[0].getXCoordinate() - tileWidth,
-                        tiles[0].getYCoordinate() + tileWidth,
-                        tiles[0].getXCoordinate()
-                ));
+                neededAreas.add(new Area(tiles[0].getYCoordinate(), tiles[0].getXCoordinate() - tileWidth, tiles[0].getYCoordinate() + tileWidth, tiles[0].getXCoordinate()));
         }
 
         return neededAreas;
@@ -221,50 +176,26 @@ public class LBlock extends Block {
         switch (orientation) {
 
             case 0:
-                neededAreas.add(new Area(
-                        tiles[0].getYCoordinate(),
-                        tiles[0].getXCoordinate() + tileWidth,
-                        tiles[3].getYCoordinate(),
-                        tiles[0].getXCoordinate() + 3 * tileWidth
-                ));
+                neededAreas.add(new Area(tiles[0].getYCoordinate(), tiles[0].getXCoordinate() + tileWidth, tiles[3].getYCoordinate(), tiles[0].getXCoordinate() + 3 * tileWidth));
                 break;
 
             case 90:
-                neededAreas.add(new Area(
-                        tiles[2].getYCoordinate() - tileWidth,
-                        tiles[2].getXCoordinate(),
-                        tiles[2].getYCoordinate(),
-                        tiles[0].getXCoordinate()
-                ));
+                neededAreas.add(new Area(tiles[2].getYCoordinate() - tileWidth, tiles[2].getXCoordinate(), tiles[2].getYCoordinate(), tiles[0].getXCoordinate()));
 
-                neededAreas.add(new Area(
-                        tiles[3].getYCoordinate(),
-                        tiles[1].getXCoordinate(),
-                        tiles[3].getYCoordinate() + tileWidth,
-                        tiles[0].getXCoordinate() + tileWidth
-                ));
+                neededAreas.add(new Area(tiles[3].getYCoordinate(), tiles[1].getXCoordinate(), tiles[3].getYCoordinate() + tileWidth, tiles[0].getXCoordinate() + tileWidth));
                 break;
 
             case 180:
 
-                neededAreas.add(createTileWideArea(
-                        tiles[1].getYCoordinate(),
-                        tiles[3].getXCoordinate(),
-                        2
-                ));
+                neededAreas.add(createTileWideArea(tiles[1].getYCoordinate(), tiles[3].getXCoordinate(), 2));
 
                 neededAreas.add(createTileWideArea(tiles[2].getYCoordinate(), tiles[2].getXCoordinate() + tileWidth, 2));
                 break;
 
             case 270:
 
-                neededAreas.add(new Area(
-                        tiles[3].getYCoordinate(),
-                        tiles[0].getXCoordinate(),
-                        tiles[0].getYCoordinate(),
-                        tiles[2].getYCoordinate() + tileWidth
-                ));
-
+                neededAreas.add(new Area(tiles[3].getYCoordinate(), tiles[0].getXCoordinate(), tiles[0].getYCoordinate(), tiles[2].getYCoordinate() + tileWidth));
+                neededAreas.add(new Area(tiles[1].getYCoordinate() + tileWidth, tiles[1].getXCoordinate(), tiles[2].getYCoordinate() + 2 * tileWidth, tiles[2].getXCoordinate() + tileWidth));
         }
 
         return neededAreas;

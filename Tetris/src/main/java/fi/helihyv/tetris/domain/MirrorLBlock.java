@@ -30,39 +30,23 @@ public class MirrorLBlock extends Block {
 
         switch (orientation) {
             case 0:
-                tiles[0].setYCoordinate(y - tileWidth);
-                tiles[0].setXCoordinate(x);
-                tiles[2].setYCoordinate(y + tileWidth);
-                tiles[2].setXCoordinate(x);
-                tiles[3].setYCoordinate(y + tileWidth);
-                tiles[3].setXCoordinate(x - tileWidth);
+                setTilePositions(x, y - tileWidth, x, y, x, y + tileWidth, x - tileWidth, y + tileWidth);
+
                 break;
 
             case 90:
-                tiles[0].setYCoordinate(y);
-                tiles[0].setXCoordinate(x + tileWidth);
-                tiles[2].setYCoordinate(y);
-                tiles[2].setXCoordinate(x - tileWidth);
-                tiles[3].setYCoordinate(y - tileWidth);
-                tiles[3].setXCoordinate(x - tileWidth);
+                setTilePositions(x + tileWidth, y, x, y, x - tileWidth, y, x - tileWidth, y - tileWidth);
                 break;
 
             case 180:
-                tiles[0].setYCoordinate(y + tileWidth);
-                tiles[0].setXCoordinate(x);
-                tiles[2].setYCoordinate(y - tileWidth);
-                tiles[2].setXCoordinate(x);
-                tiles[3].setYCoordinate(y - tileWidth);
-                tiles[3].setXCoordinate(x + tileWidth);
+                setTilePositions(x, y + tileWidth, x, y, x, y - tileWidth, x + tileWidth, y - tileWidth);
+
                 break;
 
             case 270:
-                tiles[0].setYCoordinate(y);
-                tiles[0].setXCoordinate(x - tileWidth);
-                tiles[2].setYCoordinate(y);
-                tiles[2].setXCoordinate(x + tileWidth);
-                tiles[3].setYCoordinate(y + tileWidth);
-                tiles[3].setXCoordinate(x + tileWidth);
+
+                setTilePositions(x - tileWidth, y, x, y, x + tileWidth, y, x + tileWidth, y + tileWidth);
+
                 break;
         }
 
