@@ -167,9 +167,11 @@ public class TetrisGame implements Game {
 
             case 6:
                 this.currentBlock = new MirrorSBlock(center - 2 * tileWidth, tileWidth);
+                break;
 
             case 7:
                 this.currentBlock = new TBlock(center - 2 * tileWidth, tileWidth);
+                break;
         }
     }
 
