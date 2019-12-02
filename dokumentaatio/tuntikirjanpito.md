@@ -33,4 +33,5 @@ Päivä | Aika | Mitä tein
 1.12. | 1,25 | Toteutettu S:n peilikuvan muotoinen palikka
 2.12. | 1,75 | Toteutettu T-muotoinen palikka
 2.12. | 0,5 | Testejä T-, S-, peiliS- ja peiliL- muotoisten palikoiden kääntymiselle
-yht. | 35,25
+2.12. | 3 | Tyylikorjauksia, funktioiden refaktorointia lyhyemmiksi, testien päivittämistä refaktoroinnin jäljiltä ja korjaus palikoiden satunnaiseen generointiin
+yht. | 38,25
