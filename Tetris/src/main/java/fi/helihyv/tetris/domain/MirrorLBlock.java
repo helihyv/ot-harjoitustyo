@@ -167,7 +167,7 @@ public class MirrorLBlock extends Block {
 
             case 180:
                 neededAreas.add(createTileWideArea(tiles[1].getYCoordinate(), tiles[1].getXCoordinate() - tileWidth, 2));
-                neededAreas.add(createTileWideArea(tiles[1].getYCoordinate(), tiles[1].getXCoordinate() + tileWidth, 1));
+                neededAreas.add(createTileWideArea(tiles[1].getYCoordinate(), tiles[1].getXCoordinate() + tileWidth, 2));
                 break;
 
             case 270:
