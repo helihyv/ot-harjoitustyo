@@ -121,6 +121,8 @@ public class TetrisGame implements Game {
                 if (isGameOver()) {
                     stopGame();
                 } else {
+
+                    score += 40;
                     generateNewBlock();
                 }
             }
