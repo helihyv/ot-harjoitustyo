@@ -12,13 +12,14 @@ Sovelluksella on vain yhdenlaisia käyttäjiä, pelaajia.
 
 * Pelaaja voi aloittaa pelin (myös kesken edellisen pelin) (tehty)
 * Pelin alussa ja kun edellinen palikka on pysähtynyt, uusi palikka ilmestyy pelialueen ylälaitaan ja alkaa pudota alas. (tehty)
-* pelissä on erimuotoisia palikoita
-* uusi palikka valitaan satunnaisesti eri palikkamuodoista
+* pelissä on erimuotoisia palikoita (tehty)
+* uusi palikka valitaan satunnaisesti eri palikkamuodoista (tehty)
 * Pelaaja voi siirtää putoavaa palikkaa vasemmalle, kunnes pelialueen reuna tai aiemmin pudonnut palikka tulee vastaan (tehty)
 * Pelaaja voi siirtää putovaa palikkaa oikealle, kunnes pelialueen reuna tai aiemmin pudonnut palikka tulee vastaan (tehty)
-* Pelaaja voi kääntää palikkaa 90 astetta myötäpäivään, jos se mahtuu kääntymään
-* Pelaaja voi nopeuttaa palikan putoamista
+* Pelaaja voi kääntää palikkaa 90 astetta myötäpäivään, jos se mahtuu kääntymään (tehty)
+* Pelaaja voi nopeuttaa palikan putoamista (tehty)
 * Kun palikka saavuttaa pohjan tai aikaisemmin pudonneen palikan se pysähtyy (tehty)
+* Kun palikka pyshähtyy eikä peli pääty, pelaaja saa pienen määrän pisteitä (tehty)
 * Kun pysähtyneet palikat muodostavat täyden vaakarivin, rivi poistuu (tehty)
 * kun rivi poistuu ylemmät rivit laskeutuvat alaspäin (tehty)
 * kun rivi poistuu pelaaja saa pisteitä (tehty)
