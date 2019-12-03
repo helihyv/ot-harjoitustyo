@@ -1,4 +1,5 @@
 # Tetris
+Harjoitustyön aiheena on klassikkopeli tetris. Pelissä pelaaja kääntelee ja liikuttaa sivuittain erimuotoisia ylhäältä putoavia palikoita yrittäen muodostaa palikoista kokonaisia rivejä. Kun rivi on saatu täyteen, se katoaa ja pelaaja saa pisteitä. Jos alas pudonneiden palikoiden pino kasvaa liian korkeaksi peli päättyy.
 
 ## Dokumentaatio
 
@@ -9,6 +10,8 @@
 [Työaikakirjanpito](/dokumentaatio/tuntikirjanpito.md)
 
 ## Releaset
+
+[Viikko 5](https://github.com/helihyv/ot-harjoitustyo/releases/tag/Viikko5)
 
 ## Komentorivitoiminnot
 
@@ -25,6 +28,12 @@ Testikattavuusraportti luodaan komennolla
 Kattavuusraporttia voi tarkastella avaamalla selaimella tiedoston _target/site/jacoco/index.html_
 
 ### Suoritettavan jarin generointi
+
+Komento
+
+`mvn package`
+
+muodostaa hakemistoon target suoritettavan jar-tiedoston Tetris-1.0-SNAPSHOT.jar
 
 ### JavaDoc
 
