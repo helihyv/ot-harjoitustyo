@@ -26,12 +26,12 @@ public class TetrisGame implements Game {
     private double fastFallSpeed;
 
     public TetrisGame() {
-        this.gameAreaWidth = 600;
+        this.gameAreaWidth = 480;
         this.gameAreaHeight = 900;
         this.tileWidth = 20;
         this.loseLevel = 200;
-        normalFallSpeed = 1;
-        fastFallSpeed = 5;
+        this.normalFallSpeed = 1;
+        this.fastFallSpeed = 5;
 
         startGame();
     }
