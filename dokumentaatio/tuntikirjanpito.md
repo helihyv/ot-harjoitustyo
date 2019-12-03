@@ -38,4 +38,5 @@ Päivä | Aika | Mitä tein
 3.12. | 0,25 | Kavennettu pelialuetta ja lisätty pisteiden antaminen pelaajalle myös peliä lopettamatta alas pudonneesta palikasta
 3.12. | 2 | Korjattu L- ja peilikuva-L -palikoiden kääntymisen vaatiman tilan määrittämistä ja lisätty niille testit
 3.12. | 1 | Uudelleenkirjoitettu L- ja peilikuva-L -palikoiden alareunan määrittävät funktiot lyhyemmiksi
-yht. | 41,75
+3.12. | 2 | GitHub release, vaatimusmäärittelyn päivitys, sekvenssikaavio palikan liikuttamisesta oikealle ja sen liittäminen arkkitehtuurikuvaukseen sekä README.md:n päivitys 
+yht. | 44,25
