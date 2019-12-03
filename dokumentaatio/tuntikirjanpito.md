@@ -34,4 +34,8 @@ Päivä | Aika | Mitä tein
 2.12. | 1,75 | Toteutettu T-muotoinen palikka
 2.12. | 0,5 | Testejä T-, S-, peiliS- ja peiliL- muotoisten palikoiden kääntymiselle
 2.12. | 3 | Tyylikorjauksia, funktioiden refaktorointia lyhyemmiksi, testien päivittämistä refaktoroinnin jäljiltä ja korjaus palikoiden satunnaiseen generointiin
-yht. | 38,25
+3.12 | 0,25 | Lisätty paketoimisen vaatima plugin pom.xml -tiedostoon ja testattu paketoinnin toimivuus
+3.12. | 0,25 | Kavennettu pelialuetta ja lisätty pisteiden antaminen pelaajalle myös peliä lopettamatta alas pudonneesta palikasta
+3.12. | 2 | Korjattu L- ja peilikuva-L -palikoiden kääntymisen vaatiman tilan määrittämistä ja lisätty niille testit
+3.12. | 1 | Uudelleenkirjoitettu L- ja peilikuva-L -palikoiden alareunan määrittävät funktiot lyhyemmiksi
+yht. | 41,75
