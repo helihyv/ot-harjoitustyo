@@ -159,11 +159,12 @@ public class LBlock extends Block {
         switch (orientation) {
 
             case 0:
-                neededAreas.add(new Area(tiles[0].getYCoordinate(), tiles[0].getXCoordinate() + tileWidth, tiles[3].getYCoordinate(), tiles[0].getXCoordinate() + 3 * tileWidth));
+                neededAreas.add(createTileWideArea(tiles[0].getYCoordinate(), tiles[0].getXCoordinate() + tileWidth, 2));
+                neededAreas.add(createTileWideArea(tiles[1].getYCoordinate(), tiles[1].getXCoordinate() - tileWidth, 2));
                 break;
 
             case 90:
-                neededAreas.add(new Area(tiles[2].getYCoordinate() - tileWidth, tiles[2].getXCoordinate(), tiles[2].getYCoordinate(), tiles[0].getXCoordinate()));
+                neededAreas.add(new Area(tiles[2].getYCoordinate() - tileWidth, tiles[2].getXCoordinate(), tiles[0].getYCoordinate(), tiles[0].getXCoordinate()));
 
                 neededAreas.add(new Area(tiles[3].getYCoordinate(), tiles[1].getXCoordinate(), tiles[3].getYCoordinate() + tileWidth, tiles[0].getXCoordinate() + tileWidth));
                 break;
@@ -177,7 +178,7 @@ public class LBlock extends Block {
 
             case 270:
 
-                neededAreas.add(new Area(tiles[3].getYCoordinate(), tiles[0].getXCoordinate(), tiles[0].getYCoordinate(), tiles[2].getYCoordinate() + tileWidth));
+                neededAreas.add(new Area(tiles[3].getYCoordinate(), tiles[0].getXCoordinate(), tiles[0].getYCoordinate(), tiles[2].getXCoordinate()));
                 neededAreas.add(new Area(tiles[1].getYCoordinate() + tileWidth, tiles[1].getXCoordinate(), tiles[2].getYCoordinate() + 2 * tileWidth, tiles[2].getXCoordinate() + tileWidth));
         }
 
