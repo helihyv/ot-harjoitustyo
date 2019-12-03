@@ -77,37 +77,20 @@ public class LBlock extends Block {
 
     @Override
     public double bottomEdge(double columnLeftEdge) {
-        if (orientation == 0) {
 
-            if (columnLeftEdge == tiles[3].getXCoordinate() || columnLeftEdge == tiles[2].getXCoordinate()) {
-                return tiles[3].getYCoordinate() + tileWidth;
-            } else {
-                return 0;
-            }
+        if (columnLeftEdge == tiles[3].getXCoordinate() && orientation != 270) {
+            return tiles[3].getYCoordinate() + tileWidth;
         }
 
-        if (orientation == 90) {
-            if (columnLeftEdge == tiles[3].getXCoordinate()) {
-                return tiles[3].getYCoordinate() + tileWidth;
-            }
-            if (columnLeftEdge == tiles[1].getXCoordinate() || columnLeftEdge == tiles[0].getXCoordinate()) {
-                return tiles[1].getYCoordinate() + tileWidth;
-            }
-            return 0;
+        if (columnLeftEdge == tiles[2].getXCoordinate() && (orientation == 0 || orientation == 270)) {
+            return tiles[2].getYCoordinate() + tileWidth;
         }
 
-        if (orientation == 180) {
-
-            if (columnLeftEdge == tiles[3].getXCoordinate()) {
-                return tiles[3].getYCoordinate() + tileWidth;
-            }
-            if (columnLeftEdge == tiles[0].getXCoordinate()) {
-                return tiles[0].getYCoordinate() + tileWidth;
-            }
-            return 0;
+        if (columnLeftEdge == tiles[1].getXCoordinate() && (orientation == 90 || orientation == 270)) {
+            return tiles[1].getYCoordinate() + tileWidth;
         }
 
-        if (columnLeftEdge == tiles[0].getXCoordinate() || columnLeftEdge == tiles[1].getXCoordinate() || columnLeftEdge == tiles[2].getXCoordinate()) {
+        if (columnLeftEdge == tiles[0].getXCoordinate() && orientation != 0) {
             return tiles[0].getYCoordinate() + tileWidth;
         }
 
