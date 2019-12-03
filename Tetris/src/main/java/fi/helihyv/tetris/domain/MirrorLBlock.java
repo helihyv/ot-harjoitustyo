@@ -173,7 +173,7 @@ public class MirrorLBlock extends Block {
         switch (orientation) {
 
             case 0:
-                neededAreas.add(createTileWideArea(tiles[1].getYCoordinate(), tiles[3].getXCoordinate(), 1));
+                neededAreas.add(createTileWideArea(tiles[0].getYCoordinate(), tiles[3].getXCoordinate(), 2));
                 neededAreas.add(createTileWideArea(tiles[0].getYCoordinate(), tiles[0].getXCoordinate() + tileWidth, 2));
                 break;
 
