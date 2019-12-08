@@ -39,4 +39,5 @@ Päivä | Aika | Mitä tein
 3.12. | 2 | Korjattu L- ja peilikuva-L -palikoiden kääntymisen vaatiman tilan määrittämistä ja lisätty niille testit
 3.12. | 1 | Uudelleenkirjoitettu L- ja peilikuva-L -palikoiden alareunan määrittävät funktiot lyhyemmiksi
 3.12. | 2 | GitHub release, vaatimusmäärittelyn päivitys, sekvenssikaavio palikan liikuttamisesta oikealle ja sen liittäminen arkkitehtuurikuvaukseen sekä README.md:n päivitys 
-yht. | 44,25
+8.12. | 0,25 | Testit S-muotoisen palikan kääntymisen tarvitseman tilan määrittelylle
+yht. | 44,5
