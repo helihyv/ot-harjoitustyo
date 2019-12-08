@@ -5,6 +5,7 @@
  */
 package fi.helihyv.tetris.domain;
 
+import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -66,7 +67,7 @@ public class SBlockTest {
     }
     
         @Test
-    public void lBlockRotatesCorrectlyFromNinetyTo180Degrees() {
+    public void sBlockRotatesCorrectlyFromNinetyTo180Degrees() {
         
         block.rotate();
         block.rotate();
@@ -85,7 +86,7 @@ public class SBlockTest {
     }
     
         @Test
-    public void lBlockRotatesCorrectlyFrom180To270Degrees() {
+    public void sBlockRotatesCorrectlyFrom180To270Degrees() {
         
         block.rotate();
         block.rotate();
@@ -105,7 +106,7 @@ public class SBlockTest {
     }
     
         @Test
-    public void lBlockRotatesCorrectlyFrom270ToZeroDegrees() {
+    public void sBlockRotatesCorrectlyFrom270ToZeroDegrees() {
         
         block.rotate();
         block.rotate();
@@ -123,5 +124,99 @@ public class SBlockTest {
         assertEquals(20, tiles[1].getYCoordinate(), 0.1);
         assertEquals(0, tiles[2].getYCoordinate(), 0.1);
         assertEquals(0, tiles[3].getYCoordinate(), 0.1);
+    }
+    
+        @Test
+    public void sBlockFreeAreasNeededToRotateTo90DegreesIncludeAreasBlockIsMovingInto() {
+
+        ArrayList<Area> areas = block.freeAreasNeededToRotate();
+
+        boolean found1 = false;
+        boolean found2 = false;
+
+        for (Area area : areas) {
+            if (area.overlaps(new TetrisTile(140, 20, 20))) {
+                found1 = true;
+            }
+            if (area.overlaps(new TetrisTile(140, 40, 20))) {
+                found2 = true;
+            }
+        }
+
+        assertTrue(found1);
+        assertTrue(found2);
+    }
+
+    @Test
+    public void sBlockFreeAreasNeededToRotateTo180DegreesIncludeAreasBlockIsMovingInto() {
+
+        block.rotate();
+
+        ArrayList<Area> areas = block.freeAreasNeededToRotate();
+
+        boolean found1 = false;
+        boolean found2 = false;
+
+        for (Area area : areas) {
+            if (area.overlaps(new TetrisTile(100, 20, 20))) {
+                found1 = true;
+            }
+            if (area.overlaps(new TetrisTile(120, 40, 20))) {
+                found2 = true;
+            }
+        }
+
+        assertTrue(found1);
+        assertTrue(found2);
+    }
+
+    @Test
+    public void sBlockFreeAreasNeededToRotateTo270DegreesIncludeAreasBlockIsMovingInto() {
+
+        block.rotate();
+        block.rotate();
+
+        ArrayList<Area> areas = block.freeAreasNeededToRotate();
+
+        boolean found1 = false;
+        boolean found2 = false;
+
+        for (Area area : areas) {
+            if (area.overlaps(new TetrisTile(140, 20, 20))) {
+                found1 = true;
+            }
+            if (area.overlaps(new TetrisTile(140, 40, 20))) {
+                found2 = true;
+            }
+
+        }
+
+        assertTrue(found1);
+        assertTrue(found2);
+    }
+
+    @Test
+    public void sBlockFreeAreasNeededToRotateToZeroDegreesIncludeAreasBlockIsMovingInto() {
+
+        block.rotate();
+        block.rotate();
+        block.rotate();
+
+        ArrayList<Area> areas = block.freeAreasNeededToRotate();
+
+        boolean found1 = false;
+        boolean found2 = false;
+
+        for (Area area : areas) {
+            if (area.overlaps(new TetrisTile(100, 20, 20))) {
+                found1 = true;
+            }
+            if (area.overlaps(new TetrisTile(120, 40, 20))) {
+                found2 = true;
+            }
+        }
+
+        assertTrue(found1);
+        assertTrue(found2);
     }
 }
