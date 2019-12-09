@@ -41,6 +41,7 @@ Päivä | Aika | Mitä tein
 3.12. | 2 | GitHub release, vaatimusmäärittelyn päivitys, sekvenssikaavio palikan liikuttamisesta oikealle ja sen liittäminen arkkitehtuurikuvaukseen sekä README.md:n päivitys 
 8.12. | 0,25 | Testit S-muotoisen palikan kääntymisen tarvitseman tilan määrittelylle
 9.12. | 0,5 | Testit peilikuva-S-, T- ja I-muotoisten palikoiden kääntymisen vaatiman tilan määrittelylle ja korjaus peilikuvaS-palikan konstruktoriin 
-10.12. | 5,25 | Toteutettu parhaiden tulosten näyttäminen, uuden tuloksen lisääminen tarvittaessa parhaisiin tuoksiin pelin loppuessa ja parhaiden tulosten tallentaminen H2-tietokantaan 
-10.12. | 0,25 | Tyylikorjauksia, ilmoituksen näyttäminen käyttäjälle, kun peli päättyy eikä highscorea saatu ja highscore-dialogin parantelu
-yht. | 50,5
+9.12. | 5,25 | Toteutettu parhaiden tulosten näyttäminen, uuden tuloksen lisääminen tarvittaessa parhaisiin tuoksiin pelin loppuessa ja parhaiden tulosten tallentaminen H2-tietokantaan 
+9.12. | 0,25 | Tyylikorjauksia, ilmoituksen näyttäminen käyttäjälle, kun peli päättyy eikä highscorea saatu ja highscore-dialogin parantelu
+9.12 | 0,25 | Lisätty käyttöohje
+yht. | 50,75
