@@ -21,12 +21,35 @@ import java.util.List;
 
 public class HighScoreH2DAO  implements HighScoreDAO {
 
+    public HighScoreH2DAO() {
+        
+        try {
+        
+        Connection connection = DriverManager.getConnection("jdbc:h2:./tetris", "sa", "");
+        
+        PreparedStatement stmt = connection.prepareStatement(
+                "CREATE TABLE IF NOT EXISTS HighScore(name VARCHAR(255), score INT)");
+        
+        stmt.execute();
+        stmt.close();
+        connection.close();
+        
+        }
+        
+        catch (Exception e) {
+            System.out.println(e);
+        }
+        
+    }
+    
+    
+
     @Override
     public boolean create(HighScore highScore) {
         
         try {
         
-        Connection connection = DriverManager.getConnection("jdbc_h2/.tetris", "sa", "");
+        Connection connection = DriverManager.getConnection("jdbc:h2:./tetris", "sa", "");
         
         PreparedStatement stmt = connection.prepareStatement(
                 "INSERT INTO HighScore VALUES(?,?)");
@@ -53,7 +76,7 @@ public class HighScoreH2DAO  implements HighScoreDAO {
         
         try {
         
-            Connection connection = DriverManager.getConnection("jdbc_h2/.tetris", "sa", "");
+            Connection connection = DriverManager.getConnection("jdbc:h2:./tetris", "sa", "");
 
             PreparedStatement stmt = connection.prepareStatement(
                     "SELECT * FROM HighScore ORDER BY score DESC LIMIT ?");
