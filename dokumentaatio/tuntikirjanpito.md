@@ -45,4 +45,5 @@ Päivä | Aika | Mitä tein
 9.12. | 0,25 | Tyylikorjauksia, ilmoituksen näyttäminen käyttäjälle, kun peli päättyy eikä highscorea saatu ja highscore-dialogin parantelu
 9.12. | 0,25 | Lisätty käyttöohje
 9.12. | 0,25 | Erotettu pelin logiikka ja HighScoreService omiin pakkauksiinsa
-yht. | 51
+9.12. | 1,75 | Lisätty javadoc-dokumentaatio ja tehty pikkukorjauksia
+yht. | 52,75
