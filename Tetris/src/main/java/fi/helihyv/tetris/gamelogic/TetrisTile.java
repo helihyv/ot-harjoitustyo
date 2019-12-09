@@ -1,5 +1,5 @@
 
-package fi.helihyv.tetris.domain;
+package fi.helihyv.tetris.gamelogic;
 
 /**
  *

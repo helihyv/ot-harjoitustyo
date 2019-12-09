@@ -3,27 +3,29 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fi.helihyv.tetris.domain;
+package fi.helihyv.tetris.gamelogic;
+
+import fi.helihyv.tetris.gamelogic.TetrisTile;
 
 /**
  *
  * @author Heli Hyvättinen
  */
-public class Area {
+class Area {
 
     private double topY;
     private double leftX;
     private double bottomY;
     private double rightX;
 
-    public Area(double topY, double leftX, double bottomY, double rightX) {
+    Area(double topY, double leftX, double bottomY, double rightX) {
         this.topY = topY;
         this.leftX = leftX;
         this.bottomY = bottomY;
         this.rightX = rightX;
     }
 
-    public boolean overlaps(TetrisTile tile) {
+    boolean overlaps(TetrisTile tile) {
 
         return ((tile.getXCoordinate() + tile.getWidth() > leftX
                 && tile.getXCoordinate() < rightX)

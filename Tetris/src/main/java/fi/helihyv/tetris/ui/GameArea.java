@@ -8,7 +8,7 @@ package fi.helihyv.tetris.ui;
 
 import javafx.scene.canvas.Canvas;
 import java.util.List;
-import fi.helihyv.tetris.domain.Tile;
+import fi.helihyv.tetris.gamelogic.Tile;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 

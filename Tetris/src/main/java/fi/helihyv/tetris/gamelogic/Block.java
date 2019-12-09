@@ -1,4 +1,4 @@
-package fi.helihyv.tetris.domain;
+package fi.helihyv.tetris.gamelogic;
 
 import java.util.ArrayList;
 

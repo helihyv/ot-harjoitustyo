@@ -1,7 +1,7 @@
 
-package fi.helihyv.tetris.domain;
+package fi.helihyv.tetris.gamelogic;
 
-import fi.helihyv.tetris.domain.TetrisGame;
+import fi.helihyv.tetris.gamelogic.TetrisGame;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

@@ -1,5 +1,6 @@
-package fi.helihyv.tetris.domain;
+package fi.helihyv.tetris.gamelogic;
 
+import fi.helihyv.tetris.gamelogic.Block;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;

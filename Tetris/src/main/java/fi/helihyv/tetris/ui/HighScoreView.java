@@ -6,7 +6,7 @@
 package fi.helihyv.tetris.ui;
 
 import fi.helihyv.tetris.dao.HighScore;
-import fi.helihyv.tetris.domain.HighScoreService;
+import fi.helihyv.tetris.highscores.HighScoreService;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.scene.control.Label;

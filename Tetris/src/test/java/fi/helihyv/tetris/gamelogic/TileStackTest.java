@@ -1,13 +1,14 @@
 
-package fi.helihyv.tetris.domain;
+package fi.helihyv.tetris.gamelogic;
 
+import fi.helihyv.tetris.gamelogic.TileStack;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import fi.helihyv.tetris.domain.SquareBlock;
+import fi.helihyv.tetris.gamelogic.SquareBlock;
 
 /**
  *

@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fi.helihyv.tetris.domain;
+package fi.helihyv.tetris.gamelogic;
 
+import fi.helihyv.tetris.gamelogic.Area;
+import fi.helihyv.tetris.gamelogic.TetrisTile;
 import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fi.helihyv.tetris.domain;
+package fi.helihyv.tetris.highscores;
 
 import fi.helihyv.tetris.dao.HighScore;
 import fi.helihyv.tetris.dao.HighScoreDAO;

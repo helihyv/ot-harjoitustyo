@@ -3,8 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fi.helihyv.tetris.domain;
+package fi.helihyv.tetris.gamelogic;
 
+import fi.helihyv.tetris.gamelogic.Tile;
+import fi.helihyv.tetris.gamelogic.Area;
+import fi.helihyv.tetris.gamelogic.TetrisTile;
+import fi.helihyv.tetris.gamelogic.MirrorSBlock;
 import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -15,13 +19,13 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Heli hyvättinen
+ * @author Heli Hyvättinen
  */
-public class SBlockTest {
+public class MirrorSBlockTest {
     
-    SBlock block;
+    MirrorSBlock block;
     
-    public SBlockTest() {
+    public MirrorSBlockTest() {
     }
     
     @BeforeClass
@@ -35,7 +39,7 @@ public class SBlockTest {
     @Before
     public void setUp() {
         
-        block = new SBlock(100,20);
+        block = new MirrorSBlock(100,20);
     }
     
     @After
@@ -49,7 +53,7 @@ public class SBlockTest {
     // public void hello() {}
     
         @Test
-    public void sBlockRotatesCorrectlyFromZeroToNinetyDegrees() {
+    public void mirrorSBlockRotatesCorrectlyFromZeroToNinetyDegrees() {
         
         block.rotate();
         
@@ -57,8 +61,8 @@ public class SBlockTest {
         
         assertEquals(120, tiles[0].getXCoordinate(), 0.1);
         assertEquals(120, tiles[1].getXCoordinate(), 0.1);
-        assertEquals(140, tiles[2].getXCoordinate(), 0.1);
-        assertEquals(140, tiles[3].getXCoordinate(), 0.1);
+        assertEquals(100, tiles[2].getXCoordinate(), 0.1);
+        assertEquals(100, tiles[3].getXCoordinate(), 0.1);
         
         assertEquals(0, tiles[0].getYCoordinate(), 0.1);
         assertEquals(20, tiles[1].getYCoordinate(), 0.1);
@@ -67,7 +71,7 @@ public class SBlockTest {
     }
     
         @Test
-    public void sBlockRotatesCorrectlyFromNinetyTo180Degrees() {
+    public void mirroSBlockRotatesCorrectlyFromNinetyTo180Degrees() {
         
         block.rotate();
         block.rotate();
@@ -81,12 +85,12 @@ public class SBlockTest {
         
         assertEquals(20, tiles[0].getYCoordinate(), 0.1);
         assertEquals(20, tiles[1].getYCoordinate(), 0.1);
-        assertEquals(0, tiles[2].getYCoordinate(), 0.1);
-        assertEquals(0, tiles[3].getYCoordinate(), 0.1);
+        assertEquals(40, tiles[2].getYCoordinate(), 0.1);
+        assertEquals(40, tiles[3].getYCoordinate(), 0.1);
     }
     
         @Test
-    public void sBlockRotatesCorrectlyFrom180To270Degrees() {
+    public void mirrorSBlockRotatesCorrectlyFrom180To270Degrees() {
         
         block.rotate();
         block.rotate();
@@ -96,8 +100,8 @@ public class SBlockTest {
         
         assertEquals(120, tiles[0].getXCoordinate(), 0.1);
         assertEquals(120, tiles[1].getXCoordinate(), 0.1);
-        assertEquals(140, tiles[2].getXCoordinate(), 0.1);
-        assertEquals(140, tiles[3].getXCoordinate(), 0.1);
+        assertEquals(100, tiles[2].getXCoordinate(), 0.1);
+        assertEquals(100, tiles[3].getXCoordinate(), 0.1);
         
         assertEquals(0, tiles[0].getYCoordinate(), 0.1);
         assertEquals(20, tiles[1].getYCoordinate(), 0.1);
@@ -106,7 +110,7 @@ public class SBlockTest {
     }
     
         @Test
-    public void sBlockRotatesCorrectlyFrom270ToZeroDegrees() {
+    public void mirrorSBlockRotatesCorrectlyFrom270ToZeroDegrees() {
         
         block.rotate();
         block.rotate();
@@ -122,12 +126,12 @@ public class SBlockTest {
         
         assertEquals(20, tiles[0].getYCoordinate(), 0.1);
         assertEquals(20, tiles[1].getYCoordinate(), 0.1);
-        assertEquals(0, tiles[2].getYCoordinate(), 0.1);
-        assertEquals(0, tiles[3].getYCoordinate(), 0.1);
+        assertEquals(40, tiles[2].getYCoordinate(), 0.1);
+        assertEquals(40, tiles[3].getYCoordinate(), 0.1);
     }
     
         @Test
-    public void sBlockFreeAreasNeededToRotateTo90DegreesIncludeAreasBlockIsMovingInto() {
+    public void mirrorSBlockFreeAreasNeededToRotateTo90DegreesIncludeAreasBlockIsMovingInto() {
 
         ArrayList<Area> areas = block.freeAreasNeededToRotate();
 
@@ -135,7 +139,31 @@ public class SBlockTest {
         boolean found2 = false;
 
         for (Area area : areas) {
-            if (area.overlaps(new TetrisTile(140, 20, 20))) {
+            if (area.overlaps(new TetrisTile(120, 0, 20))) {
+                found1 = true;
+            }
+            if (area.overlaps(new TetrisTile(100, 40, 20))) {
+                found2 = true;
+            }
+        }
+
+        assertTrue(found1);
+        assertTrue(found2);
+    }
+
+    @Test
+    public void mirrorSBlockFreeAreasNeededToRotateTo180DegreesIncludeAreasBlockIsMovingInto() {
+
+        block.rotate();
+
+        ArrayList<Area> areas = block.freeAreasNeededToRotate();
+
+        boolean found1 = false;
+        boolean found2 = false;
+
+
+        for (Area area : areas) {
+            if (area.overlaps(new TetrisTile(120, 40, 20))) {
                 found1 = true;
             }
             if (area.overlaps(new TetrisTile(140, 40, 20))) {
@@ -145,34 +173,39 @@ public class SBlockTest {
 
         assertTrue(found1);
         assertTrue(found2);
+ 
     }
 
     @Test
-    public void sBlockFreeAreasNeededToRotateTo180DegreesIncludeAreasBlockIsMovingInto() {
+    public void mirrorSBlockFreeAreasNeededToRotateTo270DegreesIncludeAreasBlockIsMovingInto() {
 
+        block.rotate();
         block.rotate();
 
         ArrayList<Area> areas = block.freeAreasNeededToRotate();
 
         boolean found1 = false;
         boolean found2 = false;
+ 
 
         for (Area area : areas) {
-            if (area.overlaps(new TetrisTile(100, 20, 20))) {
+            if (area.overlaps(new TetrisTile(120, 0, 20))) {
                 found1 = true;
             }
-            if (area.overlaps(new TetrisTile(120, 40, 20))) {
+            if (area.overlaps(new TetrisTile(100, 40, 20))) {
                 found2 = true;
             }
         }
 
         assertTrue(found1);
         assertTrue(found2);
+
     }
 
     @Test
-    public void sBlockFreeAreasNeededToRotateTo270DegreesIncludeAreasBlockIsMovingInto() {
+    public void mirrorSBlockFreeAreasNeededToRotateToZeroDegreesIncludeAreasBlockIsMovingInto() {
 
+        block.rotate();
         block.rotate();
         block.rotate();
 
@@ -182,36 +215,10 @@ public class SBlockTest {
         boolean found2 = false;
 
         for (Area area : areas) {
-            if (area.overlaps(new TetrisTile(140, 20, 20))) {
+            if (area.overlaps(new TetrisTile(120, 40, 20))) {
                 found1 = true;
             }
             if (area.overlaps(new TetrisTile(140, 40, 20))) {
-                found2 = true;
-            }
-
-        }
-
-        assertTrue(found1);
-        assertTrue(found2);
-    }
-
-    @Test
-    public void sBlockFreeAreasNeededToRotateToZeroDegreesIncludeAreasBlockIsMovingInto() {
-
-        block.rotate();
-        block.rotate();
-        block.rotate();
-
-        ArrayList<Area> areas = block.freeAreasNeededToRotate();
-
-        boolean found1 = false;
-        boolean found2 = false;
-
-        for (Area area : areas) {
-            if (area.overlaps(new TetrisTile(100, 20, 20))) {
-                found1 = true;
-            }
-            if (area.overlaps(new TetrisTile(120, 40, 20))) {
                 found2 = true;
             }
         }

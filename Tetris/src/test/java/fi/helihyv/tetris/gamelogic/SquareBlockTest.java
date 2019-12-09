@@ -1,5 +1,5 @@
 
-package fi.helihyv.tetris.domain;
+package fi.helihyv.tetris.gamelogic;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
  * @author Heli Hyvättinen
  */
 
-import fi.helihyv.tetris.domain.SquareBlock;
+import fi.helihyv.tetris.gamelogic.SquareBlock;
 
 public class SquareBlockTest {
     

@@ -16,10 +16,10 @@ import javafx.scene.input.KeyEvent;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyCode;
 
-import fi.helihyv.tetris.domain.Game;
-import fi.helihyv.tetris.domain.HighScoreService;
-import fi.helihyv.tetris.domain.TetrisGame;
-import fi.helihyv.tetris.domain.Tile;
+import fi.helihyv.tetris.gamelogic.Game;
+import fi.helihyv.tetris.highscores.HighScoreService;
+import fi.helihyv.tetris.gamelogic.TetrisGame;
+import fi.helihyv.tetris.gamelogic.Tile;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
