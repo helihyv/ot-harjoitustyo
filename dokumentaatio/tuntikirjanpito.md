@@ -42,4 +42,5 @@ Päivä | Aika | Mitä tein
 8.12. | 0,25 | Testit S-muotoisen palikan kääntymisen tarvitseman tilan määrittelylle
 9.12. | 0,5 | Testit peilikuva-S-, T- ja I-muotoisten palikoiden kääntymisen vaatiman tilan määrittelylle ja korjaus peilikuvaS-palikan konstruktoriin 
 10.12. | 5,25 | Toteutettu parhaiden tulosten näyttäminen, uuden tuloksen lisääminen tarvittaessa parhaisiin tuoksiin pelin loppuessa ja parhaiden tulosten tallentaminen H2-tietokantaan 
-yht. | 50,25
+10.12. | 0,25 | Tyylikorjauksia, ilmoituksen näyttäminen käyttäjälle, kun peli päättyy eikä highscorea saatu ja highscore-dialogin parantelu
+yht. | 50,5
