@@ -40,4 +40,5 @@ Päivä | Aika | Mitä tein
 3.12. | 1 | Uudelleenkirjoitettu L- ja peilikuva-L -palikoiden alareunan määrittävät funktiot lyhyemmiksi
 3.12. | 2 | GitHub release, vaatimusmäärittelyn päivitys, sekvenssikaavio palikan liikuttamisesta oikealle ja sen liittäminen arkkitehtuurikuvaukseen sekä README.md:n päivitys 
 8.12. | 0,25 | Testit S-muotoisen palikan kääntymisen tarvitseman tilan määrittelylle
-yht. | 44,5
+9.12. | 0,5 | Testit peilikuva-S-, T- ja I-muotoisten palikoiden kääntymisen vaatiman tilan määrittelylle ja korjaus peilikuvaS-palikan konstruktoriin 
+yht. | 45
