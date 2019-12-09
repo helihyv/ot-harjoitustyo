@@ -17,7 +17,7 @@ public class MirrorSBlock extends Block {
         super(tileWidth);
 
         tiles[0] = new TetrisTile(xCoordinate, tileWidth, tileWidth);
-        tiles[1] = new TetrisTile(xCoordinate + tileWidth, 20, tileWidth);
+        tiles[1] = new TetrisTile(xCoordinate + tileWidth, tileWidth, tileWidth);
         tiles[2] = new TetrisTile(xCoordinate + tileWidth, 2 * tileWidth, tileWidth);
         tiles[3] = new TetrisTile(xCoordinate + tileWidth * 2, 2 * tileWidth, tileWidth);
 
