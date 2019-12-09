@@ -89,9 +89,9 @@ public class TetrisUI extends Application {
                     int rank = highScoreService.getRank(score);
 
                     if (rank > 0) {
-                        TextInputDialog dialog = new TextInputDialog("Name here please");
-                        dialog.setTitle("GAME OVER");
-                        dialog.setHeaderText("You reached the rank " + rank);
+                        TextInputDialog dialog = new TextInputDialog("");
+                        dialog.setTitle("Tetris – Highscore");
+                        dialog.setHeaderText("GAME OVER \n You reached the rank " + rank);
                         dialog.setGraphic(null);
                         dialog.setContentText("Give your name for the highscore list:");
                         dialog.resultProperty().addListener(
@@ -103,9 +103,12 @@ public class TetrisUI extends Application {
                         dialog.show();
 
                     } else {
-                        //                    Alert alert = new Alert(AlertType.INFORMATION);
-                        //                     alert.show();
-                        System.out.println("No highscore this time");
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle("Tetris – Game Over");
+                        alert.setHeaderText("GAME OVER");
+                        alert.setContentText("No highscore this time");
+                        alert.setGraphic(null);
+                        alert.show();
                     }
 
                 }
