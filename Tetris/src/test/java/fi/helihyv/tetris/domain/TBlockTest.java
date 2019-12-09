@@ -5,6 +5,7 @@
  */
 package fi.helihyv.tetris.domain;
 
+import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -123,5 +124,80 @@ public class TBlockTest {
         assertEquals(20, tiles[1].getYCoordinate(), 0.1);
         assertEquals(20, tiles[2].getYCoordinate(), 0.1);
         assertEquals(00, tiles[3].getYCoordinate(), 0.1);
+    }
+    
+        @Test
+    public void tBlockFreeAreasNeededToRotateTo90DegreesIncludeAreasBlockIsMovingInto() {
+
+        ArrayList<Area> areas = block.freeAreasNeededToRotate();
+
+        boolean found1 = false;
+
+        for (Area area : areas) {
+            if (area.overlaps(new TetrisTile(120, 40, 20))) {
+                found1 = true;
+            }
+        }
+
+        assertTrue(found1);
+
+    }
+
+    @Test
+    public void tBlockFreeAreasNeededToRotateTo180DegreesIncludeAreasBlockIsMovingInto() {
+
+        block.rotate();
+
+        ArrayList<Area> areas = block.freeAreasNeededToRotate();
+
+        boolean found1 = false;
+
+        for (Area area : areas) {
+            if (area.overlaps(new TetrisTile(100, 20, 20))) {
+                found1 = true;
+            }
+        }
+
+        assertTrue(found1);
+    }
+
+    @Test
+    public void tBlockFreeAreasNeededToRotateTo270DegreesIncludeAreasBlockIsMovingInto() {
+
+        block.rotate();
+        block.rotate();
+
+        ArrayList<Area> areas = block.freeAreasNeededToRotate();
+
+        boolean found1 = false;
+
+        for (Area area : areas) {
+            if (area.overlaps(new TetrisTile(120, 0, 20))) {
+                found1 = true;
+            }
+        }
+
+        assertTrue(found1);
+    }
+
+    @Test
+    public void tBlockFreeAreasNeededToRotateToZeroDegreesIncludeAreasBlockIsMovingInto() {
+
+        block.rotate();
+        block.rotate();
+        block.rotate();
+
+        ArrayList<Area> areas = block.freeAreasNeededToRotate();
+
+        boolean found1 = false;
+
+        for (Area area : areas) {
+            if (area.overlaps(new TetrisTile(140, 20, 20))) {
+                found1 = true;
+            }
+        }
+
+        assertTrue(found1);
+
     }
 }
