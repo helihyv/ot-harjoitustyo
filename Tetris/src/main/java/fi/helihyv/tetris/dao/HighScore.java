@@ -13,9 +13,9 @@ package fi.helihyv.tetris.dao;
 public class HighScore implements Comparable<HighScore> {
  
     private String name;
-    private int score;
+    private long score;
 
-    public HighScore(String name, int score) {
+    public HighScore(String name, long score) {
         this.score = score;
         this.name = name;
     }
@@ -24,14 +24,20 @@ public class HighScore implements Comparable<HighScore> {
         return name;
     }
 
-    public int getScore() {
+    public long getScore() {
         return score;
     }
 
     @Override
     public int compareTo(HighScore t) {
-       return this.score - t.getScore();
-    }
+       long difference = t.getScore() - this.score;
+       if (difference > 0) {
+           return 1;
+       }
+       if (difference < 0) {
+           return -1;
+       }
+       return 0;
     
     
     

@@ -18,6 +18,8 @@ public interface Game {
     
     public void stopGame();
     
+    public boolean hasGameEnded();
+    
     public int getGameAreaWidth();
     
     public int getGameAreaHeight();

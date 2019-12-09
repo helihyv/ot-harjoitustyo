@@ -28,7 +28,7 @@ public class HighScoreH2DAO  implements HighScoreDAO {
         Connection connection = DriverManager.getConnection("jdbc:h2:./tetris", "sa", "");
         
         PreparedStatement stmt = connection.prepareStatement(
-                "CREATE TABLE IF NOT EXISTS HighScore(name VARCHAR(255), score INT)");
+                "CREATE TABLE IF NOT EXISTS HighScore(name VARCHAR(255), score BIGINT)");
         
         stmt.execute();
         stmt.close();
@@ -54,7 +54,7 @@ public class HighScoreH2DAO  implements HighScoreDAO {
         PreparedStatement stmt = connection.prepareStatement(
                 "INSERT INTO HighScore VALUES(?,?)");
         stmt.setString(1,highScore.getName());
-        stmt.setInt(2, highScore.getScore());
+        stmt.setLong(2, highScore.getScore());
         
         stmt.executeUpdate();
         stmt.close();
@@ -63,6 +63,7 @@ public class HighScoreH2DAO  implements HighScoreDAO {
         }
         
         catch (Exception e) {
+            System.out.println(e.getMessage());
             return false;
         }
         

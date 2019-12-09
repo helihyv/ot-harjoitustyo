@@ -33,16 +33,19 @@ public class HighScoreService {
     }
     
     public boolean addHighScore(HighScore highScore) {
-        
-       if (highScore.getScore() > highScores.get(n-1).getScore()) { 
+               
+       if (highScores.size() < n ||
+            highScore.getScore() > highScores.get(highScores.size()-1).getScore()
+       ) { 
         
             if (!dao.create(highScore)) {
                return false;
             }
             highScores.add(highScore);
             Collections.sort(highScores);
-            highScores.remove(n-1);
-
+            if (highScores.size() > n) {
+                highScores.remove(n);
+            }
    
        }
        
@@ -51,15 +54,24 @@ public class HighScoreService {
        
     }
     
-    public int getRank(int score) {
-       
-        for (int i = 0; i < n; i++) {
+    public int getRank(long score) {
+              
+        for (int i = 0; i < highScores.size(); i++) {
             
             if (score > highScores.get(i).getScore()) {
-                return i;
+
+                return i+1;
             }
         }
         
+        if (highScores.size() < n) {
+            return highScores.size() + 1;
+        }
+        
         return -1;
+    }
+    
+    public int getMaxNumberOfHighScores() {
+        return n;
     }
 }

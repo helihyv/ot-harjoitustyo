@@ -24,6 +24,7 @@ public class TetrisGame implements Game {
     private boolean fastFall;
     private double normalFallSpeed;
     private double fastFallSpeed;
+    private boolean gameEnded;
 
     public TetrisGame() {
         this.gameAreaWidth = 480;
@@ -64,6 +65,7 @@ public class TetrisGame implements Game {
     public void startGame() {
 
         this.score = 0;
+        this.gameEnded = false;
 
         tileStack = new TileStack(gameAreaWidth, gameAreaHeight);
         generateNewBlock();
@@ -173,6 +175,7 @@ public class TetrisGame implements Game {
 
     @Override
     public void stopGame() {
+        gameEnded = true;
         timer.cancel();
 
     }
@@ -211,4 +214,10 @@ public class TetrisGame implements Game {
         }
     }
 
+    @Override
+    public boolean hasGameEnded() {
+        return gameEnded;
+    }
+
+    
 }

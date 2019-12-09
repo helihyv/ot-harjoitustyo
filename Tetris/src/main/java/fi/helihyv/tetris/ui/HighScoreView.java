@@ -39,22 +39,26 @@ public class HighScoreView {
         
         List<HighScore> highScores = loadHighScores();
         
-        for (int i = 0; i < highScores.size(); i++) {
+        for (int i = 0; i < highScoreService.getMaxNumberOfHighScores(); i++) {
             Label label = new Label(); 
             layout.getChildren().add(label);
             scoreLabels.add(label);
         }
         
         setHighScores(highScores);
+        
+        for (HighScore highScore : highScores) {
+            System.out.println(highScore.getName() + " " + highScore.getScore());
+        }
     
     }
     
     private void setHighScores(List<HighScore> highScores) {
         
-        for (int i = 1; i < scoreLabels.size(); i++) {
+        for (int i = 0; i < scoreLabels.size(); i++) {
             if (i < highScores.size()) {
                 HighScore highScore = highScores.get(i);
-                scoreLabels.get(i).setText(i + ". " + highScore.getName() + " " 
+                scoreLabels.get(i).setText((i +1)  + ". " + highScore.getName() + " " 
                         +  highScore.getScore());
             }
 
