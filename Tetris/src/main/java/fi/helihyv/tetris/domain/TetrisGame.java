@@ -219,5 +219,4 @@ public class TetrisGame implements Game {
         return gameEnded;
     }
 
-    
 }

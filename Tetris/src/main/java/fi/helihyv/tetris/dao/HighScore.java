@@ -9,9 +9,8 @@ package fi.helihyv.tetris.dao;
  *
  * @author Heli Hyvättinen
  */
-
 public class HighScore implements Comparable<HighScore> {
- 
+
     private String name;
     private long score;
 
@@ -30,16 +29,15 @@ public class HighScore implements Comparable<HighScore> {
 
     @Override
     public int compareTo(HighScore t) {
-       long difference = t.getScore() - this.score;
-       if (difference > 0) {
-           return 1;
-       }
-       if (difference < 0) {
-           return -1;
-       }
-       return 0;
-    
-    
-    
-    
+        long difference = t.getScore() - this.score;
+        if (difference > 0) {
+            return 1;
+        }
+        if (difference < 0) {
+            return -1;
+        }
+        return 0;
+
+    }
+
 }

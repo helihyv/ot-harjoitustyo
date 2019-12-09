@@ -13,70 +13,62 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 /**
  *
  * @author Heli Hyvättinen
  */
-
-public class HighScoreH2DAO  implements HighScoreDAO {
+public class HighScoreH2DAO implements HighScoreDAO {
 
     public HighScoreH2DAO() {
-        
+
         try {
-        
-        Connection connection = DriverManager.getConnection("jdbc:h2:./tetris", "sa", "");
-        
-        PreparedStatement stmt = connection.prepareStatement(
-                "CREATE TABLE IF NOT EXISTS HighScore(name VARCHAR(255), score BIGINT)");
-        
-        stmt.execute();
-        stmt.close();
-        connection.close();
-        
-        }
-        
-        catch (Exception e) {
+
+            Connection connection = DriverManager.getConnection("jdbc:h2:./tetris", "sa", "");
+
+            PreparedStatement stmt = connection.prepareStatement(
+                    "CREATE TABLE IF NOT EXISTS HighScore(name VARCHAR(255), score BIGINT)");
+
+            stmt.execute();
+            stmt.close();
+            connection.close();
+
+        } catch (Exception e) {
             System.out.println(e);
         }
-        
+
     }
-    
-    
 
     @Override
     public boolean create(HighScore highScore) {
-        
+
         try {
-        
-        Connection connection = DriverManager.getConnection("jdbc:h2:./tetris", "sa", "");
-        
-        PreparedStatement stmt = connection.prepareStatement(
-                "INSERT INTO HighScore VALUES(?,?)");
-        stmt.setString(1,highScore.getName());
-        stmt.setLong(2, highScore.getScore());
-        
-        stmt.executeUpdate();
-        stmt.close();
-        connection.close();
-        
-        }
-        
-        catch (Exception e) {
+
+            Connection connection = DriverManager.getConnection("jdbc:h2:./tetris", "sa", "");
+
+            PreparedStatement stmt = connection.prepareStatement(
+                    "INSERT INTO HighScore VALUES(?,?)");
+            stmt.setString(1, highScore.getName());
+            stmt.setLong(2, highScore.getScore());
+
+            stmt.executeUpdate();
+            stmt.close();
+            connection.close();
+
+        } catch (Exception e) {
             System.out.println(e.getMessage());
             return false;
         }
-        
+
         return true;
     }
 
     @Override
     public List<HighScore> list(int n) {
-        
+
         ArrayList<HighScore> highScores = new ArrayList<>();
-        
+
         try {
-        
+
             Connection connection = DriverManager.getConnection("jdbc:h2:./tetris", "sa", "");
 
             PreparedStatement stmt = connection.prepareStatement(
@@ -91,15 +83,13 @@ public class HighScoreH2DAO  implements HighScoreDAO {
             }
 
             stmt.close();
-            connection.close();        
-        }
-        
-        catch (Exception e ) {
+            connection.close();
+        } catch (Exception e) {
             System.out.println(e.getMessage());
             return null;
         }
-       
+
         return highScores;
     }
-    
+
 }

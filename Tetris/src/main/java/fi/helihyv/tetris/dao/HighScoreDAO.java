@@ -13,8 +13,8 @@ import java.util.List;
  * @author Heli Hyvättinen
  */
 public interface HighScoreDAO {
-    
-    public boolean create(HighScore highScore); 
-    
+
+    public boolean create(HighScore highScore);
+
     public List<HighScore> list(int n);
 }
