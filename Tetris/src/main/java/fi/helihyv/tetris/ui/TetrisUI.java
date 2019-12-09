@@ -6,6 +6,7 @@ package fi.helihyv.tetris.ui;
  * @author Heli Hyvättinen
  */
 
+import fi.helihyv.tetris.dao.HighScoreH2DAO;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -17,6 +18,7 @@ import javafx.event.EventHandler;
 import javafx.scene.input.KeyCode;
 
 import fi.helihyv.tetris.domain.Game;
+import fi.helihyv.tetris.domain.HighScoreService;
 import fi.helihyv.tetris.domain.TetrisGame;
 import fi.helihyv.tetris.domain.Tile;
 import javafx.scene.control.Label;
@@ -51,6 +53,8 @@ public class TetrisUI extends Application {
         Label scoreLabel = new Label("Score: 0");
         sideBar.getChildren().add(startGameLabel);
         sideBar.getChildren().add(scoreLabel);
+        HighScoreService highScoreService = new HighScoreService(new HighScoreH2DAO(), 10);
+        sideBar.getChildren().add(new HighScoreView(highScoreService).getLayout());
         root.getChildren().add(sideBar);
         root.getChildren().add(gameArea.getCanvas());
         
