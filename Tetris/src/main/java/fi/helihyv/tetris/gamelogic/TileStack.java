@@ -53,7 +53,6 @@ public class TileStack {
         for (Area area : areas) {
             for (TetrisTile tile : tiles) {
                 if (area.overlaps(tile)) {
-                    System.out.println("Overlap");
                     return false;
                 }
             }
