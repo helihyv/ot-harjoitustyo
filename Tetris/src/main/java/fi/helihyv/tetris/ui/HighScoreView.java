@@ -13,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
 /**
+ * Luokka huolehtii parhaiden tulosten näyttämisestä
  *
  * @author Heli Hyvättinen
  */
@@ -65,10 +66,19 @@ public class HighScoreView {
         }
     }
 
+    /**
+     * Metodi päivittää näytettävät tulokset
+     */
     public void updateHighScores() {
         setHighScores(highScoreService.getHighScores());
     }
 
+    /**
+     * Metodi palauttaa layoutin, joka sisältää otsikon, mahdollisen
+     * virheilmoituksen ja näytettävät tulokset
+     *
+     * @return layout
+     */
     public VBox getLayout() {
         return layout;
     }

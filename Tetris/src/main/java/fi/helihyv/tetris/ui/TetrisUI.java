@@ -1,9 +1,5 @@
 package fi.helihyv.tetris.ui;
 
-/**
- *
- * @author Heli Hyvättinen
- */
 import fi.helihyv.tetris.dao.HighScore;
 import fi.helihyv.tetris.dao.HighScoreH2DAO;
 import javafx.animation.AnimationTimer;
@@ -29,6 +25,14 @@ import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
+/**
+ * Tetris-pelin käyttöliittymän pääluokka, jonka vastuulla on sovelluslogiikan
+ * ylätason olioiden luominen ja käynnistäminen, muiden käyttöliittymän osien
+ * luominen, näppäinpainalluksiin reagoiminen ja animaatioajastimen luominen ja
+ * käynnistäminen.
+ *
+ * @author Heli Hyvättinen
+ */
 public class TetrisUI extends Application {
 
     private Game game;
@@ -37,6 +41,12 @@ public class TetrisUI extends Application {
     private HighScoreService highScoreService;
     private HighScoreView highScoreView;
 
+    /**
+     * Metodi suoritetaan sovellusta käynnistettäessä. Metodi luo
+     * sovelluslogiikan Game ja HighscoreService-oliot, luo muut käyttöliittymän
+     * osat, luo ja käynnistää animaatioajastimen, luo ja asettaa
+     * näppäimistötapahtumien käsittelijän, sekä käynnistää pelin
+     */
     @Override
     public void start(Stage window) {
 
@@ -161,6 +171,13 @@ public class TetrisUI extends Application {
         launch(TetrisUI.class);
     }
 
+    /**
+     * Metodi suoritetaan sovellusta suljettaessa Metodi lopettaa pelin, jotta
+     * sovelluslogiikan ajastin ei jäisi päälle ja estäisi säiettään
+     * sulkeutumasta
+     *
+     * @throws Exception
+     */
     @Override
     public void stop() throws Exception {
         game.stopGame();

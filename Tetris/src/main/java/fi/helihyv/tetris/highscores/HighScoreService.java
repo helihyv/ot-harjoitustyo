@@ -11,6 +11,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
+ * Parhaiden tulosten osalta sovelluslogiikasta vastaava luokka
  *
  * @author Heli Hyvättinen
  */
@@ -20,6 +21,11 @@ public class HighScoreService {
     HighScoreDAO dao;
     int n;
 
+    /**
+     *
+     * @param dao HighScoeDAO-olio, joka vastaa tulosten pysyväistallennuksesta
+     * @param n listalla pidettävien tulosten maksimimäärä
+     */
     public HighScoreService(HighScoreDAO dao, int n) {
         this.dao = dao;
         this.n = n;
@@ -31,6 +37,12 @@ public class HighScoreService {
 
     }
 
+    /**
+     * Metodi lisää tuloksen parhaiden tulostenlistaan
+     *
+     * @param highScore lisättävä tulos HighScore-oliona
+     * @return onnistuiko tuloksen lisäys
+     */
     public boolean addHighScore(HighScore highScore) {
 
         if (highScores.size() < n
@@ -51,6 +63,13 @@ public class HighScoreService {
 
     }
 
+    /**
+     * Metodi palauttaa minkä sijan tuloslistalla saavuttaa annetulla
+     * pistemäärällä Jos pistemäärä ei pääse listalle, palautetaan -1
+     *
+     * @param score pelaajan saama pistemäärä
+     * @return sijoitus, tai -1 jos sijoitusta ei ole
+     */
     public int getRank(long score) {
 
         for (int i = 0; i < highScores.size(); i++) {

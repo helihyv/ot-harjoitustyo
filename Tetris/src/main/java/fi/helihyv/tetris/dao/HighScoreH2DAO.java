@@ -14,11 +14,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Luokka huoilehtii parhaiden tulosten tallentamisesta H2-tietokantaan ja
+ * niiden hakemisesta sieltä Tietokanta sijaitsee tiedostossa ./tetris.mv.db
+ * Lisäksi luodaan tiedosto ./tetris.trace.db
  *
  * @author Heli Hyvättinen
  */
 public class HighScoreH2DAO implements HighScoreDAO {
 
+    /**
+     * Luokan konstruktori luo tietokantatiedoston ja siihen taulun tuloksille,
+     * ellei niitä ole jo luotu aiemmin
+     */
     public HighScoreH2DAO() {
 
         try {

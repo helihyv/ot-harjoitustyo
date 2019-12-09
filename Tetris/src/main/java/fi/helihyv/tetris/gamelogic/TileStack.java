@@ -6,12 +6,22 @@ import fi.helihyv.tetris.gamelogic.Tile;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Luokka kuvaa Tetris-pelin tiilipinoa, johon palikat pudottuaan päätyvät.
+ *
+ * @author Heli Hyvättinen
+ */
 public class TileStack {
 
     private ArrayList<TetrisTile> tiles;
     private double gameAreaWidth;
     private double gameAreaHeight;
 
+    /**
+     *
+     * @param gameAreaWidth pelialueen leveys loogisina pikseleinä
+     * @param gameAreaHeight pelialueen korkjeus loogisina pikseleinä
+     */
     public TileStack(double gameAreaWidth, double gameAreaHeight) {
 
         tiles = new ArrayList<>();
@@ -20,18 +30,38 @@ public class TileStack {
 
     }
 
+    /**
+     * Metodi palauttaa tiilipinoon kuuluvat tiilet
+     *
+     * @return tiilipinon tiilet listana Tile-olioita
+     */
     public List<Tile> getTiles() {
 
         List<Tile> tileList = (List<Tile>) tiles.clone();
         return tileList;
     }
 
+    /**
+     * Metodi lisää annetun palikan tiilet tiilipinoon
+     *
+     * @param block palikka, jonka tiilet lisätään tiilipinoon
+     */
     public void addBlock(Block block) {
         for (int i = 0; i < 4; i++) {
             tiles.add(block.getTiles()[i]);
         }
     }
 
+    /**
+     * Metodi palauttaa tiilipinon ylimmän kohdan y-koordinaation annetussa
+     * vaakasuuntaisessa kohdassa, annetun rajakorkeuden alapuolella
+     *
+     * @param rowBottomEdge y-koordinaatti, jonka alapuoliset osat tiilipinoa
+     * huomioidaan
+     * @param columnLeftEdge Kun pelialue jaetaan paliknalevyisiin sarakkeisiin,
+     * tällaisen sarakkeen vasen reuna loogisina pikseleinä
+     * @return tiilipinon korkeimman kohdan y-koordinaatti annetussa kohdassa
+     */
     public double topEdge(double rowBottomEdge, double columnLeftEdge) {
 
         double topEdge = Double.MAX_VALUE;
@@ -48,6 +78,16 @@ public class TileStack {
         return topEdge;
     }
 
+    /**
+     * Metodi palauttaa tiedon, ovatko kaikki parametrissa annetut alueet
+     * vapaita Jos alue menee osittainkaan päällekkäin jonkin tiilipinon tiilen
+     * kanssa, se ei ole vapaa.
+     *
+     * @param areas Lista Area-olioita, jotka kuvaavat alueita, joiden vapaana
+     * oleminen tarkistetaan
+     * @return true: kaikki tutkittavat alueet olivat kokonaan vapaita, false:
+     * ainakin jokin alueista ei ollut kokonaan vapaa
+     */
     public boolean areAreasFree(ArrayList<Area> areas) {
 
         for (Area area : areas) {
@@ -61,6 +101,12 @@ public class TileStack {
         return true;
     }
 
+    /**
+     * Metodi poistaa täyteen tulleet rivit ja siirtää niiden yläpouolella
+     * olleet rivit alaspäin
+     *
+     * @return poistettujen tiilien määrä
+     */
     public int removeFullRows() {
 
         if (tiles.isEmpty()) {

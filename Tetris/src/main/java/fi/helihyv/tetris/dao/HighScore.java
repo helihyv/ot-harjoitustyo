@@ -6,6 +6,8 @@
 package fi.helihyv.tetris.dao;
 
 /**
+ * Luokka kuvaa parhaiden tulosten listalle kuuluvaa tulosta Tuloksella on
+ * pelaajan nimi ja pistemäärä
  *
  * @author Heli Hyvättinen
  */
@@ -27,6 +29,15 @@ public class HighScore implements Comparable<HighScore> {
         return score;
     }
 
+    /**
+     * Metodi vertaa tulosta toiseen tulokseen Vertailulla tulokset järjestyvät
+     * suoraan suurimmasta pienimpään Vertailussa käytetään vain pisteiden
+     * määrää
+     *
+     * @param t verrattava toinen saman luokan olio
+     * @return 0, jos verrattavilla yhtä suuret pisteet, 1, jos verrattavalla
+     * oliolla suuremmat pisteet, -1, jos oliolla itsellään suuremmat pisteet
+     */
     @Override
     public int compareTo(HighScore t) {
         long difference = t.getScore() - this.score;
