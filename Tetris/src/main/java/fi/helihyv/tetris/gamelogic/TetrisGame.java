@@ -180,7 +180,7 @@ public class TetrisGame implements Game {
 
     }
 
-    public boolean isGameOver() {
+    private boolean isGameOver() {
 
         for (int i = 0; i < gameAreaWidth; i += tileWidth) {
 
