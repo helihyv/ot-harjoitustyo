@@ -47,4 +47,5 @@ Päivä | Aika | Mitä tein
 9.12. | 0,25 | Erotettu pelin logiikka ja HighScoreService omiin pakkauksiinsa
 9.12. | 1,75 | Lisätty javadoc-dokumentaatio ja tehty pikkukorjauksia
 10.12. | 3 | Arkkitehtuurikuvaus, toteutettujen toiminnallisuuksien päivitys vaatimusmäärittelyyn, README.md:n päivitys, nimenkirjoittamisdialogin korjaus ja gitignoren korjaus
-yht. | 55,75
+10.12. | 0,25 | Täydennetty javadoc-dokumentaatiota
+yht. | 56
