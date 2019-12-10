@@ -17,6 +17,8 @@ public class TetrisTile implements Tile {
     private double width;
 
     /**
+     * Luokan konstruktori luo uuden tiilen ja saa paramtereikseen tiilen
+     * sijainnin ja koon
      *
      * @param x tiilen vasemman yläkulma x-koordinaatti
      * @param y tiilen vasemman yläkulman y-koordinaatti

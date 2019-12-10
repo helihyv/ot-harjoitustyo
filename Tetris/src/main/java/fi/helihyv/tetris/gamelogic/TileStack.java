@@ -18,9 +18,11 @@ public class TileStack {
     private double gameAreaHeight;
 
     /**
+     * Luokan konstruktori luo uuden tiilipinon ja saa parametreikseen
+     * pelialueen koon
      *
      * @param gameAreaWidth pelialueen leveys loogisina pikseleinä
-     * @param gameAreaHeight pelialueen korkjeus loogisina pikseleinä
+     * @param gameAreaHeight pelialueen korkeus loogisina pikseleinä
      */
     public TileStack(double gameAreaWidth, double gameAreaHeight) {
 

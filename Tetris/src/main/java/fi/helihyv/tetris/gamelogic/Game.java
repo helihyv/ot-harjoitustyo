@@ -5,12 +5,14 @@
  */
 package fi.helihyv.tetris.gamelogic;
 
+import java.util.List;
+
 /**
+ * Rajapinnan toteuttava luokka muodostaa tetris-pelin logiikan rungon
+ * Käyttöliittymän riittää tietää luokasta tämä rajapinta
  *
  * @author Heli Hyvättinen
  */
-import java.util.List;
-
 public interface Game {
 
     /**

@@ -15,6 +15,9 @@ public abstract class Block {
     protected int orientation;
 
     /**
+     * Konstruktori luo tiilille taulukon ja asettaa tiilen koon ja asennon.
+     * Alkuasentona aina 0 astetta. Tämän luokan perivien luokkien
+     * konstruktorien on kutsuttava tätä konstruktoria
      *
      * @param tileWidth Palikan tiilien leveys ja korkeus
      */
@@ -78,6 +81,18 @@ public abstract class Block {
         return tiles;
     }
 
+    /**
+     * Metodi asettaa palikan tiilien sijainnin parametriensa mukaisiksi
+     *
+     * @param x0 taulukon indeksissä 0 olevan tiilen x-koordinaatti
+     * @param y0 taulukon indeksissä 0 olevan tiilen y-koordinaatti
+     * @param x1 taulukon indeksissä 1 olevan tiilen x-koordinaatti
+     * @param y1 taulukon indeksissä 1 olevan tiilen y-koordinaatti
+     * @param x2 taulukon indeksissä 2 olevan tiilen x-koordinaatti
+     * @param y2 taulukon indeksissä 2 olevan tiilen y-koordinaatti
+     * @param x3 taulukon indeksissä 3 olevan tiilen x-koordinaatti
+     * @param y3 taulukon indeksissä 3 olevan tiilen y-koordinaatti
+     */
     protected void setTilePositions(double x0, double y0, double x1, double y1, double x2, double y2, double x3, double y3) {
 
         tiles[0].setYCoordinate(y0);
@@ -138,6 +153,15 @@ public abstract class Block {
      */
     public abstract ArrayList<Area> freeAreasNeededToRotate();
 
+    /**
+     * Metodi luo tiilenlevyisen alueen (Area-olion) ja saa parametreina alueen
+     * sijainnin ja korkeuden
+     *
+     * @param topY alueen vasemman yläkulman y-koordinaatti
+     * @param leftX alueen vasemman yläkulman x-koordinaatti
+     * @param lengthInTiles alueen korkeus yksikkönä tiilenkorkeus
+     * @return parametrien mukainen Area-olio
+     */
     protected Area createTileWideArea(double topY, double leftX, int lengthInTiles) {
 
         return new Area(topY, leftX, topY + tileWidth * lengthInTiles, leftX + tileWidth);
