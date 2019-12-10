@@ -15,6 +15,8 @@ Harjoitustyön aiheena on klassikkopeli tetris. Pelissä pelaaja kääntelee ja 
 
 [Viikko 5](https://github.com/helihyv/ot-harjoitustyo/releases/tag/Viikko5)
 
+[Viikko 6](https://github.com/helihyv/ot-harjoitustyo/releases/tag/viikko6)
+
 ## Komentorivitoiminnot
 
 ### Testaus
