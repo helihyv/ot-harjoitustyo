@@ -26,9 +26,9 @@ Sovelluksella on vain yhdenlaisia käyttäjiä, pelaajia.
 * Pelaaja näkee pelin aikana kertyneet pisteet (tehty)
 * Pisteiden kertyessä palikoiden putoamisnopeus kasvaa portaittain
 * Kun pysähtyneet palikat ulottuvat tietyn korkeuden yläpuolelle peli päättyy (tehty)
-* Pelin päättyessä, jos pelaajan pistemäärä on suurempi kuin kymmenenneksi paras tallennettu tulos, pelaaja voi kirjoittaa nimensä ja nimi ja tulos lisätään parhaiden tulosten luetteloon
-* Pelaaja voi katsella parhaiden tulosten luetteloa (näytetään 10 parasta järjestyksessä paras ensin)
-* Parhaat tulokset muistetaan pelikerrasta toiseen (tiedot tallennetaan tietokantaan)
+* Pelin päättyessä, jos pelaajan pistemäärä on suurempi kuin kymmenenneksi paras tallennettu tulos, pelaaja voi kirjoittaa nimensä ja nimi ja tulos lisätään parhaiden tulosten luetteloon (tehty, uusi)
+* Pelaaja voi katsella parhaiden tulosten luetteloa (näytetään 10 parasta järjestyksessä paras ensin) (tehty, uusi)
+* Parhaat tulokset muistetaan pelikerrasta toiseen (tiedot tallennetaan tietokantaan) (tehty, uusi)
 
 ## Jatkokehitysideat
 
