@@ -49,4 +49,5 @@ Päivä | Aika | Mitä tein
 10.12. | 3 | Arkkitehtuurikuvaus, toteutettujen toiminnallisuuksien päivitys vaatimusmäärittelyyn, README.md:n päivitys, nimenkirjoittamisdialogin korjaus ja gitignoren korjaus
 10.12. | 0,25 | Täydennetty javadoc-dokumentaatiota
 10.12. | 1,75 | Testejä HighScoreService-luokalle
-yht. | 57,75
+10.12. | 0,25 | Uusi GithHub release, lisätty linkki uuteen releaseen README.md:hen ja arkkitehtuurikuvauksen korjaus 
+yht. | 58
