@@ -104,6 +104,11 @@ public class TetrisUI extends Application {
                         dialog.setHeaderText("GAME OVER \n You reached the rank " + rank);
                         dialog.setGraphic(null);
                         dialog.setContentText("Give your name for the highscore list:");
+
+                        //Tällä kierretään bugi, joka jättää Java 11:sta ja
+                        //KDE:ta käytettäessä dialogin aivan liian pieneksi
+                        dialog.setResizable(true);
+
                         dialog.resultProperty().addListener(
                                 (observable, oldValue, newValue) -> {
                                     highScoreService.addHighScore(new HighScore(newValue, score));
@@ -118,6 +123,9 @@ public class TetrisUI extends Application {
                         alert.setHeaderText("GAME OVER");
                         alert.setContentText("No highscore this time");
                         alert.setGraphic(null);
+
+                        alert.setResizable(true);
+
                         alert.show();
                     }
 
