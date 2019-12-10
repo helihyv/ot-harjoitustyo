@@ -3,6 +3,8 @@ Harjoitustyön aiheena on klassikkopeli tetris. Pelissä pelaaja kääntelee ja 
 
 ## Dokumentaatio
 
+[Käyttöhje](/dokumentaatio/kayttoohje.md)
+
 [Vaatimusmäärittely](/dokumentaatio/vaatimusmaarittely.md)
 
 [Arkkitehtuurikuvaus](/dokumentaatio/arkkitehtuuri.md)
@@ -33,9 +35,15 @@ Komento
 
 `mvn package`
 
-muodostaa hakemistoon target suoritettavan jar-tiedoston Tetris-1.0-SNAPSHOT.jar
+muodostaa hakemistoon target suoritettavan jar-tiedoston _Tetris-1.0-SNAPSHOT.jar_
 
 ### JavaDoc
+
+Javadoc generoidaan komennolla
+
+`mvn javadoc:javadoc`
+
+Javadocia voi tarkastella avaamalla selaimella tiedoston _target/site/apidocs/index.html_
 
 ### CheckStyle
 
