@@ -18,7 +18,7 @@ public class IBlock extends Block {
         super(tileWidth);
 
         for (int i = 0; i < 4; i++) {
-            tiles[i] = new TetrisTile(xCoordinate + i * tileWidth, 0, tileWidth);
+            tiles[i] = new TetrisTile(xCoordinate + i * tileWidth, tileWidth, tileWidth);
         }
 
     }
