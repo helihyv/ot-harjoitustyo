@@ -245,4 +245,43 @@ public class LBlockTest {
         assertTrue(found3);
     }
 
+    @Test
+    public void lBlockBottomEdgeReturnsZeroWhenBlockNotOnColumn() {
+
+        assertEquals(0, block.bottomEdge(20), 0.1);
+    }
+
+    @Test
+    public void lBlockBottomEdgeReturnsCorrectYCoordinateWhenOrientationIsZeroDegrees() {
+
+        assertEquals(60, block.bottomEdge(120), 0.1);
+    }
+
+    @Test
+    public void lBlockBottomEdgeReturnsCorrectYCoordinateWhenOrientationIs90Degrees() {
+
+        block.rotate();
+
+        assertEquals(40, block.bottomEdge(120), 0.1);
+    }
+
+    @Test
+    public void lBlockBottomEdgeReturnsCorrectYCoordinateWhenOrientationIs180Degrees() {
+
+        block.rotate();
+        block.rotate();
+
+        assertEquals(60, block.bottomEdge(100), 0.1);
+    }
+
+    @Test
+    public void lBlockBottomEdgeReturnsCorrectYCoordinateWhenOrientationIs270Degrees() {
+
+        block.rotate();
+        block.rotate();
+        block.rotate();
+
+        assertEquals(40, block.bottomEdge(120), 0.1);
+    }
+
 }

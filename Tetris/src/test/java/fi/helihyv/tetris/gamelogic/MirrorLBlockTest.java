@@ -245,4 +245,40 @@ public class MirrorLBlockTest {
         assertTrue(found2);
         assertTrue(found3);
     }
+
+    @Test
+    public void mirrorLBlockBottomEdgeReturnsZeroWhenBlockNotOnColumn() {
+
+        assertEquals(0, block.bottomEdge(20), 0.1);
+    }
+
+    @Test
+    public void mirrorLBlockBottomEdgeReturnsCorrectYCoordinateWhenOrientationIsZeroDegrees() {
+
+        assertEquals(60, block.bottomEdge(120), 0.1);
+    }
+
+    @Test
+    public void mirrorLBlockBottomEdgeReturnsCorrectYCoordinateWhenOrientationIs90Degrees() {
+
+        block.rotate();
+        assertEquals(40, block.bottomEdge(120), 0.1);
+    }
+
+    @Test
+    public void mirrorLBlockBottomEdgeReturnsCorrectYCoordinateWhenOrientationIs180Degrees() {
+        block.rotate();
+        block.rotate();
+
+        assertEquals(60, block.bottomEdge(120), 0.1);
+    }
+
+    @Test
+    public void mirrorLBlockBottomEdgeReturnsCorrectYCoordinateWhenOrientationIs270Degrees() {
+        block.rotate();
+        block.rotate();
+        block.rotate();
+
+        assertEquals(40, block.bottomEdge(120), 0.1);
+    }
 }
