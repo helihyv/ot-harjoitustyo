@@ -51,4 +51,5 @@ Päivä | Aika | Mitä tein
 10.12. | 1,75 | Testejä HighScoreService-luokalle
 10.12. | 0,25 | Uusi GithHub release, lisätty linkki uuteen releaseen README.md:hen ja arkkitehtuurikuvauksen korjaus
 11.12. | 1 | Lisätty tarkistus, joka estää palikan kääntymisen, jos palikkajoutuisi osittain pelialueen sivureunasta ulos kääntyessään, ja korjattu virhe, joka esti peliä arpomasta S-muotoista palikkaa uudeksi palikaksi
-yht. | 59
+11.12. | 0,75 | Testejä TileStack-luokalle ja pieni muutos TileStack-luokkaan 
+yht. | 59,75
