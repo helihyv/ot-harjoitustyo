@@ -63,10 +63,12 @@ public class TileStack {
      * @param columnLeftEdge Kun pelialue jaetaan paliknalevyisiin sarakkeisiin,
      * tällaisen sarakkeen vasen reuna loogisina pikseleinä
      * @return tiilipinon korkeimman kohdan y-koordinaatti annetussa kohdassa
+     * Jos kohdassa ei ole tiiliä palautetaan pelialueen alareunan
+     * y-koordinaatti
      */
     public double topEdge(double rowBottomEdge, double columnLeftEdge) {
 
-        double topEdge = Double.MAX_VALUE;
+        double topEdge = gameAreaHeight;
 
         for (Tile tile : tiles) {
             if (tile.getXCoordinate() == columnLeftEdge
