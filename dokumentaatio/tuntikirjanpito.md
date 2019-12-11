@@ -49,5 +49,6 @@ Päivä | Aika | Mitä tein
 10.12. | 3 | Arkkitehtuurikuvaus, toteutettujen toiminnallisuuksien päivitys vaatimusmäärittelyyn, README.md:n päivitys, nimenkirjoittamisdialogin korjaus ja gitignoren korjaus
 10.12. | 0,25 | Täydennetty javadoc-dokumentaatiota
 10.12. | 1,75 | Testejä HighScoreService-luokalle
-10.12. | 0,25 | Uusi GithHub release, lisätty linkki uuteen releaseen README.md:hen ja arkkitehtuurikuvauksen korjaus 
-yht. | 58
+10.12. | 0,25 | Uusi GithHub release, lisätty linkki uuteen releaseen README.md:hen ja arkkitehtuurikuvauksen korjaus
+11.12. | 1 | Lisätty tarkistus, joka estää palikan kääntymisen, jos palikkajoutuisi osittain pelialueen sivureunasta ulos kääntyessään, ja korjattu virhe, joka esti peliä arpomasta S-muotoista palikkaa uudeksi palikaksi
+yht. | 59
