@@ -141,4 +141,20 @@ public class IBlock extends Block {
         return areas;
     }
 
+    @Override
+    public double leftEdgeAfterRotate() {
+        if (orientation == 0 || orientation == 180) {
+            return leftEdge() + tileWidth;
+        }
+        return leftEdge() - tileWidth;
+    }
+
+    @Override
+    public double rightEdgeAfterRotate() {
+        if (orientation == 0 || orientation == 180) {
+            return rightEdge() - 2 * tileWidth;
+        }
+        return rightEdge() + 2 * tileWidth;
+    }
+
 }

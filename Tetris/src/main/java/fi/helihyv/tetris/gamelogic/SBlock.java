@@ -121,4 +121,18 @@ public class SBlock extends Block {
         return neededAreas;
     }
 
+    @Override
+    public double leftEdgeAfterRotate() {
+        if (orientation == 0 || orientation == 180) {
+            return leftEdge() + tileWidth;
+        }
+        
+        return leftEdge() - tileWidth;
+    }
+
+    @Override
+    public double rightEdgeAfterRotate() {
+        return rightEdge();
+    }
+
 }

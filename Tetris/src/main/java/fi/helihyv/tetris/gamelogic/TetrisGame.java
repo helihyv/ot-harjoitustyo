@@ -209,7 +209,10 @@ public class TetrisGame implements Game {
 
     @Override
     public void rotateBlock() {
-        if (tileStack.areAreasFree(currentBlock.freeAreasNeededToRotate())) {
+        if (currentBlock.leftEdgeAfterRotate() >= 0 
+                && currentBlock.rightEdgeAfterRotate() <= gameAreaWidth
+                && tileStack.areAreasFree(currentBlock.freeAreasNeededToRotate())
+        ){
             currentBlock.rotate();
         }
     }

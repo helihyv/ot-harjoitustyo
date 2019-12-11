@@ -79,4 +79,14 @@ public class SquareBlock extends Block {
         return new ArrayList<>();
     }
 
+    @Override
+    public double leftEdgeAfterRotate() {
+        return leftEdge();
+    }
+
+    @Override
+    public double rightEdgeAfterRotate() {
+        return rightEdge();
+    }
+
 }

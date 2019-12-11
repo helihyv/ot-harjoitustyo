@@ -139,4 +139,18 @@ public class MirrorSBlock extends Block {
         return neededAreas;
     }
 
+    @Override
+    public double leftEdgeAfterRotate() {
+        return leftEdge();
+    }
+
+    @Override
+    public double rightEdgeAfterRotate() {
+        if (orientation == 0 || orientation == 180) {
+            return rightEdge() - tileWidth;
+        }
+        
+        return rightEdge() + tileWidth;
+    }
+
 }

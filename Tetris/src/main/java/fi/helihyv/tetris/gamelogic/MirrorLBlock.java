@@ -178,4 +178,30 @@ public class MirrorLBlock extends Block {
         return neededAreas;
     }
 
+    @Override
+    public double leftEdgeAfterRotate() {
+        if (orientation == 90) {
+            return leftEdge() + tileWidth;
+        }
+        
+        if (orientation == 180) {
+            return leftEdge() - tileWidth;
+        }
+        
+        return leftEdge();
+    }
+
+    @Override
+    public double rightEdgeAfterRotate() {
+        if (orientation == 0) {
+            return rightEdge() + tileWidth;
+        }
+        
+        if (orientation == 270) {
+            return rightEdge() - tileWidth;
+        }
+        
+        return leftEdge();
+    }
+
 }

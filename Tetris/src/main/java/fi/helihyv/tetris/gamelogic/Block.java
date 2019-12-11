@@ -127,6 +127,7 @@ public abstract class Block {
      * levyisiin sarakkeisiin, tällaisen sarakkeen vasen reuna
      * @return palikan annetussa kohdassa olevista tiilistä alimman alareuuna
      */
+    
     public abstract double bottomEdge(double columnLeftEdge);
 
     /**
@@ -135,6 +136,7 @@ public abstract class Block {
      *
      * @return lista Area-olioita, jotka kuvaavat vapaiksi tarvittavia alueita
      */
+    
     public abstract ArrayList<Area> freeAreasNeededToMoveLeft();
 
     /**
@@ -166,4 +168,16 @@ public abstract class Block {
 
         return new Area(topY, leftX, topY + tileWidth * lengthInTiles, leftX + tileWidth);
     }
+    /**
+     * Metodi palauttaa X-koordinaatin, jossa palikan vasen reuna olisi 
+     * seuraavan käännön jälkeen 
+     */
+    public abstract double leftEdgeAfterRotate();
+    
+    /**
+     * Metodi palauttaa X-koordinaatin, jossa palikan oikea reuna olisi
+     * seuraavan käännön jälkeen
+     */
+    public abstract double rightEdgeAfterRotate();
+    
 }
