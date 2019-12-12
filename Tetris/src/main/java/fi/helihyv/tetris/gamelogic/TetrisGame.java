@@ -19,12 +19,15 @@ public class TetrisGame implements Game {
     private Block currentBlock;
     private TileStack tileStack;
     private Timer timer;
+    private TimerTask currentTimerTask;
     private double loseLevel;
     private long score;
     private boolean fastFall;
     private double normalFallSpeed;
     private double fastFallSpeed;
     private boolean gameEnded;
+    private long timerInterval;
+    private int level;
 
     public TetrisGame() {
         this.gameAreaWidth = 480;
@@ -33,7 +36,8 @@ public class TetrisGame implements Game {
         this.loseLevel = 200;
         this.normalFallSpeed = 1;
         this.fastFallSpeed = 5;
-
+        this.timerInterval = 10L;
+        this.level = 1;
         startGame();
     }
 
@@ -70,14 +74,12 @@ public class TetrisGame implements Game {
         tileStack = new TileStack(gameAreaWidth, gameAreaHeight);
         generateNewBlock();
 
-        this.timer = new Timer();
+        level = 1;
+        timerInterval = 10L;
 
-        TimerTask task = new TimerTask() {
-            public void run() {
-                moveBlockDown();
-            }
-        };
-        timer.schedule(task, 10L, 10L);
+        this.timer = new Timer();
+        scheduleTimer();
+
     }
 
     @Override
@@ -119,12 +121,12 @@ public class TetrisGame implements Game {
 
                 int tilesRemoved = tileStack.removeFullRows();
 
-                score += tilesRemoved * 100;
+                addToScore(tilesRemoved * 100);
                 if (isGameOver()) {
                     stopGame();
                 } else {
 
-                    score += 40;
+                    addToScore(40);
                     generateNewBlock();
                 }
             }
@@ -220,6 +222,27 @@ public class TetrisGame implements Game {
     @Override
     public boolean hasGameEnded() {
         return gameEnded;
+    }
+
+    private void addToScore(int points) {
+
+        score += points;
+        if (score > level * 12000 && level < 10) {
+            level++;
+            timerInterval = 11L - level;
+            currentTimerTask.cancel();
+            scheduleTimer();
+        }
+    }
+
+    private void scheduleTimer() {
+
+        currentTimerTask = new TimerTask() {
+            public void run() {
+                moveBlockDown();
+            }
+        };
+        timer.schedule(currentTimerTask, timerInterval, timerInterval);
     }
 
 }
