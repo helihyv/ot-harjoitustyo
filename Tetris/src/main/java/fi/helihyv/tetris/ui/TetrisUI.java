@@ -172,6 +172,7 @@ public class TetrisUI extends Application {
         view.addEventHandler(KeyEvent.KEY_PRESSED, keyPressHandler);
         window.setScene(view);
         window.setTitle("Tetris");
+        window.setResizable(false);
         window.show();
     }
 
