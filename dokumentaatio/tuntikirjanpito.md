@@ -55,5 +55,6 @@ Päivä | Aika | Mitä tein
 11.12. | 0,75 | Lisää testejä I-, L- ja pelikuvaL-palikoille ja I-palikan siirtäminen ilmestymään alemmas, jottei se voi joutua kääntyessään yläosastaan pelialueen ulkopuolelle 
 12.12. | 0,5 | Näytettävän ja tallennettavan pelaajan nimen rajaaminen enintään 30 merkkiin parhaissa tuloksissa, asetettusyötettävän nimen oletusarvoksi "Anonymous", sovelluksen ikkunan koon muuttamisen estäminen ja pieni täydennys javadoc-dokumentaatioon
 12.12. | 1,25 | HighScoreH2DAO-luokan muuttaminen ottamaan tiedostonnimi parametrina ja testejä k.o. luokalle 
-12.12. | 1 | Testejä I-, T-, S-, peili-S, L- ja peili-L palikoille ja korjaukset L- ja peili-L-palikoiden rightEdgeAfterRotate()-funktioon 
-yht. | 62,75
+12.12. | 1 | Testejä I-, T-, S-, peili-S, L- ja peili-L palikoille ja korjaukset L- ja peili-L-palikoiden rightEdgeAfterRotate()-funktioon
+12.12. | 0,5 | Erotettu dialogit ja sivupalkkki omiksi luokikseen, siirretty näppäinpainallusten tapahtumakäsittelijän luominen omaan funktioonsa ja poistettu vanhoja debuggaustulostuksia
+yht. | 63,25
