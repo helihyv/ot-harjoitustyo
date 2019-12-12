@@ -183,11 +183,11 @@ public class MirrorLBlock extends Block {
         if (orientation == 90) {
             return leftEdge() + tileWidth;
         }
-        
+
         if (orientation == 180) {
             return leftEdge() - tileWidth;
         }
-        
+
         return leftEdge();
     }
 
@@ -196,12 +196,11 @@ public class MirrorLBlock extends Block {
         if (orientation == 0) {
             return rightEdge() + tileWidth;
         }
-        
+
         if (orientation == 270) {
             return rightEdge() - tileWidth;
         }
-        
-        return leftEdge();
-    }
 
-}
+        return rightEdge();
+
+    }

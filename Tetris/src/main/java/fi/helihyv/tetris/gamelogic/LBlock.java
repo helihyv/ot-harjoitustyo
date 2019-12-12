@@ -188,30 +188,29 @@ public class LBlock extends Block {
 
     @Override
     public double leftEdgeAfterRotate() {
-        
+
         if (orientation == 0) {
             return leftEdge() - tileWidth;
         }
-        
+
         if (orientation == 270) {
             return leftEdge() + tileWidth;
         }
-        
+
         return leftEdge();
     }
 
     @Override
     public double rightEdgeAfterRotate() {
-        
+
         if (orientation == 90) {
-            return rightEdge() - tileWidth; 
+            return rightEdge() - tileWidth;
         }
         if (orientation == 180) {
-            return rightEdge()  + tileWidth;
+            return rightEdge() + tileWidth;
         }
-        
-        return leftEdge();
-        
+
+        return rightEdge();
 
     }
 
