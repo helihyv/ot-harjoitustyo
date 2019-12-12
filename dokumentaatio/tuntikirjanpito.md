@@ -53,4 +53,6 @@ Päivä | Aika | Mitä tein
 11.12. | 1 | Lisätty tarkistus, joka estää palikan kääntymisen, jos palikkajoutuisi osittain pelialueen sivureunasta ulos kääntyessään, ja korjattu virhe, joka esti peliä arpomasta S-muotoista palikkaa uudeksi palikaksi
 11.12. | 0,75 | Testejä TileStack-luokalle ja pieni muutos TileStack-luokkaan
 11.12. | 0,75 | Lisää testejä I-, L- ja pelikuvaL-palikoille ja I-palikan siirtäminen ilmestymään alemmas, jottei se voi joutua kääntyessään yläosastaan pelialueen ulkopuolelle 
-yht. | 60,5
+12.12. | 0,5 | Näytettävän ja tallennettavan pelaajan nimen rajaaminen enintään 30 merkkiin parhaissa tuloksissa, asetettusyötettävän nimen oletusarvoksi "Anonymous", sovelluksen ikkunan koon muuttamisen estäminen ja pieni täydennys javadoc-dokumentaatioon
+12.12. | 1,25 | HighScoreH2DAO-luokan muuttaminen ottamaan tiedostonnimi parametrina ja testejä k.o. luokalle 
+yht. | 61,75
