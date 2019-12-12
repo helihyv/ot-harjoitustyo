@@ -22,26 +22,26 @@ import static org.junit.Assert.*;
  * @author Heli Hyvättinen
  */
 public class TBlockTest {
-    
+
     TBlock block;
-    
+
     public TBlockTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
-        
-        block = new TBlock(100,20);
+
+        block = new TBlock(100, 20);
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -51,86 +51,85 @@ public class TBlockTest {
     //
     // @Test
     // public void hello() {}
-    
     @Test
     public void tBlockRotatesCorrectlyFromZeroToNinetyDegrees() {
-        
+
         block.rotate();
-        
+
         Tile[] tiles = block.getTiles();
-        
+
         assertEquals(120, tiles[0].getXCoordinate(), 0.1);
         assertEquals(120, tiles[1].getXCoordinate(), 0.1);
         assertEquals(120, tiles[2].getXCoordinate(), 0.1);
         assertEquals(140, tiles[3].getXCoordinate(), 0.1);
-        
+
         assertEquals(0, tiles[0].getYCoordinate(), 0.1);
         assertEquals(20, tiles[1].getYCoordinate(), 0.1);
         assertEquals(40, tiles[2].getYCoordinate(), 0.1);
         assertEquals(20, tiles[3].getYCoordinate(), 0.1);
     }
-    
-        @Test
+
+    @Test
     public void tBlockRotatesCorrectlyFromNinetyTo180Degrees() {
-        
+
         block.rotate();
         block.rotate();
-        
+
         Tile[] tiles = block.getTiles();
-        
+
         assertEquals(140, tiles[0].getXCoordinate(), 0.1);
         assertEquals(120, tiles[1].getXCoordinate(), 0.1);
         assertEquals(100, tiles[2].getXCoordinate(), 0.1);
         assertEquals(120, tiles[3].getXCoordinate(), 0.1);
-        
+
         assertEquals(20, tiles[0].getYCoordinate(), 0.1);
         assertEquals(20, tiles[1].getYCoordinate(), 0.1);
         assertEquals(20, tiles[2].getYCoordinate(), 0.1);
         assertEquals(40, tiles[3].getYCoordinate(), 0.1);
     }
-    
-        @Test
+
+    @Test
     public void tBlockRotatesCorrectlyFrom180To270Degrees() {
-        
+
         block.rotate();
         block.rotate();
         block.rotate();
-        
+
         Tile[] tiles = block.getTiles();
-        
+
         assertEquals(120, tiles[0].getXCoordinate(), 0.1);
         assertEquals(120, tiles[1].getXCoordinate(), 0.1);
         assertEquals(120, tiles[2].getXCoordinate(), 0.1);
         assertEquals(100, tiles[3].getXCoordinate(), 0.1);
-        
+
         assertEquals(40, tiles[0].getYCoordinate(), 0.1);
         assertEquals(20, tiles[1].getYCoordinate(), 0.1);
         assertEquals(0, tiles[2].getYCoordinate(), 0.1);
         assertEquals(20, tiles[3].getYCoordinate(), 0.1);
     }
-    
-        @Test
+
+    @Test
     public void tBlockRotatesCorrectlyFrom270ToZeroDegrees() {
-        
+
         block.rotate();
         block.rotate();
         block.rotate();
         block.rotate();
-        
+
         Tile[] tiles = block.getTiles();
-        
+
         assertEquals(100, tiles[0].getXCoordinate(), 0.1);
         assertEquals(120, tiles[1].getXCoordinate(), 0.1);
         assertEquals(140, tiles[2].getXCoordinate(), 0.1);
         assertEquals(120, tiles[3].getXCoordinate(), 0.1);
-        
+
         assertEquals(20, tiles[0].getYCoordinate(), 0.1);
         assertEquals(20, tiles[1].getYCoordinate(), 0.1);
         assertEquals(20, tiles[2].getYCoordinate(), 0.1);
         assertEquals(00, tiles[3].getYCoordinate(), 0.1);
     }
-    
-        @Test
+
+    @Test
     public void tBlockFreeAreasNeededToRotateTo90DegreesIncludeAreasBlockIsMovingInto() {
 
         ArrayList<Area> areas = block.freeAreasNeededToRotate();
@@ -203,5 +202,37 @@ public class TBlockTest {
 
         assertTrue(found1);
 
+    }
+
+    @Test
+    public void tBlockBottomEdgeReturnsCorrectYCoordinateWhenOrientationIsZeroDegrees() {
+
+        assertEquals(40, block.bottomEdge(120), 0.1);
+    }
+
+    @Test
+    public void tBlockBottomEdgeReturnsCorrectYCoordinateWhenOrientationIs90Degrees() {
+
+        block.rotate();
+        assertEquals(60, block.bottomEdge(120), 0.1);
+    }
+
+    @Test
+    public void tBlockBottomEdgeReturnsCorrectYCoordinateWhenOrientationIs180Degrees() {
+
+        block.rotate();
+        block.rotate();
+
+        assertEquals(60, block.bottomEdge(120), 0.1);
+    }
+
+    @Test
+    public void tBlockBottomEdgeReturnsCorrectYCoordinateWhenOrientationIs270Degrees() {
+
+        block.rotate();
+        block.rotate();
+        block.rotate();
+
+        assertEquals(60, block.bottomEdge(120), 0.1);
     }
 }

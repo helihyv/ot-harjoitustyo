@@ -22,26 +22,26 @@ import static org.junit.Assert.*;
  * @author Heli Hyvättinen
  */
 public class MirrorSBlockTest {
-    
+
     MirrorSBlock block;
-    
+
     public MirrorSBlockTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
-        
-        block = new MirrorSBlock(100,20);
+
+        block = new MirrorSBlock(100, 20);
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -51,86 +51,85 @@ public class MirrorSBlockTest {
     //
     // @Test
     // public void hello() {}
-    
-        @Test
+    @Test
     public void mirrorSBlockRotatesCorrectlyFromZeroToNinetyDegrees() {
-        
+
         block.rotate();
-        
+
         Tile[] tiles = block.getTiles();
-        
+
         assertEquals(120, tiles[0].getXCoordinate(), 0.1);
         assertEquals(120, tiles[1].getXCoordinate(), 0.1);
         assertEquals(100, tiles[2].getXCoordinate(), 0.1);
         assertEquals(100, tiles[3].getXCoordinate(), 0.1);
-        
+
         assertEquals(0, tiles[0].getYCoordinate(), 0.1);
         assertEquals(20, tiles[1].getYCoordinate(), 0.1);
         assertEquals(20, tiles[2].getYCoordinate(), 0.1);
         assertEquals(40, tiles[3].getYCoordinate(), 0.1);
     }
-    
-        @Test
+
+    @Test
     public void mirroSBlockRotatesCorrectlyFromNinetyTo180Degrees() {
-        
+
         block.rotate();
         block.rotate();
-        
+
         Tile[] tiles = block.getTiles();
-        
+
         assertEquals(100, tiles[0].getXCoordinate(), 0.1);
         assertEquals(120, tiles[1].getXCoordinate(), 0.1);
         assertEquals(120, tiles[2].getXCoordinate(), 0.1);
         assertEquals(140, tiles[3].getXCoordinate(), 0.1);
-        
+
         assertEquals(20, tiles[0].getYCoordinate(), 0.1);
         assertEquals(20, tiles[1].getYCoordinate(), 0.1);
         assertEquals(40, tiles[2].getYCoordinate(), 0.1);
         assertEquals(40, tiles[3].getYCoordinate(), 0.1);
     }
-    
-        @Test
+
+    @Test
     public void mirrorSBlockRotatesCorrectlyFrom180To270Degrees() {
-        
+
         block.rotate();
         block.rotate();
         block.rotate();
-        
+
         Tile[] tiles = block.getTiles();
-        
+
         assertEquals(120, tiles[0].getXCoordinate(), 0.1);
         assertEquals(120, tiles[1].getXCoordinate(), 0.1);
         assertEquals(100, tiles[2].getXCoordinate(), 0.1);
         assertEquals(100, tiles[3].getXCoordinate(), 0.1);
-        
+
         assertEquals(0, tiles[0].getYCoordinate(), 0.1);
         assertEquals(20, tiles[1].getYCoordinate(), 0.1);
         assertEquals(20, tiles[2].getYCoordinate(), 0.1);
         assertEquals(40, tiles[3].getYCoordinate(), 0.1);
     }
-    
-        @Test
+
+    @Test
     public void mirrorSBlockRotatesCorrectlyFrom270ToZeroDegrees() {
-        
+
         block.rotate();
         block.rotate();
         block.rotate();
         block.rotate();
-        
+
         Tile[] tiles = block.getTiles();
-        
+
         assertEquals(100, tiles[0].getXCoordinate(), 0.1);
         assertEquals(120, tiles[1].getXCoordinate(), 0.1);
         assertEquals(120, tiles[2].getXCoordinate(), 0.1);
         assertEquals(140, tiles[3].getXCoordinate(), 0.1);
-        
+
         assertEquals(20, tiles[0].getYCoordinate(), 0.1);
         assertEquals(20, tiles[1].getYCoordinate(), 0.1);
         assertEquals(40, tiles[2].getYCoordinate(), 0.1);
         assertEquals(40, tiles[3].getYCoordinate(), 0.1);
     }
-    
-        @Test
+
+    @Test
     public void mirrorSBlockFreeAreasNeededToRotateTo90DegreesIncludeAreasBlockIsMovingInto() {
 
         ArrayList<Area> areas = block.freeAreasNeededToRotate();
@@ -161,7 +160,6 @@ public class MirrorSBlockTest {
         boolean found1 = false;
         boolean found2 = false;
 
-
         for (Area area : areas) {
             if (area.overlaps(new TetrisTile(120, 40, 20))) {
                 found1 = true;
@@ -173,7 +171,7 @@ public class MirrorSBlockTest {
 
         assertTrue(found1);
         assertTrue(found2);
- 
+
     }
 
     @Test
@@ -186,7 +184,6 @@ public class MirrorSBlockTest {
 
         boolean found1 = false;
         boolean found2 = false;
- 
 
         for (Area area : areas) {
             if (area.overlaps(new TetrisTile(120, 0, 20))) {
@@ -225,5 +222,37 @@ public class MirrorSBlockTest {
 
         assertTrue(found1);
         assertTrue(found2);
+    }
+
+    @Test
+    public void mirrorSBlockBottomEdgeReturnsCorrectYCoordinateWhenOrientationIsZeroDegrees() {
+
+        assertEquals(60, block.bottomEdge(120), 0.1);
+    }
+
+    @Test
+    public void mirrorSBlockBottomEdgeReturnsCorrectYCoordinateWhenOrientationIs90Degrees() {
+
+        block.rotate();
+        assertEquals(40, block.bottomEdge(120), 0.1);
+    }
+
+    @Test
+    public void mirroSBlockBottomEdgeReturnsCorrectYCoordinateWhenOrientationIs180Degrees() {
+
+        block.rotate();
+        block.rotate();
+
+        assertEquals(60, block.bottomEdge(120), 0.1);
+    }
+
+    @Test
+    public void mirroSBlockBottomEdgeReturnsCorrectYCoordinateWhenOrientationIs270Degrees() {
+
+        block.rotate();
+        block.rotate();
+        block.rotate();
+
+        assertEquals(40, block.bottomEdge(120), 0.1);
     }
 }
