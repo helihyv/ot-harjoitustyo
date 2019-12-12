@@ -44,7 +44,7 @@ public class TetrisUI extends Application {
     /**
      * Metodi suoritetaan sovellusta käynnistettäessä. Metodi luo
      * sovelluslogiikan Game ja HighscoreService-oliot, luo muut käyttöliittymän
-     * osat, luo ja käynnistää animaatioajastimen, luo ja asettaa
+     * osat, luo ja käynnistää animaatioajastimen, asettaa
      * näppäimistötapahtumien käsittelijän, sekä käynnistää pelin
      */
     @Override
@@ -61,17 +61,11 @@ public class TetrisUI extends Application {
 
         HBox root = new HBox();
         root.setBackground(Background.EMPTY);
-        VBox sideBar = new VBox();
-        BackgroundFill[] sideBarBackgroundfills = {new BackgroundFill(Color.CORNSILK, null, null)};
-        sideBar.setBackground(new Background(sideBarBackgroundfills));
-        Label startGameLabel = new Label("Press F1 to (re)start game.");
-        Label scoreLabel = new Label("Score: 0");
-        sideBar.getChildren().add(startGameLabel);
-        sideBar.getChildren().add(scoreLabel);
+
         highScoreService = new HighScoreService(new HighScoreH2DAO(""), 10);
         highScoreView = new HighScoreView(highScoreService);
-        sideBar.getChildren().add(highScoreView.getLayout());
-        root.getChildren().add(sideBar);
+        SideBar sideBar = new SideBar(highScoreView);
+        root.getChildren().add(sideBar.getLayout());
         root.getChildren().add(gameArea.getCanvas());
 
         timer = new AnimationTimer() {
@@ -91,7 +85,7 @@ public class TetrisUI extends Application {
                 }
 
                 long score = game.getScore();
-                scoreLabel.setText("Score: " + score);
+                sideBar.setScoreToShow(score);
                 gameArea.drawTiles(game.getTiles());
 
                 if (game.hasGameEnded()) {
@@ -99,44 +93,55 @@ public class TetrisUI extends Application {
                     int rank = highScoreService.getRank(score);
 
                     if (rank > 0) {
-                        TextInputDialog dialog = new TextInputDialog("Anonymous");
-                        dialog.setTitle("Tetris – Highscore");
-                        dialog.setHeaderText("GAME OVER \n You reached the rank " + rank);
-                        dialog.setGraphic(null);
-                        dialog.setContentText("Give your name for the highscore list:");
-
-                        //Tällä kierretään bugi, joka jättää Java 11:sta ja
-                        //KDE:ta käytettäessä dialogin aivan liian pieneksi
-                        dialog.setResizable(true);
-
-                        dialog.resultProperty().addListener(
-                                (observable, oldValue, newValue) -> {
-                                    highScoreService.addHighScore(new HighScore(newValue, score));
-                                    highScoreView.updateHighScores();
-                                }
-                        );
-                        dialog.show();
+                        new HighScoreNameInputDialog(highScoreService, highScoreView, score, rank).show();
 
                     } else {
-                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                        alert.setTitle("Tetris – Game Over");
-                        alert.setHeaderText("GAME OVER");
-                        alert.setContentText("No highscore this time");
-                        alert.setGraphic(null);
-
-                        alert.setResizable(true);
-
-                        alert.show();
+                        new GameOverDialog((score)).show();
                     }
-
                 }
-
             }
         };
+
+        Scene view = new Scene(root);
+        view.addEventHandler(KeyEvent.KEY_PRESSED, createKeyPressHandler());
+        window.setScene(view);
+        window.setTitle("Tetris");
+        window.setResizable(false);
 
         gameRunning = true;
         timer.start();
 
+        window.show();
+    }
+
+    /**
+     * Main-metodi ainoastaan käynnistää käyttöliittymän. Argumenttejä ei
+     * huomioida.
+     *
+     * @param args
+     */
+    public static void main(String[] args) {
+        launch(TetrisUI.class);
+    }
+
+    /**
+     * Metodi suoritetaan sovellusta suljettaessa. Metodi lopettaa pelin, jotta
+     * sovelluslogiikan ajastin ei jäisi päälle ja estäisi säiettään
+     * sulkeutumasta.
+     *
+     * @throws Exception
+     */
+    @Override
+    public void stop() throws Exception {
+        game.stopGame();
+        super.stop();
+    }
+
+    /**
+     * Metodi luo ja palauttaa näppäinpainallusten tapahtumakäsittelijän
+     *
+     */
+    private EventHandler createKeyPressHandler() {
         final EventHandler<KeyEvent> keyPressHandler
                 = new EventHandler<KeyEvent>() {
             public void handle(final KeyEvent keyEvent) {
@@ -168,35 +173,7 @@ public class TetrisUI extends Application {
             }
         };
 
-        Scene view = new Scene(root);
-        view.addEventHandler(KeyEvent.KEY_PRESSED, keyPressHandler);
-        window.setScene(view);
-        window.setTitle("Tetris");
-        window.setResizable(false);
-        window.show();
-    }
-
-    /**
-     * Main-metodi ainoastaan käynnistää käyttöliittymän. Argumenttejä ei
-     * huomioida.
-     *
-     * @param args
-     */
-    public static void main(String[] args) {
-        launch(TetrisUI.class);
-    }
-
-    /**
-     * Metodi suoritetaan sovellusta suljettaessa Metodi lopettaa pelin, jotta
-     * sovelluslogiikan ajastin ei jäisi päälle ja estäisi säiettään
-     * sulkeutumasta
-     *
-     * @throws Exception
-     */
-    @Override
-    public void stop() throws Exception {
-        game.stopGame();
-        super.stop();
+        return keyPressHandler;
     }
 
 }
