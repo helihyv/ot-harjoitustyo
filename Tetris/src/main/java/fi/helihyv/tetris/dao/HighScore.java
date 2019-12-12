@@ -16,8 +16,18 @@ public class HighScore implements Comparable<HighScore> {
     private String name;
     private long score;
 
+    /**
+     * Luo uuden tuloksen annetuilla nimellä ja pisteillä Annettu nimi
+     * typistetään enintään 30 merkkiin
+     *
+     * @param name Pelaajan nimi
+     * @param score Pisteet
+     */
     public HighScore(String name, long score) {
         this.score = score;
+        if (name.length() > 30) {
+            name = name.substring(0, 30);
+        }
         this.name = name;
     }
 
