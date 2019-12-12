@@ -47,7 +47,6 @@ public class HighScoreH2DAO implements HighScoreDAO {
             stmt.close();
             connection.close();
 
-            System.out.println("table created");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

@@ -47,11 +47,6 @@ public class HighScoreView {
         }
 
         setHighScores(highScores);
-
-        for (HighScore highScore : highScores) {
-            System.out.println(highScore.getName() + " " + highScore.getScore());
-        }
-
     }
 
     private void setHighScores(List<HighScore> highScores) {

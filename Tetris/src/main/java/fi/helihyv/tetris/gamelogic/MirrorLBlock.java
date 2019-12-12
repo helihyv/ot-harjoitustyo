@@ -202,5 +202,6 @@ public class MirrorLBlock extends Block {
         }
 
         return rightEdge();
-
     }
+
+}
