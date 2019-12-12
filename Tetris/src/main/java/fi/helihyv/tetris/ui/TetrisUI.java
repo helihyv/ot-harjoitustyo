@@ -99,7 +99,7 @@ public class TetrisUI extends Application {
                     int rank = highScoreService.getRank(score);
 
                     if (rank > 0) {
-                        TextInputDialog dialog = new TextInputDialog("");
+                        TextInputDialog dialog = new TextInputDialog("Anonymous");
                         dialog.setTitle("Tetris – Highscore");
                         dialog.setHeaderText("GAME OVER \n You reached the rank " + rank);
                         dialog.setGraphic(null);
