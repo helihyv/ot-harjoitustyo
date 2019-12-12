@@ -176,6 +176,12 @@ public class TetrisUI extends Application {
         window.show();
     }
 
+    /**
+     * Main-metodi ainoastaan käynnistää käyttöliittymän. Argumenttejä ei
+     * huomioida.
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         launch(TetrisUI.class);
     }
