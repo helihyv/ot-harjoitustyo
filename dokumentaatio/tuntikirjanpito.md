@@ -57,4 +57,5 @@ Päivä | Aika | Mitä tein
 12.12. | 1,25 | HighScoreH2DAO-luokan muuttaminen ottamaan tiedostonnimi parametrina ja testejä k.o. luokalle 
 12.12. | 1 | Testejä I-, T-, S-, peili-S, L- ja peili-L palikoille ja korjaukset L- ja peili-L-palikoiden rightEdgeAfterRotate()-funktioon
 12.12. | 0,5 | Erotettu dialogit ja sivupalkkki omiksi luokikseen, siirretty näppäinpainallusten tapahtumakäsittelijän luominen omaan funktioonsa ja poistettu vanhoja debuggaustulostuksia
-yht. | 63,25
+12.12. | 1 | Toteutettu palikan putoamisnopeuden kasvattaminen portaittain pisteiden kertyessä
+yht. | 64,25
