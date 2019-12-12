@@ -255,4 +255,58 @@ public class MirrorSBlockTest {
 
         assertEquals(40, block.bottomEdge(120), 0.1);
     }
+
+    @Test
+    public void mirrorSBlockRightEdgeAfterRotateReturnsCorrectValueWhenOrientationIsZeroDegrees() {
+        assertEquals(140, block.rightEdgeAfterRotate(), 0.1);
+    }
+
+    @Test
+    public void mirrorSBlockRightEdgeAfterRotateReturnsCorrectValueWhenOrientationIs90Degrees() {
+        block.rotate();
+        assertEquals(160, block.rightEdgeAfterRotate(), 0.1);
+    }
+
+    @Test
+    public void mirrorSBlockRightEdgeAfterRotateReturnsCorrectValueWhenOrientationIs180Degrees() {
+        block.rotate();
+        block.rotate();
+
+        assertEquals(140, block.rightEdgeAfterRotate(), 0.1);
+    }
+
+    @Test
+    public void mirrorSBlockRightEdgeAfterRotateReturnsCorrectValueWhenOrientationIs270Degrees() {
+        block.rotate();
+        block.rotate();
+        block.rotate();
+        assertEquals(160, block.rightEdgeAfterRotate(), 0.1);
+    }
+
+    @Test
+    public void mirrorSBlockLeftEdgeAfterRotateReturnsCorrectValueWhenOrientationIsZeroDegrees() {
+        assertEquals(100, block.leftEdgeAfterRotate(), 0.1);
+    }
+
+    @Test
+    public void mirrorSBlockLeftEdgeAfterRotateReturnsCorrectValueWhenOrientationIs90Degrees() {
+        block.rotate();
+        assertEquals(100, block.leftEdgeAfterRotate(), 0.1);
+    }
+
+    @Test
+    public void mirrorSBlockLeftEdgeAfterRotateReturnsCorrectValueWhenOrientationIs180Degrees() {
+        block.rotate();
+        block.rotate();
+
+        assertEquals(100, block.leftEdgeAfterRotate(), 0.1);
+    }
+
+    @Test
+    public void mirrorSBlockLeftEdgeAfterRotateReturnsCorrectValueWhenOrientationIs270Degrees() {
+        block.rotate();
+        block.rotate();
+        block.rotate();
+        assertEquals(100, block.leftEdgeAfterRotate(), 0.1);
+    }
 }

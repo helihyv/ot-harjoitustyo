@@ -235,4 +235,58 @@ public class TBlockTest {
 
         assertEquals(60, block.bottomEdge(120), 0.1);
     }
+
+    @Test
+    public void tBlockRightEdgeAfterRotateReturnsCorrectValueWhenOrientationIsZeroDegrees() {
+        assertEquals(160, block.rightEdgeAfterRotate(), 0.1);
+    }
+
+    @Test
+    public void tBlockRightEdgeAfterRotateReturnsCorrectValueWhenOrientationIs90Degrees() {
+        block.rotate();
+        assertEquals(160, block.rightEdgeAfterRotate(), 0.1);
+    }
+
+    @Test
+    public void tBlockRightEdgeAfterRotateReturnsCorrectValueWhenOrientationIs180Degrees() {
+        block.rotate();
+        block.rotate();
+
+        assertEquals(140, block.rightEdgeAfterRotate(), 0.1);
+    }
+
+    @Test
+    public void tBlockRightEdgeAfterRotateReturnsCorrectValueWhenOrientationIs270Degrees() {
+        block.rotate();
+        block.rotate();
+        block.rotate();
+        assertEquals(160, block.rightEdgeAfterRotate(), 0.1);
+    }
+
+    @Test
+    public void tBlockLeftEdgeAfterRotateReturnsCorrectValueWhenOrientationIsZeroDegrees() {
+        assertEquals(120, block.leftEdgeAfterRotate(), 0.1);
+    }
+
+    @Test
+    public void tBlockLeftEdgeAfterRotateReturnsCorrectValueWhenOrientationIs90Degrees() {
+        block.rotate();
+        assertEquals(100, block.leftEdgeAfterRotate(), 0.1);
+    }
+
+    @Test
+    public void tBlockLeftEdgeAfterRotateReturnsCorrectValueWhenOrientationIs180Degrees() {
+        block.rotate();
+        block.rotate();
+
+        assertEquals(100, block.leftEdgeAfterRotate(), 0.1);
+    }
+
+    @Test
+    public void tBlockLeftEdgeAfterRotateReturnsCorrectValueWhenOrientationIs270Degrees() {
+        block.rotate();
+        block.rotate();
+        block.rotate();
+        assertEquals(100, block.leftEdgeAfterRotate(), 0.1);
+    }
 }
