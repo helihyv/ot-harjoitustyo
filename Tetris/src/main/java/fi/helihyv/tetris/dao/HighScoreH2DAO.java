@@ -22,15 +22,23 @@ import java.util.List;
  */
 public class HighScoreH2DAO implements HighScoreDAO {
 
+    private String databaseFilename;
+
     /**
      * Luokan konstruktori luo tietokantatiedoston ja siihen taulun tuloksille,
      * ellei niitä ole jo luotu aiemmin
      */
-    public HighScoreH2DAO() {
+    public HighScoreH2DAO(String databaseFilename) {
+
+        if (databaseFilename == null || databaseFilename.isEmpty()) {
+            this.databaseFilename = "./tetris";
+        } else {
+            this.databaseFilename = databaseFilename;
+        }
 
         try {
 
-            Connection connection = DriverManager.getConnection("jdbc:h2:./tetris", "sa", "");
+            Connection connection = DriverManager.getConnection("jdbc:h2:" + this.databaseFilename, "sa", "");
 
             PreparedStatement stmt = connection.prepareStatement(
                     "CREATE TABLE IF NOT EXISTS HighScore(name VARCHAR(255), score BIGINT)");
@@ -39,8 +47,9 @@ public class HighScoreH2DAO implements HighScoreDAO {
             stmt.close();
             connection.close();
 
+            System.out.println("table created");
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println(e.getMessage());
         }
 
     }
@@ -50,7 +59,7 @@ public class HighScoreH2DAO implements HighScoreDAO {
 
         try {
 
-            Connection connection = DriverManager.getConnection("jdbc:h2:./tetris", "sa", "");
+            Connection connection = DriverManager.getConnection("jdbc:h2:" + databaseFilename, "sa", "");
 
             PreparedStatement stmt = connection.prepareStatement(
                     "INSERT INTO HighScore VALUES(?,?)");
@@ -76,7 +85,7 @@ public class HighScoreH2DAO implements HighScoreDAO {
 
         try {
 
-            Connection connection = DriverManager.getConnection("jdbc:h2:./tetris", "sa", "");
+            Connection connection = DriverManager.getConnection("jdbc:h2:" + databaseFilename, "sa", "");
 
             PreparedStatement stmt = connection.prepareStatement(
                     "SELECT * FROM HighScore ORDER BY score DESC LIMIT ?");

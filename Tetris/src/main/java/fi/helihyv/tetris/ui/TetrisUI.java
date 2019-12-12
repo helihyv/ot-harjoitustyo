@@ -68,7 +68,7 @@ public class TetrisUI extends Application {
         Label scoreLabel = new Label("Score: 0");
         sideBar.getChildren().add(startGameLabel);
         sideBar.getChildren().add(scoreLabel);
-        highScoreService = new HighScoreService(new HighScoreH2DAO(), 10);
+        highScoreService = new HighScoreService(new HighScoreH2DAO(""), 10);
         highScoreView = new HighScoreView(highScoreService);
         sideBar.getChildren().add(highScoreView.getLayout());
         root.getChildren().add(sideBar);
