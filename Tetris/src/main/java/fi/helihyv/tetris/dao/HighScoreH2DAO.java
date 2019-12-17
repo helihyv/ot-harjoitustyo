@@ -10,13 +10,14 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLTimeoutException;
 import java.util.ArrayList;
 import java.util.List;
+import org.h2.message.DbException;
 
 /**
  * Luokka huoilehtii parhaiden tulosten tallentamisesta H2-tietokantaan ja
- * niiden hakemisesta sieltä Tietokanta sijaitsee tiedostossa ./tetris.mv.db
- * Lisäksi luodaan tiedosto ./tetris.trace.db
+ * niiden hakemisesta sieltä
  *
  * @author Heli Hyvättinen
  */
@@ -26,7 +27,9 @@ public class HighScoreH2DAO implements HighScoreDAO {
 
     /**
      * Luokan konstruktori luo tietokantatiedoston ja siihen taulun tuloksille,
-     * ellei niitä ole jo luotu aiemmin
+     * ellei niitä ole jo luotu aiemmin, Saa paramerkikseen tietokantatiedoston
+     * nimen polkuineen ilman mv.db -päätettä. Jos parametri on null tai tyhjä
+     * merkkijono käyetetään tietokannan oletussijaintia ./tetris
      */
     public HighScoreH2DAO(String databaseFilename) {
 
@@ -36,19 +39,16 @@ public class HighScoreH2DAO implements HighScoreDAO {
             this.databaseFilename = databaseFilename;
         }
 
-        try {
-
-            Connection connection = DriverManager.getConnection("jdbc:h2:" + this.databaseFilename, "sa", "");
-
-            PreparedStatement stmt = connection.prepareStatement(
-                    "CREATE TABLE IF NOT EXISTS HighScore(name VARCHAR(255), score BIGINT)");
+        try (
+                Connection connection = DriverManager.getConnection("jdbc:h2:" + this.databaseFilename, "sa", "");
+                PreparedStatement stmt = connection.prepareStatement(
+                        "CREATE TABLE IF NOT EXISTS HighScore(name VARCHAR(255), score BIGINT)")) {
 
             stmt.execute();
-            stmt.close();
-            connection.close();
 
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+        } catch (SQLException exception) {
+            System.out.println("Failed to connect or initialize the database ");
+            System.out.println(exception.getMessage());
         }
 
     }
@@ -56,24 +56,20 @@ public class HighScoreH2DAO implements HighScoreDAO {
     @Override
     public boolean create(HighScore highScore) {
 
-        try {
-
-            Connection connection = DriverManager.getConnection("jdbc:h2:" + databaseFilename, "sa", "");
-
-            PreparedStatement stmt = connection.prepareStatement(
-                    "INSERT INTO HighScore VALUES(?,?)");
+        try (
+                Connection connection = DriverManager.getConnection("jdbc:h2:" + databaseFilename, "sa", "");
+                PreparedStatement stmt = connection.prepareStatement(
+                        "INSERT INTO HighScore VALUES(?,?)");) {
             stmt.setString(1, highScore.getName());
             stmt.setLong(2, highScore.getScore());
 
             stmt.executeUpdate();
-            stmt.close();
-            connection.close();
 
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+        } catch (SQLException exception) {
+            System.out.println("Failied to add a highscore");
+            System.out.println(exception.getMessage());
             return false;
         }
-
         return true;
     }
 
@@ -82,12 +78,10 @@ public class HighScoreH2DAO implements HighScoreDAO {
 
         ArrayList<HighScore> highScores = new ArrayList<>();
 
-        try {
-
-            Connection connection = DriverManager.getConnection("jdbc:h2:" + databaseFilename, "sa", "");
-
-            PreparedStatement stmt = connection.prepareStatement(
-                    "SELECT * FROM HighScore ORDER BY score DESC LIMIT ?");
+        try (
+                Connection connection = DriverManager.getConnection("jdbc:h2:" + databaseFilename, "sa", "");
+                PreparedStatement stmt = connection.prepareStatement(
+                        "SELECT * FROM HighScore ORDER BY score DESC LIMIT ?");) {
             stmt.setInt(1, n);
 
             ResultSet rs = stmt.executeQuery();
@@ -97,10 +91,9 @@ public class HighScoreH2DAO implements HighScoreDAO {
                 highScores.add(highScore);
             }
 
-            stmt.close();
-            connection.close();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+        } catch (SQLException exception) {
+            System.out.println("Failed to read high scores");
+            System.out.println(exception.getMessage());
             return null;
         }
 

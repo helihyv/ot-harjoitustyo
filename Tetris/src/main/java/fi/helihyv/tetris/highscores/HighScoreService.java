@@ -7,6 +7,8 @@ package fi.helihyv.tetris.highscores;
 
 import fi.helihyv.tetris.dao.HighScore;
 import fi.helihyv.tetris.dao.HighScoreDAO;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -17,9 +19,10 @@ import java.util.List;
  */
 public class HighScoreService {
 
-    List<HighScore> highScores;
-    HighScoreDAO dao;
-    int n;
+    private List<HighScore> highScores;
+    private HighScoreDAO dao;
+    private int n;
+    private boolean failedToReadHighScoresFromDatabase;
 
     /**
      *
@@ -29,7 +32,13 @@ public class HighScoreService {
     public HighScoreService(HighScoreDAO dao, int n) {
         this.dao = dao;
         this.n = n;
+
         highScores = dao.list(n);
+
+        if (highScores == null) {
+            highScores = new ArrayList<>();
+            failedToReadHighScoresFromDatabase = true;
+        }
     }
 
     public List<HighScore> getHighScores() {
@@ -89,5 +98,9 @@ public class HighScoreService {
 
     public int getMaxNumberOfHighScores() {
         return n;
+    }
+
+    public boolean failedToReadHighScores() {
+        return failedToReadHighScoresFromDatabase;
     }
 }

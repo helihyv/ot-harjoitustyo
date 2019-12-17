@@ -62,7 +62,7 @@ public class TetrisUI extends Application {
         HBox root = new HBox();
         root.setBackground(Background.EMPTY);
 
-        highScoreService = new HighScoreService(new HighScoreH2DAO(""), 10);
+        highScoreService = new HighScoreService(new HighScoreH2DAO(System.getenv("TETRIS_DATABASE_FILENAME")), 10);
         highScoreView = new HighScoreView(highScoreService);
         SideBar sideBar = new SideBar(highScoreView);
         root.getChildren().add(sideBar.getLayout());

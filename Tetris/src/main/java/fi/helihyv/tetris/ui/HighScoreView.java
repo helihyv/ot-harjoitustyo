@@ -38,15 +38,17 @@ public class HighScoreView {
 
         layout.getChildren().add(errorLabel);
 
-        List<HighScore> highScores = loadHighScores();
-
         for (int i = 0; i < highScoreService.getMaxNumberOfHighScores(); i++) {
             Label label = new Label();
             layout.getChildren().add(label);
             scoreLabels.add(label);
         }
 
-        setHighScores(highScores);
+        updateHighScores();
+
+        if (highScoreService.failedToReadHighScores()) {
+            errorLabel.setText("Failed to read the highscores from the database.");
+        }
     }
 
     private void setHighScores(List<HighScore> highScores) {
@@ -62,13 +64,6 @@ public class HighScoreView {
     }
 
     /**
-     * Metodi päivittää näytettävät tulokset
-     */
-    public void updateHighScores() {
-        setHighScores(highScoreService.getHighScores());
-    }
-
-    /**
      * Metodi palauttaa layoutin, joka sisältää otsikon, mahdollisen
      * virheilmoituksen ja näytettävät tulokset
      *
@@ -78,16 +73,8 @@ public class HighScoreView {
         return layout;
     }
 
-    private List<HighScore> loadHighScores() {
-
-        List<HighScore> highScores = highScoreService.getHighScores();
-
-        if (highScores == null) {
-            errorLabel.setText("Failed to load highscores from the database.");
-            highScores = new ArrayList<>();
-        }
-
-        return highScores;
+    void updateHighScores() {
+        setHighScores(highScoreService.getHighScores());
     }
 
 }
