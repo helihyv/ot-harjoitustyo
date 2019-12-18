@@ -17,27 +17,11 @@ public class HighScoreServiceTest {
 
     HighScoreService highScoreService;
 
-    public HighScoreServiceTest() {
-
-    }
-
-    @BeforeClass
-    public static void setUpClass() {
-    }
-
-    @AfterClass
-    public static void tearDownClass() {
-    }
-
     @Before
     public void setUp() {
 
         highScoreService = new HighScoreService(new FakeHighScoreDAO(), 10);
 
-    }
-
-    @After
-    public void tearDown() {
     }
 
     @Test

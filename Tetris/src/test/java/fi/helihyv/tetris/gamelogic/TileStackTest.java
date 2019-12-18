@@ -18,9 +18,6 @@ public class TileStackTest {
 
     private TileStack tileStack;
 
-    public TileStackTest() {
-    }
-
     @Before
     public void setUp() {
 

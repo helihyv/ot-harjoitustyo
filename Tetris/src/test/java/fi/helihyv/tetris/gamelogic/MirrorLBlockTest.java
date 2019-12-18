@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package fi.helihyv.tetris.gamelogic;
 
 import fi.helihyv.tetris.gamelogic.Tile;
@@ -25,32 +20,12 @@ public class MirrorLBlockTest {
 
     MirrorLBlock block;
 
-    public MirrorLBlockTest() {
-    }
-
-    @BeforeClass
-    public static void setUpClass() {
-    }
-
-    @AfterClass
-    public static void tearDownClass() {
-    }
-
     @Before
     public void setUp() {
 
         block = new MirrorLBlock(100, 20);
     }
 
-    @After
-    public void tearDown() {
-    }
-
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
     @Test
     public void mirrorLBlockRotatesCorrectlyFromZeroToNinetyDegrees() {
 
