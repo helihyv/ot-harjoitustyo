@@ -9,6 +9,7 @@ import fi.helihyv.tetris.gamelogic.Block;
 import java.util.ArrayList;
 
 /**
+ * L-muotoinen tetrispalikka.
  *
  * @author Heli Hyvättinen
  */

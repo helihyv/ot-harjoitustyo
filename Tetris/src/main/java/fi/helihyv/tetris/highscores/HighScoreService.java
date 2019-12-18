@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package fi.helihyv.tetris.highscores;
 
 import fi.helihyv.tetris.dao.HighScore;
@@ -25,6 +20,8 @@ public class HighScoreService {
     private boolean failedToReadHighScoresFromDatabase;
 
     /**
+     * Konstruktori hakee tulokset paramterina saamaltaan DAO-oliolta. Tosiena
+     * parametrina ylläpidettävän highscore-listan maksimikoko
      *
      * @param dao HighScoeDAO-olio, joka vastaa tulosten pysyväistallennuksesta
      * @param n listalla pidettävien tulosten maksimimäärä
@@ -41,6 +38,11 @@ public class HighScoreService {
         }
     }
 
+    /**
+     * Metodi palauttaa parhaat tulokset listana HighScore-olioita.
+     *
+     * @return
+     */
     public List<HighScore> getHighScores() {
         return highScores;
 
@@ -96,10 +98,18 @@ public class HighScoreService {
         return -1;
     }
 
+    /**
+     * Metodi palauttaa suurimman ylläpidettävän tulosten määrän enimmäisrajan.
+     *
+     */
     public int getMaxNumberOfHighScores() {
         return n;
     }
 
+    /**
+     * Metodi palauttaa tiedon siitä, onko tulosket ssatu haettua palvelimelta.
+     *
+     */
     public boolean failedToReadHighScores() {
         return failedToReadHighScoresFromDatabase;
     }

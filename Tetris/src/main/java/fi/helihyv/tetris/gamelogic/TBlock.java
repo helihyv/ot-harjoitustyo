@@ -5,12 +5,8 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 /**
+ * T-muotoinen tetrispalikka
  *
  * @author Heli Hyvättinen
  */
@@ -176,16 +172,16 @@ public class TBlock extends Block {
 
     @Override
     public double leftEdgeAfterRotate() {
-        
+
         if (orientation == 0) {
             return leftEdge() + tileWidth;
         }
-        
+
         if (orientation == 90) {
             return leftEdge() - tileWidth;
         }
-        
-        return leftEdge(); 
+
+        return leftEdge();
     }
 
     @Override
@@ -193,14 +189,12 @@ public class TBlock extends Block {
         if (orientation == 180) {
             return rightEdge() - tileWidth;
         }
-        
+
         if (orientation == 270) {
             return rightEdge() + tileWidth;
         }
-        
+
         return rightEdge();
     }
-    
-    
 
 }

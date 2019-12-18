@@ -55,7 +55,7 @@ public class TileStack {
     }
 
     /**
-     * Metodi palauttaa tiilipinon ylimmän kohdan y-koordinaation annetussa
+     * Metodi palauttaa tiilipinon ylimmän kohdan y-koordinaatin annetussa
      * vaakasuuntaisessa kohdassa, annetun rajakorkeuden alapuolella
      *
      * @param rowBottomEdge y-koordinaatti, jonka alapuoliset osat tiilipinoa
@@ -107,7 +107,7 @@ public class TileStack {
 
     /**
      * Metodi poistaa täyteen tulleet rivit ja siirtää niiden yläpouolella
-     * olleet rivit alaspäin
+     * olleet rivit alaspäin. Metodi palauttaa poistettujen tiilien määrän.
      *
      * @return poistettujen tiilien määrä
      */
@@ -134,6 +134,10 @@ public class TileStack {
         return tilesRemoved;
     }
 
+    /**
+     * Metodi palauttaa kuinka monta tiiltä rivillä on.
+     *
+     */
     private int[] countTilesInRows() {
 
         int gameAreaHeightAsInt = (int) Math.round(gameAreaHeight);
@@ -148,6 +152,11 @@ public class TileStack {
         return tilesInRows;
     }
 
+    /**
+     * Metodi poistaa tiilirivin
+     *
+     * @param row – poistettava rivi
+     */
     private void removeRow(int row) {
 
         for (int i = tiles.size() - 1; i >= 0; i--) {

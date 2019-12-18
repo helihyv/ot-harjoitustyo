@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package fi.helihyv.tetris.dao;
 
 import java.sql.Connection;
@@ -16,8 +11,8 @@ import java.util.List;
 import org.h2.message.DbException;
 
 /**
- * Luokka huoilehtii parhaiden tulosten tallentamisesta H2-tietokantaan ja
- * niiden hakemisesta sieltä
+ * Luokka huolehtii parhaiden tulosten tallentamisesta H2-tietokantaan ja niiden
+ * hakemisesta sieltä
  *
  * @author Heli Hyvättinen
  */
@@ -29,7 +24,7 @@ public class HighScoreH2DAO implements HighScoreDAO {
      * Luokan konstruktori luo tietokantatiedoston ja siihen taulun tuloksille,
      * ellei niitä ole jo luotu aiemmin, Saa paramerkikseen tietokantatiedoston
      * nimen polkuineen ilman mv.db -päätettä. Jos parametri on null tai tyhjä
-     * merkkijono käyetetään tietokannan oletussijaintia ./tetris
+     * merkkijono, käyetetään tietokannan oletussijaintia ./tetris
      */
     public HighScoreH2DAO(String databaseFilename) {
 
@@ -53,6 +48,12 @@ public class HighScoreH2DAO implements HighScoreDAO {
 
     }
 
+    /**
+     * Lisää tietokantaan uuden tuloksen.
+     *
+     * @param highScore lisättävä tulos
+     * @return true jos onnistui, false jos epäonnistui
+     */
     @Override
     public boolean create(HighScore highScore) {
 
@@ -73,6 +74,12 @@ public class HighScoreH2DAO implements HighScoreDAO {
         return true;
     }
 
+    /**
+     * Listaa tietokantaan tallennetuista tuloksista n parasta
+     *
+     * @param n – kuuinka monta tulosta haetaan
+     * @return n pistemäärältään suurinta tulosta listana HighScore-olioita
+     */
     @Override
     public List<HighScore> list(int n) {
 

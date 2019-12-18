@@ -16,8 +16,7 @@ public abstract class Block {
 
     /**
      * Konstruktori luo tiilille taulukon ja asettaa tiilen koon ja asennon.
-     * Alkuasentona aina 0 astetta. Tämän luokan perivien luokkien
-     * konstruktorien on kutsuttava tätä konstruktoria
+     * Alkuasentona aina 0 astetta.
      *
      * @param tileWidth Palikan tiilien leveys ja korkeus
      */
@@ -28,8 +27,8 @@ public abstract class Block {
     }
 
     /**
-     * Metodi kääntää palikan 90 astetta myötäpäivään Metodi asettaa palikan
-     * asennon asteina ja kutsuu palikan tiilien sijainnin päivitystä
+     * Metodi kääntää palikan 90 astetta myötäpäivään. Metodi asettaa palikan
+     * asennon asteina ja kutsuu palikan tiilien sijainnin päivitystä.
      */
     public void rotate() {
         orientation += 90;
@@ -125,9 +124,8 @@ public abstract class Block {
      *
      * @param columnLeftEdge Kun pelialue jaetaan vaakasuunnassa tiilen
      * levyisiin sarakkeisiin, tällaisen sarakkeen vasen reuna
-     * @return palikan annetussa kohdassa olevista tiilistä alimman alareuuna
+     * @return palikan annetussa kohdassa olevista tiilistä alimman alareuna
      */
-    
     public abstract double bottomEdge(double columnLeftEdge);
 
     /**
@@ -136,7 +134,6 @@ public abstract class Block {
      *
      * @return lista Area-olioita, jotka kuvaavat vapaiksi tarvittavia alueita
      */
-    
     public abstract ArrayList<Area> freeAreasNeededToMoveLeft();
 
     /**
@@ -168,16 +165,17 @@ public abstract class Block {
 
         return new Area(topY, leftX, topY + tileWidth * lengthInTiles, leftX + tileWidth);
     }
+
     /**
-     * Metodi palauttaa X-koordinaatin, jossa palikan vasen reuna olisi 
-     * seuraavan käännön jälkeen 
+     * Metodi palauttaa X-koordinaatin, jossa palikan vasen reuna olisi
+     * seuraavan käännön jälkeen
      */
     public abstract double leftEdgeAfterRotate();
-    
+
     /**
      * Metodi palauttaa X-koordinaatin, jossa palikan oikea reuna olisi
      * seuraavan käännön jälkeen
      */
     public abstract double rightEdgeAfterRotate();
-    
+
 }

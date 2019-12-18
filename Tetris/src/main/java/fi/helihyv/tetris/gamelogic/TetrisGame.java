@@ -8,6 +8,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 /**
+ * Luokka muodostaa tetrispelin rungon. Se vastaanottaa käskyt käyttöliittymältä
+ * ja huolehtii peliajastimesta ja sen laukaisemista toiminnoista.
  *
  * @author Heli Hyvättinen
  */
@@ -29,6 +31,10 @@ public class TetrisGame implements Game {
     private long timerInterval;
     private int level;
 
+    /**
+     * Konstruktori asettaa pelistä toiseen kestävät oliomuuttujat ja kutssu
+     * pelin käynnistävää funktiota
+     */
     public TetrisGame() {
         this.gameAreaWidth = 480;
         this.gameAreaHeight = 900;
@@ -109,6 +115,9 @@ public class TetrisGame implements Game {
         }
     }
 
+    /**
+     * Metodi siirtää pelissä olevaa palikkaa yhden pikselin alaspäin
+     */
     private void moveBlockDownByOne() {
 
         currentBlock.moveDown();
@@ -134,6 +143,9 @@ public class TetrisGame implements Game {
 
     }
 
+    /**
+     * Metodi arpoo peliin uuden palikan.
+     */
     private void generateNewBlock() {
         fastFall = false;
 
@@ -182,6 +194,11 @@ public class TetrisGame implements Game {
 
     }
 
+    /**
+     * Metodi tarkastaa onko tiilipino ylittänyt pelin päättymisrajan
+     *
+     * @return
+     */
     private boolean isGameOver() {
 
         for (int i = 0; i < gameAreaWidth; i += tileWidth) {
@@ -223,6 +240,12 @@ public class TetrisGame implements Game {
         return gameEnded;
     }
 
+    /**
+     * Metodi lisää pelaajan pisteitä ja tarvittaessa nostaa tasoa lisäten
+     * palikoiden putomisnopeutta.
+     *
+     * @param points – lisätttävät pisteet
+     */
     private void addToScore(int points) {
 
         score += points;
@@ -234,6 +257,9 @@ public class TetrisGame implements Game {
         }
     }
 
+    /**
+     * Metodi asettaa ja käynnistää peliajastimen
+     */
     private void scheduleTimer() {
 
         currentTimerTask = new TimerTask() {

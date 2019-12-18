@@ -1,14 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package fi.helihyv.tetris.gamelogic;
 
 import fi.helihyv.tetris.gamelogic.Block;
 import java.util.ArrayList;
 
 /**
+ * S-muotoinen tetrispalikka.
  *
  * @author Heli Hyvättinen
  */
@@ -126,7 +122,7 @@ public class SBlock extends Block {
         if (orientation == 0 || orientation == 180) {
             return leftEdge() + tileWidth;
         }
-        
+
         return leftEdge() - tileWidth;
     }
 

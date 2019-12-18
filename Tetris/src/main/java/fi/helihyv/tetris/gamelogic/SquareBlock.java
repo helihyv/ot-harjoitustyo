@@ -4,6 +4,7 @@ import fi.helihyv.tetris.gamelogic.Block;
 import java.util.ArrayList;
 
 /**
+ * Neliömäinen tetrispalikka.
  *
  * @author Heli Hyvättinen
  */

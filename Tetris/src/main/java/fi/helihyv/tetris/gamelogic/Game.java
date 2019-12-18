@@ -1,22 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package fi.helihyv.tetris.gamelogic;
 
 import java.util.List;
 
 /**
  * Rajapinnan toteuttava luokka muodostaa tetris-pelin logiikan rungon
- * Käyttöliittymän riittää tietää luokasta tämä rajapinta
+ *
  *
  * @author Heli Hyvättinen
  */
 public interface Game {
 
     /**
-     * Metodi aloittaa pelin
+     * Metodi aloittaa pelin.
      */
     public void startGame();
 
@@ -84,12 +79,12 @@ public interface Game {
     public long getScore();
 
     /**
-     * Metodi pudottaa palikan nopeammin Putousnopeus viisinkertaistuu
+     * Metodi pudottaa palikan nopeammin.
      */
     public void dropBlock();
 
     /**
-     * Metodi kääntää palikkaa 90 astetta myötäpäivään
+     * Metodi kääntää palikkaa 90 astetta myötäpäivään.
      */
     public void rotateBlock();
 
