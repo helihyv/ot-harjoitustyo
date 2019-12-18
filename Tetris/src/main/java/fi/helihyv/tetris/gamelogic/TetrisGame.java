@@ -226,7 +226,7 @@ public class TetrisGame implements Game {
     private void addToScore(int points) {
 
         score += points;
-        if (score > level * 12000 && level < 10) {
+        if (score >= level * 12000 && level < 10) {
             level++;
             timerInterval = 11L - level;
             currentTimerTask.cancel();
