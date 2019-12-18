@@ -58,4 +58,5 @@ Päivä | Aika | Mitä tein
 12.12. | 1 | Testejä I-, T-, S-, peili-S, L- ja peili-L palikoille ja korjaukset L- ja peili-L-palikoiden rightEdgeAfterRotate()-funktioon
 12.12. | 0,5 | Erotettu dialogit ja sivupalkkki omiksi luokikseen, siirretty näppäinpainallusten tapahtumakäsittelijän luominen omaan funktioonsa ja poistettu vanhoja debuggaustulostuksia
 12.12. | 1 | Toteutettu palikan putoamisnopeuden kasvattaminen portaittain pisteiden kertyessä
-yht. | 64,25
+17.12. | 3 | Toteutettu tietokantatiedoston nimen polun asettaminen ympäristömuuttujalla. Paranneltu tietokantavirheiden käsittelyä. Korjattu tiedon tietokantavirheistä välittämistä käyttöliittymälle niin, että ohjelma toimii muuten kuin highscore-toimintojen osalta, vaikka ei pystyisikään luomaan tai lukemaan tietokantaa.
+yht. | 67,25
