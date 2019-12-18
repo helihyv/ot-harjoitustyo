@@ -20,10 +20,9 @@ public class FakeHighScoreDAO implements HighScoreDAO {
     }
 
     @Override
-    public boolean create(HighScore highScore) {
+    public void create(HighScore highScore) {
         highScores.add(highScore);
         Collections.sort(highScores);
-        return true;
     }
 
     @Override

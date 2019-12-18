@@ -47,7 +47,10 @@ public class HighScoreView {
         updateHighScores();
 
         if (highScoreService.failedToReadHighScores()) {
-            errorLabel.setText("Failed to read the highscores from the database.");
+            errorLabel.setText(
+                    "Failed to read the highscores from the database.\n"
+                    + "Reason:\n"
+                    + highScoreService.getListErrorMessage());
         }
     }
 

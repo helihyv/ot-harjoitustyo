@@ -1,5 +1,6 @@
 package fi.helihyv.tetris.dao;
 
+import java.sql.SQLException;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -17,13 +18,13 @@ public class HighScoreH2DAOUnitTest {
     private HighScoreH2DAO dao;
 
     @Test
-    public void highScoreH2DAOListReturnsEmptyListIfNoHighScoresAdded() {
+    public void highScoreH2DAOListReturnsEmptyListIfNoHighScoresAdded() throws SQLException {
         dao = new HighScoreH2DAO("mem:testdb1;DB_CLOSE_DELAY=-1");
         assertTrue(dao.list(10).isEmpty());
     }
 
     @Test
-    public void highScoreH2DAOListReturnsCorrectNumberOfHighScores() {
+    public void highScoreH2DAOListReturnsCorrectNumberOfHighScores() throws SQLException {
         dao = new HighScoreH2DAO("mem:testdb2;DB_CLOSE_DELAY=-1");
         dao.create(new HighScore("Otso Kontio", 1000));
         dao.create(new HighScore("Meri Kotka", 2000));
@@ -32,7 +33,7 @@ public class HighScoreH2DAOUnitTest {
     }
 
     @Test
-    public void highScoreH2DAOListReturnsHighScoresUnChanged() {
+    public void highScoreH2DAOListReturnsHighScoresUnChanged() throws SQLException {
         dao = new HighScoreH2DAO("mem:testdb3;DB_CLOSE_DELAY=-1");
         dao.create(new HighScore("Otso Kontio", 1000));
 
@@ -41,7 +42,7 @@ public class HighScoreH2DAOUnitTest {
     }
 
     @Test
-    public void highScoreH2DAOListReturnsHighestHighScoresInCorrectOrder() {
+    public void highScoreH2DAOListReturnsHighestHighScoresInCorrectOrder() throws SQLException {
         dao = new HighScoreH2DAO("mem:testdb4;DB_CLOSE_DELAY=-1");
         dao.create(new HighScore("Otso Kontio", 1000));
         dao.create(new HighScore("Meri Kotka", 2000));
@@ -55,7 +56,7 @@ public class HighScoreH2DAOUnitTest {
     }
 
     @Test
-    public void highScoreH2DAOPersistsHighScoresToDatabase() {
+    public void highScoreH2DAOPersistsHighScoresToDatabase() throws SQLException {
         dao = new HighScoreH2DAO("mem:testdb5;DB_CLOSE_DELAY=-1");
         dao.create(new HighScore("Otso Kontio", 1000));
 

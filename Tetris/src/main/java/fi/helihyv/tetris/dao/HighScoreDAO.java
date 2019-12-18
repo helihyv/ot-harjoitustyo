@@ -15,9 +15,9 @@ public interface HighScoreDAO {
      * Metodi lisää tietokantaan uuden tuloksen
      *
      * @param highScore tallennettava HighScore-olio
-     * @return true, jos tallennus onnistui, false, jos epäonnistui
+     * @throws java.lang.Exception
      */
-    public boolean create(HighScore highScore);
+    public void create(HighScore highScore) throws Exception;
 
     /**
      * Metodi listaa tuloksia tietokannasta Tulokset listataan aina suurimmasta
@@ -25,6 +25,7 @@ public interface HighScoreDAO {
      *
      * @param n haettavien tulosten määrä
      * @return haetut tulokset listana HighScore-olioita
+     * @throws java.lang.Exception
      */
-    public List<HighScore> list(int n);
+    public List<HighScore> list(int n) throws Exception;
 }

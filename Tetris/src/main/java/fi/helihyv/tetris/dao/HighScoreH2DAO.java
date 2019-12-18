@@ -42,8 +42,8 @@ public class HighScoreH2DAO implements HighScoreDAO {
             stmt.execute();
 
         } catch (SQLException exception) {
-            System.out.println("Failed to connect or initialize the database ");
-            System.out.println(exception.getMessage());
+            // Jos tämä epäonnistuu, myös lukeminen ja lisääminen epäonnistuvat.
+            // Tieto virheestä välittyy ylöspäin funktioista list() ja create()
         }
 
     }
@@ -52,26 +52,20 @@ public class HighScoreH2DAO implements HighScoreDAO {
      * Lisää tietokantaan uuden tuloksen.
      *
      * @param highScore lisättävä tulos
-     * @return true jos onnistui, false jos epäonnistui
+     * @throws java.sql.SQLException
      */
     @Override
-    public boolean create(HighScore highScore) {
+    public void create(HighScore highScore) throws SQLException {
 
-        try (
-                Connection connection = DriverManager.getConnection("jdbc:h2:" + databaseFilename, "sa", "");
-                PreparedStatement stmt = connection.prepareStatement(
-                        "INSERT INTO HighScore VALUES(?,?)");) {
-            stmt.setString(1, highScore.getName());
-            stmt.setLong(2, highScore.getScore());
+        Connection connection = DriverManager.getConnection("jdbc:h2:" + databaseFilename, "sa", "");
+        PreparedStatement stmt = connection.prepareStatement(
+                "INSERT INTO HighScore VALUES(?,?)");
 
-            stmt.executeUpdate();
+        stmt.setString(1, highScore.getName());
+        stmt.setLong(2, highScore.getScore());
 
-        } catch (SQLException exception) {
-            System.out.println("Failied to add a highscore");
-            System.out.println(exception.getMessage());
-            return false;
-        }
-        return true;
+        stmt.executeUpdate();
+
     }
 
     /**
@@ -79,29 +73,23 @@ public class HighScoreH2DAO implements HighScoreDAO {
      *
      * @param n – kuuinka monta tulosta haetaan
      * @return n pistemäärältään suurinta tulosta listana HighScore-olioita
+     * @throws java.sql.SQLException
      */
     @Override
-    public List<HighScore> list(int n) {
+    public List<HighScore> list(int n) throws SQLException {
 
         ArrayList<HighScore> highScores = new ArrayList<>();
 
-        try (
-                Connection connection = DriverManager.getConnection("jdbc:h2:" + databaseFilename, "sa", "");
-                PreparedStatement stmt = connection.prepareStatement(
-                        "SELECT * FROM HighScore ORDER BY score DESC LIMIT ?");) {
-            stmt.setInt(1, n);
+        Connection connection = DriverManager.getConnection("jdbc:h2:" + databaseFilename, "sa", "");
+        PreparedStatement stmt = connection.prepareStatement(
+                "SELECT * FROM HighScore ORDER BY score DESC LIMIT ?");
+        stmt.setInt(1, n);
 
-            ResultSet rs = stmt.executeQuery();
+        ResultSet rs = stmt.executeQuery();
 
-            while (rs.next()) {
-                HighScore highScore = new HighScore(rs.getString("name"), rs.getInt("score"));
-                highScores.add(highScore);
-            }
-
-        } catch (SQLException exception) {
-            System.out.println("Failed to read high scores");
-            System.out.println(exception.getMessage());
-            return null;
+        while (rs.next()) {
+            HighScore highScore = new HighScore(rs.getString("name"), rs.getInt("score"));
+            highScores.add(highScore);
         }
 
         return highScores;

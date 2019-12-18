@@ -18,6 +18,8 @@ public class HighScoreService {
     private HighScoreDAO dao;
     private int n;
     private boolean failedToReadHighScoresFromDatabase;
+    private String listErrorMessage;
+    private String createErrorMessage;
 
     /**
      * Konstruktori hakee tulokset paramterina saamaltaan DAO-oliolta. Tosiena
@@ -30,11 +32,13 @@ public class HighScoreService {
         this.dao = dao;
         this.n = n;
 
-        highScores = dao.list(n);
+        try {
+            highScores = dao.list(n);
 
-        if (highScores == null) {
+        } catch (Exception exception) {
             highScores = new ArrayList<>();
             failedToReadHighScoresFromDatabase = true;
+            listErrorMessage = exception.getMessage();
         }
     }
 
@@ -59,7 +63,11 @@ public class HighScoreService {
         if (highScores.size() < n
                 || highScore.getScore() > highScores.get(highScores.size() - 1).getScore()) {
 
-            if (!dao.create(highScore)) {
+            try {
+                dao.create(highScore);
+            } catch (Exception exception) {
+
+                createErrorMessage = exception.getMessage();
                 return false;
             }
             highScores.add(highScore);
@@ -112,5 +120,9 @@ public class HighScoreService {
      */
     public boolean failedToReadHighScores() {
         return failedToReadHighScoresFromDatabase;
+    }
+
+    public String getListErrorMessage() {
+        return listErrorMessage;
     }
 }
