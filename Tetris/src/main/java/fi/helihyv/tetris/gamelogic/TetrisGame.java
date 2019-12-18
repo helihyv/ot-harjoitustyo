@@ -36,8 +36,7 @@ public class TetrisGame implements Game {
         this.loseLevel = 200;
         this.normalFallSpeed = 1;
         this.fastFallSpeed = 5;
-        this.timerInterval = 10L;
-        this.level = 1;
+
         startGame();
     }
 
