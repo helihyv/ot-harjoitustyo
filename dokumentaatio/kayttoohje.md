@@ -1,5 +1,14 @@
 # Käyttöohje
 
+## Sovelluksen asentaminen
+
+Sovellus asennetaan kopioimalla sen jar-tiedosto `Tetris.jar` haluttuun asennushakemistoon. 
+
+## Sovelluksen konfigurointi
+
+Sovellusta ei välttämättä tarvitse konfiguroida lainkaan. Jos halutaan määritellä parhaat tulokset sisältävän tietokannan sijainti, se tehdään asettamalla tiedostonnimi polkuineen ympäristömuuttujaan `TETRIS_DATABASE_FILENAME`
+Sovellus lisää annettuun nimeen päätteen .mv.db . Lisäksi luodaan samaan hakemistoon toinen tiedosto, jonka nimeen lisätään vastaavasti .trace -pääte. Jos ympäristömuuttujaa ei määritellä, käytetään oletussijaintia `./tetris` 
+
 ## Sovelluksen käynnistäminen
 
 Sovellus käynnistetään komennolla `java -jar Tetris.jar`
@@ -26,5 +35,5 @@ Sovelluksen vasemaassa laidassa on näkyvissä enintään kymmenen parasta tulos
 
 ## Sovelluksen sulkeminen
 
-Sovellus suljetaan sulkemalla sen ikkuna.
+Sovellus suljetaan sulkemalla sen ikkuna. Tarvittaessa suljetaan ensin avoinna oleva dialogi.
 
