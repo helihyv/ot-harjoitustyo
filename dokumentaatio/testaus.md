@@ -37,4 +37,4 @@ Jos käyttäjällä ei ole oikeuksia tietokantatiedostoon, sovellus tulostaa sta
 
 Sovellus saattaa joskus kaatua highscore-tuloksen onnistuneen tallentamisen jälkeen.
 
-KDE-ympäristössä sovelluksen tai sen avamman dialogin ikkuna saattaa satunnaisesti jäädä minimaalisen pieneksi, Tätä JavaFX:n virheellisestä toiminnasta KDE:n kanssa lähtöisin olevaa ongelma esiintyy vain KDE-ympäristössä.
+Sovelluksen tai sen avamman dialogin ikkuna saattaa satunnaisesti jäädä minimaalisen pieneksi. Tätä ongelma esiintyy ilmeisesti vain KDE-ympäristössä. 
