@@ -9,6 +9,8 @@ Harjoitustyön aiheena on klassikkopeli tetris. Pelissä pelaaja kääntelee ja 
 
 [Arkkitehtuurikuvaus](/dokumentaatio/arkkitehtuuri.md)
 
+[Testausdokumentti](/dokumentaatio/testaus.md)
+
 [Työaikakirjanpito](/dokumentaatio/tuntikirjanpito.md)
 
 ## Releaset
@@ -16,6 +18,8 @@ Harjoitustyön aiheena on klassikkopeli tetris. Pelissä pelaaja kääntelee ja 
 [Viikko 5](https://github.com/helihyv/ot-harjoitustyo/releases/tag/Viikko5)
 
 [Viikko 6](https://github.com/helihyv/ot-harjoitustyo/releases/tag/viikko6)
+
+[Loppupalautus](https://github.com/helihyv/ot-harjoitustyo/releases/tag/loppupalautus)
 
 ## Komentorivitoiminnot
 
@@ -54,6 +58,3 @@ Tyylitarkastusraportti luodaan komennolla
 `mvn jxr:jxr checkstyle:checkstyle`
 
 Raporttia voi tarkastella avaamalla selaimella tiedoston _target/site/checkstyle.html_
-
-
-
