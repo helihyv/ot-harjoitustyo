@@ -59,4 +59,7 @@ Päivä | Aika | Mitä tein
 12.12. | 0,5 | Erotettu dialogit ja sivupalkkki omiksi luokikseen, siirretty näppäinpainallusten tapahtumakäsittelijän luominen omaan funktioonsa ja poistettu vanhoja debuggaustulostuksia
 12.12. | 1 | Toteutettu palikan putoamisnopeuden kasvattaminen portaittain pisteiden kertyessä
 17.12. | 3 | Toteutettu tietokantatiedoston nimen polun asettaminen ympäristömuuttujalla. Paranneltu tietokantavirheiden käsittelyä. Korjattu tiedon tietokantavirheistä välittämistä käyttöliittymälle niin, että ohjelma toimii muuten kuin highscore-toimintojen osalta, vaikka ei pystyisikään luomaan tai lukemaan tietokantaa.
-yht. | 67,25
+18.12. | 4,5 | Pieniä korjauksia, javadoc-dokumentaation täydentäminen, testien koodin siistiminen käyttämäattömistä funktioista, muutettu tietokantavirheiden käsittelyä ja tiedon niistä välittämistä käyttöliittymälle, epäonnistuneita korjausyrityksiä highscore-toimintojen ongelmille  
+19.12. | 1,5 | Päivitetty vaatimusmäärittelyä, käyttöohjetta ja luokkakaaviota, päivitetty ja täydennetty arkkitehtuurikuvausta
+20.12. | 1,75 | Testausta, testausdokumentti, uusi release ja README.md:n päivitys
+yht. | 75
