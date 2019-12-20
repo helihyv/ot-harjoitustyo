@@ -9,25 +9,26 @@ Pakkaus fi.helihyv.tetris.gamelogic sisältää itse pelin sovelluslogiikan. Pak
 
 ![Luokkakaavio](/dokumentaatio/luokkakaavio.png)
 
-Luokkakaaviosta puuttuvat vielä luokat HighScore, HighScoreService, HighScoreH2DAO ja Area. HighScoreDAO on kaaviosta poiketen rajapinta, johon käyttöliittymä on suoraan yhteydessä. Kaaviossa vielä näkyvää ScoreLabel-luokkaa ei ole toteutettu omana luokkanaan. 
-
 ## Käyttöliittymä
 
 Käyttöliittymässä on yksi näkymä, joka jakautuu vasemmassa laidassa olevaan sivupalkkkiin ja itse peliin. Käyttöliittymän runkona on TetrisUI-olio. Käyttöliittymä on yhteydessä pelilogiikkaan Game- ja Tile -rajapintojen kautta, HighScore-logiikkaan se on yhteydessä suoraan HighScoreService-luokkaan. 
 
 Pelialue (GameArea-olio) on toteutettu JavaFX:n Canvas-oliolla, johon piirretään säännöllisin aikavälein (JavaFX:n AnimationTimer) sovelluslogiikalta haetut "tiilet" (Tile-oliot). 
 
-Sivupalkissa näytetään aloitusohje ja pistetilanne (toteutettu suoraan  JavaFX:n Label-olioina) sekä highscore-listaus, joka on oma HighScoreView-olionsa. Se käyttää Label-olioita tulosten näyttämiseen. 
+Sivupalkissa (SideBar-olio) näytetään aloitusohje ja pistetilanne (toteutettu suoraan  JavaFX:n Label-olioina) sekä highscore-listaus, joka on oma HighScoreView-olionsa. Se näyttää otsikon, mahdollisen virheilmoituksen ja tulokset Label-olioina.
 
-Pelin päätyttyä käyttäjälle näytetään ilmoitus oelin päättymisestä dialogina. Jos pelaaja on pääsemässä highscore-listalle näytetään dialogi, johon käyttäjä voi kirjoittaa nimensä (JavaFX:n TextInputDialog ). Muuten näytetään ilmoitusdialogi (JavaFX:n Alert).
+Pelin päätyttyä käyttäjälle näytetään ilmoitus pelin päättymisestä dialogina. Jos pelaaja on pääsemässä highscore-listalle näytetään dialogi, johon käyttäjä voi kirjoittaa nimensä (JavaFX:n TextInputDialogista periytetty HighScoreNameInputDialog). Dialogi luo uuden HighScore-olion ja lisää sen HighScoreServiceen, minkä kälkeen se pyytää HighScoreView:iä päivittämään itsenbsä. Jos pelaaja ei ole pääsemässä highscore-listalle näytetään pelin päättyessä ilmoitusdialogi (JavaFX:n Alertista periytetty GameOverDialog).
 
 ## Pelin logiikka
 
-Peln logiikan ytimenä on Game-olio, joka vastaa pelin ajastetuista toiminnoista ja käyttäjän tekemien toimintojen vastaanottamisesta käyttöliittymältä. Sovelluslogiikka ei käytä JavaFX:ää ja on pyritty tekemään niin, että käyttöliittymä olisi tarvittaessa vaihdettavissa muuttamatta sovelluslogiikka. Sovelluslogiikalla on oma ajastimensa, joka tahdistaa palikoiden putomaista ja siitä seuraavia tapahtumia. 
+Peln logiikan ytimenä on Game-rajapinnan toteuttava TetrisGame-luokan olio, joka vastaa pelin ajastetuista toiminnoista ja käyttäjän komentojen vastaanottamisesta käyttöliittymältä. Sovelluslogiikka ei käytä JavaFX:ää ja on pyritty tekemään niin, että käyttöliittymä olisi tarvittaessa vaihdettavissa muuttamatta sovelluslogiikka. Sovelluslogiikalla on oma ajastimensa, joka tahdistaa palikoiden putomaista ja siitä seuraavia tapahtumia. 
 
-Palikat muodostuvat kukin neljästä neliömäisestä "tiilestä", joiden keskinäistä sijaintia järjestellään uudelleen palikan kääntyessä. Ennen palikan liikkumista ja kääntymistä varmistetaan, että tilaa on riittävästi. 
+Kutakin erilaista palikan muotoa varten on oma luokkansa. Nämä luokat perivät kaikki abstraktin luokan Block, jonka kautta TetrisGame käsittelee niitä. Palikat muodostuvat kukin neljästä neliömäisestä "tiilestä", joiden keskinäistä sijaintia järjestellään uudelleen palikan kääntyessä. 
 
-Palikan pudottua sen tiilet siirretään (sijainti säilyttäen) tiilipinolle (TileStack-olio). Tiilipinossa on funktio täysien rivien poistamiseen ja niiden yläpuolella olevien rivien laskemiseen alaspäin. 
+Ennen palikan liikkumista ja kääntymistä TetrisGame varmistaa, että tilaa on riittävästi. Apuna käytetään Area-luokkaa, joka kuvaa neliskulmaista aluetta pelialueen sisällä. 
+
+Palikan pudottua sen tiilet siirretään (sijainti säilyttäen) tiilipinolle (TileStack-olio). Tiilipino
+huolehtii täysien rivien poistamisesta ja niiden yläpuolella olevien rivien laskemisesta alaspäin. Lisäksi se pystyy kertomaan korkeutensa tietyllä kohdalla sen ja meneekö jokin sen tiilistä päällekkäin Area-alueen kanssa 
 
 ## Highscore-logiikka
 
@@ -39,7 +40,8 @@ Highscore-tulokset tallennetaan H2-tietokantaan. Sovellus luo itse tietokannan t
 
 ### Tietokanta
 
-Tietokanta luodaan tiedostoon _./tetris.mv.db_
+Tietokanta luodaan oletusarvoisesti tiedostoon _./tetris.mv.db_ . Tietokannan sijainnin voi konfguroida asettamalla ympäristömuuttujaan TETRIS_DATABASE_FILENAME haluamansa tiedostonnimen polkuineen. Ympäristömuuttujasta otettuun nimeen lisätään pääte .mv.db .
+
 Tietokannassa on taulu HighScores, jossa on sarakkeet name ja score pelaajan nimen ja pistemäärän tallentamiseen. 
 
 ## Päätoiminnallisuudet
