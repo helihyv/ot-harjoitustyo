@@ -62,4 +62,5 @@ Päivä | Aika | Mitä tein
 18.12. | 4,5 | Pieniä korjauksia, javadoc-dokumentaation täydentäminen, testien koodin siistiminen käyttämäattömistä funktioista, muutettu tietokantavirheiden käsittelyä ja tiedon niistä välittämistä käyttöliittymälle, epäonnistuneita korjausyrityksiä highscore-toimintojen ongelmille  
 19.12. | 1,5 | Päivitetty vaatimusmäärittelyä, käyttöohjetta ja luokkakaaviota, päivitetty ja täydennetty arkkitehtuurikuvausta
 20.12. | 1,75 | Testausta, testausdokumentti, uusi release ja README.md:n päivitys
-yht. | 75
+20.12. | 0,75 | Arkkitehtuurikuvauksen täydennys ja korjaus sekä testausdokumentin korjaus
+yht. | 76,25
